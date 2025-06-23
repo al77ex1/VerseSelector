@@ -94,6 +94,11 @@ function App() {
     }
   }
 
+  // Check if there is a valid verse selection
+  const hasValidSelection = () => {
+    return !!(currentSelection?.book && currentSelection?.chapter && currentSelection?.verse);
+  }
+
   return (
     <>
       <div id="row-columns">
@@ -137,8 +142,13 @@ function App() {
         </div>
         <button 
           id="btn-select" 
-          className={isActive ? 'active' : 'inactive'}
+          className={hasValidSelection() ? 'active' : 'inactive'}
           onClick={toggleActive}
+          disabled={!hasValidSelection()}
+          style={{ 
+            opacity: hasValidSelection() ? 1 : 0.5,
+            cursor: hasValidSelection() ? 'pointer' : 'not-allowed'
+          }}
         >
           Live
         </button>
