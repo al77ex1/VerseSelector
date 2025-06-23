@@ -3,6 +3,11 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [isActive, setIsActive] = useState(false)
+
+  const toggleActive = () => {
+    // setIsActive(!isActive)
+  }
 
   return (
     <>
@@ -18,7 +23,13 @@ function App() {
       </div>
       <div id="row-info">
       <div id="info"></div>
-        <button id="btn-select">Live</button>
+        <button 
+          id="btn-select" 
+          className={isActive ? 'active' : 'inactive'}
+          onClick={toggleActive}
+        >
+          Live
+        </button>
       </div>
     </>
   )
