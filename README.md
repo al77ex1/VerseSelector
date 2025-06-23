@@ -1,12 +1,70 @@
-# React + Vite
+# Библейский Селектор Стихов (Bible Verse Selector) для OpenLP
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+https://openlp.org/
 
-Currently, two official plugins are available:
+Приложение для выбора и отправки библейских стихов на внешний сервис отображения OpenLP.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Описание
 
-## Expanding the ESLint configuration
+Библейский Селектор Стихов - это React-приложение, разработанное для удобного выбора и отправки библейских стихов. Приложение позволяет пользователям выбирать книги Библии, главы и отдельные стихи или диапазоны стихов, а затем отправлять выбранные стихи на внешний API для отображения.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Основные возможности
+
+- Выбор книг, глав и стихов Библии на русском и других языках
+- Выбор как отдельных стихов, так и диапазонов стихов
+- История выбранных стихов для быстрого доступа
+- Отправка выбранных стихов на внешний API по кнопке "Live"
+- Отображение статуса отправки в информационной панели
+
+## Технологии
+
+- React 18
+- Vite
+- CSS для стилизации компонентов
+- Fetch API для взаимодействия с внешним API
+
+## Структура проекта
+
+Проект имеет модульную структуру с разделением компонентов по функциональности:
+
+- `components/book` - компоненты для выбора книг Библии
+- `components/chapter` - компоненты для выбора глав
+- `components/verse` - компоненты для выбора стихов
+- `components/history` - компоненты для работы с историей выбора
+- `components/live` - компоненты для отправки стихов на внешний API
+- `services` - сервисы для работы с API
+- `utils` - вспомогательные функции и утилиты
+
+## Установка и запуск
+
+```bash
+# Установка зависимостей
+npm install
+
+# Запуск в режиме разработки
+npm run dev
+
+# Сборка для продакшена
+npm run build
+
+# Предпросмотр собранного приложения
+npm run preview
+```
+
+Готовый билд можно разместить в кастомном стейже в самом OpenLP (~/.local/share/openlp/stages/VerseSelector).
+
+## API интеграция
+
+Приложение взаимодействует с локальным API по адресу `http://localhost:4316/api/v2/plugins/bibles/live`. Выбранные стихи отправляются в формате JSON с полем `id`, содержащим ссылку на стих в формате "Книга Глава:Стих" или "Книга Глава:Стих-СтихКонец" для диапазонов.
+
+## Использование
+
+1. Выберите книгу Библии из левой панели
+2. Выберите главу из списка глав
+3. Выберите стих или диапазон стихов (для выбора диапазона кликните на начальный стих, затем на конечный)
+4. Нажмите кнопку "Live" для отправки выбранного стиха на внешний API
+5. Статус отправки будет отображаться в информационной панели
+
+## Лицензия
+
+[MIT](LICENSE)
