@@ -38,7 +38,7 @@ const ChapterList = ({ chapters, onSelectChapter, selectedChapter: externalSelec
           ))}
         </ul>
       ) : (
-        <p>Выберите книгу</p>
+        <p>Выберите главу</p>
       )}
     </div>
   );

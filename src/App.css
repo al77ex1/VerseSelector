@@ -85,13 +85,13 @@
 }
 
 #column-left {
-  flex: 0.8;
+  flex: 0.85;
   display: flex;
   flex-direction: column;
 }
 
 #column-right {
-  flex: 0.2;
+  flex: 0.15;
   display: flex;
   flex-direction: column;
 }
@@ -104,6 +104,23 @@
   flex: 1;
   overflow: auto;
   transition: border-color 0.3s ease;
+}
+
+/* Specific height distribution for components */
+#books {
+  flex: 5; /* 50% of available height */
+}
+
+#chapters {
+  flex: 3; /* 30% of available height */
+}
+
+#verses {
+  flex: 2; /* 20% of available height */
+}
+
+#history {
+  flex: 1; /* Takes all available height in right column */
 }
 
 .wrapper:hover {

@@ -38,7 +38,7 @@ const VerseList = ({ verses, onSelectVerse, selectedVerse: externalSelectedVerse
           ))}
         </ul>
       ) : (
-        <p>Выберите главу</p>
+        <p>Выберите стих</p>
       )}
     </div>
   );
