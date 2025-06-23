@@ -63,6 +63,19 @@
 #info {
   flex: 1;
   text-align: left;
+  transition: all 0.3s ease;
+}
+
+#info.sending {
+  color: #0d47a1;
+}
+
+#info.success {
+  color: #1b5e20;
+}
+
+#info.error {
+  color: #b71c1c;
 }
 
 #btn-select {
@@ -82,6 +95,38 @@
 #btn-select.active {
   background-color: #4CAF50;
   color: white;
+}
+
+#btn-select.sending {
+  background-color: #2196F3;
+  color: white;
+  cursor: not-allowed;
+}
+
+#btn-select.success {
+  background-color: #4CAF50;
+  color: white;
+  animation: pulse 0.5s;
+}
+
+#btn-select.error {
+  background-color: #f44336;
+  color: white;
+  animation: shake 0.5s;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
 }
 
 #column-left {

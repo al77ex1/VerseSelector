@@ -4,10 +4,10 @@ import BookList from './components/book/BookList'
 import ChapterList from './components/chapter/ChapterList'
 import VerseList from './components/verse/VerseList'
 import History from './components/history/History'
+import LiveButton from './components/live/LiveButton'
 import { getBookNames, getChapters, getVerses } from './utils/bibleDataLoader'
 
 function App() {
-  const [isActive, setIsActive] = useState(false)
   const [books, setBooks] = useState([])
   const [selectedBook, setSelectedBook] = useState(null)
   const [chapters, setChapters] = useState(null)
@@ -15,29 +15,30 @@ function App() {
   const [verses, setVerses] = useState([])
   const [history, setHistory] = useState([])
   const [currentSelection, setCurrentSelection] = useState(null)
+  const [apiStatus, setApiStatus] = useState(null) // null, 'sending', 'success', 'error'
 
   // Load Bible data on component mount
   useEffect(() => {
     setBooks(getBookNames())
   }, [])
 
-  const toggleActive = () => {
-    setIsActive(!isActive)
-    // Live button now does nothing with history
-  }
-
   const handleSelectBook = (book) => {
     setSelectedBook(book)
     setChapters(getChapters(book))
     setSelectedChapter(null)
     setVerses([])
+    // Clear the verse selection when changing books
     setCurrentSelection({ book })
+    // Reset API status when selection changes
+    setApiStatus(null)
   }
 
   const handleSelectChapter = (chapter) => {
     setSelectedChapter(chapter)
     setVerses(getVerses(selectedBook, chapter))
     setCurrentSelection({ book: selectedBook, chapter })
+    // Reset API status when selection changes
+    setApiStatus(null)
   }
 
   const handleSelectVerse = (verse, verseEnd) => {
@@ -48,6 +49,8 @@ function App() {
       verseEnd: verseEnd
     }
     setCurrentSelection(newSelection)
+    // Reset API status when selection changes
+    setApiStatus(null)
     
     // Only add to history if this is a complete selection (single verse or valid range)
     if (verse !== null && (verseEnd === null || verseEnd !== undefined)) {
@@ -79,7 +82,17 @@ function App() {
     setSelectedChapter(item.chapter)
     setVerses(getVerses(item.book, item.chapter))
     setCurrentSelection(item)
+    // Reset API status when selection changes
+    setApiStatus(null)
   }
+
+  // Handle API status change from LiveButton
+  const handleApiStatusChange = (status) => {
+    setApiStatus(status);
+    
+    // We don't reset the status automatically anymore
+    // It will only be reset when the selection changes
+  };
 
   // Format the current selection for display
   const formatSelection = (selection) => {
@@ -93,6 +106,25 @@ function App() {
       return `${selection.book} ${selection.chapter}:${selection.verse}`;
     }
   }
+
+  // Get formatted info text with selection and status
+  const getInfoText = () => {
+    const selectionText = formatSelection(currentSelection);
+    if (!selectionText) return '';
+    
+    // Always prefix with "Выбрано: "
+    const baseText = `Выбрано: ${selectionText}`;
+    
+    if (apiStatus === 'sending') {
+      return `${baseText} | Статус: Отправка...`;
+    } else if (apiStatus === 'success') {
+      return `${baseText} | Статус: Отправлено`;
+    } else if (apiStatus === 'error') {
+      return `${baseText} | Статус: Ошибка`;
+    }
+    
+    return baseText;
+  };
 
   // Check if there is a valid verse selection
   const hasValidSelection = () => {
@@ -138,20 +170,13 @@ function App() {
       </div>
       <div id="row-info">
         <div id="info">
-          {formatSelection(currentSelection)}
+          {getInfoText()}
         </div>
-        <button 
-          id="btn-select" 
-          className={hasValidSelection() ? 'active' : 'inactive'}
-          onClick={toggleActive}
+        <LiveButton 
+          verseReference={formatSelection(currentSelection)}
           disabled={!hasValidSelection()}
-          style={{ 
-            opacity: hasValidSelection() ? 1 : 0.5,
-            cursor: hasValidSelection() ? 'pointer' : 'not-allowed'
-          }}
-        >
-          Live
-        </button>
+          onStatusChange={handleApiStatusChange}
+        />
       </div>
     </>
   )
