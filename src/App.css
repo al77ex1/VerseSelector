@@ -56,7 +56,6 @@
   display: flex;
   width: 100%;
   padding: 8px;
-  border-top: 1px solid #ccc;
   justify-content: space-between;
   align-items: center;
 }
@@ -98,10 +97,15 @@
 }
 
 .wrapper {
-  border: 1px solid #ccc;
+  border: 1px solid #5f6265;
   margin: 3px;
   padding: 8px;
   border-radius: 4px;
   flex: 1;
   overflow: auto;
+  transition: border-color 0.3s ease;
+}
+
+.wrapper:hover {
+  border-color: #3daee9;
 }

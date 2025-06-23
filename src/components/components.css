@@ -1,0 +1,105 @@
+/* Component styling for VerseSelector */
+
+/* Common list styling */
+.book-list ul,
+.chapter-list ul,
+.verse-list ul,
+.history-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.book-list li,
+.chapter-list li,
+.verse-list li,
+.history-list li {
+  margin: 2px 0;
+}
+
+/* Button styling */
+.book-list button,
+.chapter-list button,
+.verse-list button,
+.history-list button {
+  width: 100%;
+  text-align: left;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  background-color: transparent;
+  border: 1px solid transparent;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+.book-list button:hover,
+.chapter-list button:hover,
+.verse-list button:hover,
+.history-list button:hover {
+  background-color: rgba(61, 174, 233, 0.1);
+  border-color: #3daee9;
+}
+
+.book-list button.selected,
+.chapter-list button.selected,
+.verse-list button.selected,
+.history-list button.selected {
+  background-color: rgba(61, 174, 233, 0.2);
+  font-weight: bold;
+  border-color: #3daee9;
+}
+
+/* Component headers */
+.book-list h3,
+.chapter-list h3,
+.verse-list h3,
+.history-list h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #888;
+}
+
+/* Grid layout for chapters and verses */
+.chapter-list ul,
+.verse-list ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+  gap: 5px;
+}
+
+.chapter-list li,
+.verse-list li {
+  text-align: center;
+}
+
+.chapter-list button,
+.verse-list button {
+  padding: 5px;
+  text-align: center;
+}
+
+/* History items */
+.history-list li {
+  text-align: left;
+}
+
+.history-list button {
+  border-bottom: 1px solid rgba(95, 98, 101, 0.2);
+}
+
+/* Empty state messages */
+.book-list p,
+.chapter-list p,
+.verse-list p,
+.history-list p {
+  color: #888;
+  font-style: italic;
+  text-align: center;
+  margin-top: 20px;
+}
