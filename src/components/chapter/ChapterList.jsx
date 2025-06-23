@@ -10,9 +10,8 @@ const ChapterList = ({ chapters, onSelectChapter, selectedChapter: externalSelec
 
   // Sync with external selected chapter when it changes
   useEffect(() => {
-    if (externalSelectedChapter !== null) {
-      setSelectedChapter(externalSelectedChapter);
-    }
+    // Update internal state to match external state, including when it's null
+    setSelectedChapter(externalSelectedChapter);
   }, [externalSelectedChapter]);
 
   const handleChapterClick = (chapter) => {

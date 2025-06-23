@@ -31,13 +31,13 @@ function App() {
     setChapters(getChapters(book))
     setSelectedChapter(null)
     setVerses([])
-    setCurrentSelection(prev => prev ? { ...prev, book, verseEnd: null } : { book })
+    setCurrentSelection({ book })
   }
 
   const handleSelectChapter = (chapter) => {
     setSelectedChapter(chapter)
     setVerses(getVerses(selectedBook, chapter))
-    setCurrentSelection(prev => prev ? { ...prev, chapter, verse: null, verseEnd: null } : { chapter })
+    setCurrentSelection({ book: selectedBook, chapter })
   }
 
   const handleSelectVerse = (verse, verseEnd) => {
