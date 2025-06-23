@@ -11,12 +11,19 @@ const History = ({ history, onSelectHistoryItem, currentSelection }) => {
   // Find the index of the current selection in history
   useEffect(() => {
     if (currentSelection) {
-      const index = history.findIndex(
-        item => 
-          item.book === currentSelection.book && 
-          item.chapter === currentSelection.chapter && 
-          item.verse === currentSelection.verse
-      );
+      const index = history.findIndex(item => {
+        if (currentSelection.verseEnd) {
+          return item.book === currentSelection.book && 
+                 item.chapter === currentSelection.chapter && 
+                 item.verse === currentSelection.verse &&
+                 item.verseEnd === currentSelection.verseEnd;
+        } else {
+          return item.book === currentSelection.book && 
+                 item.chapter === currentSelection.chapter && 
+                 item.verse === currentSelection.verse &&
+                 !item.verseEnd;
+        }
+      });
       
       if (index !== -1) {
         setSelectedItem(index);
@@ -29,19 +36,34 @@ const History = ({ history, onSelectHistoryItem, currentSelection }) => {
     onSelectHistoryItem(history[index]);
   };
 
+  // Format the verse reference
+  const formatVerseReference = (item) => {
+    if (item.verseEnd) {
+      return `${item.book} ${item.chapter}:${item.verse}-${item.verseEnd}`;
+    } else {
+      return `${item.book} ${item.chapter}:${item.verse}`;
+    }
+  };
+
+  // Generate a unique key for each history item
+  const generateHistoryItemKey = (item) => {
+    const baseKey = `${item.book}-${item.chapter}-${item.verse}`;
+    return item.verseEnd ? baseKey + `-${item.verseEnd}` : baseKey;
+  };
+
   return (
     <div className="history-list">
       <h3>История</h3>
       {history && history.length > 0 ? (
         <ul>
           {history.map((item, index) => (
-            <li key={`${item.book}-${item.chapter}-${item.verse}`}>
+            <li key={generateHistoryItemKey(item)}>
               <button
                 className={selectedItem === index ? 'selected' : ''}
                 onClick={() => handleItemClick(index)}
                 aria-pressed={selectedItem === index}
               >
-                {item.book} {item.chapter}:{item.verse}
+                {formatVerseReference(item)}
               </button>
             </li>
           ))}
@@ -59,14 +81,16 @@ History.propTypes = {
     PropTypes.shape({
       book: PropTypes.string.isRequired,
       chapter: PropTypes.number.isRequired,
-      verse: PropTypes.number.isRequired
+      verse: PropTypes.number.isRequired,
+      verseEnd: PropTypes.number
     })
   ),
   onSelectHistoryItem: PropTypes.func.isRequired,
   currentSelection: PropTypes.shape({
     book: PropTypes.string,
     chapter: PropTypes.number,
-    verse: PropTypes.number
+    verse: PropTypes.number,
+    verseEnd: PropTypes.number
   })
 };
 

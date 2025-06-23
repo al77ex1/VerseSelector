@@ -23,6 +23,7 @@ function App() {
 
   const toggleActive = () => {
     setIsActive(!isActive)
+    // Live button now does nothing with history
   }
 
   const handleSelectBook = (book) => {
@@ -30,30 +31,45 @@ function App() {
     setChapters(getChapters(book))
     setSelectedChapter(null)
     setVerses([])
-    setCurrentSelection(prev => ({ ...prev, book }))
+    setCurrentSelection(prev => prev ? { ...prev, book, verseEnd: null } : { book })
   }
 
   const handleSelectChapter = (chapter) => {
     setSelectedChapter(chapter)
     setVerses(getVerses(selectedBook, chapter))
-    setCurrentSelection(prev => ({ ...prev, chapter }))
+    setCurrentSelection(prev => prev ? { ...prev, chapter, verse: null, verseEnd: null } : { chapter })
   }
 
-  const handleSelectVerse = (verse) => {
+  const handleSelectVerse = (verse, verseEnd) => {
     const newSelection = {
       book: selectedBook,
       chapter: selectedChapter,
-      verse: verse
+      verse: verse,
+      verseEnd: verseEnd
     }
     setCurrentSelection(newSelection)
     
-    // Add to history if not already there
-    if (!history.some(item => 
-      item.book === newSelection.book && 
-      item.chapter === newSelection.chapter && 
-      item.verse === newSelection.verse
-    )) {
-      setHistory(prev => [...prev, newSelection])
+    // Only add to history if this is a complete selection (single verse or valid range)
+    if (verse !== null && (verseEnd === null || verseEnd !== undefined)) {
+      const existsInHistory = history.some(item => {
+        const isRangeSelection = verseEnd !== null && verseEnd !== undefined;
+        
+        if (isRangeSelection) {
+          return item.book === newSelection.book && 
+                 item.chapter === newSelection.chapter && 
+                 item.verse === newSelection.verse &&
+                 item.verseEnd === newSelection.verseEnd;
+        } else {
+          return item.book === newSelection.book && 
+                 item.chapter === newSelection.chapter && 
+                 item.verse === newSelection.verse &&
+                 (item.verseEnd === null || item.verseEnd === undefined);
+        }
+      });
+      
+      if (!existsInHistory) {
+        setHistory(prev => [...prev, newSelection]);
+      }
     }
   }
 
@@ -63,6 +79,19 @@ function App() {
     setSelectedChapter(item.chapter)
     setVerses(getVerses(item.book, item.chapter))
     setCurrentSelection(item)
+  }
+
+  // Format the current selection for display
+  const formatSelection = (selection) => {
+    if (!selection?.book || !selection?.chapter || !selection?.verse) {
+      return '';
+    }
+    
+    if (selection.verseEnd) {
+      return `${selection.book} ${selection.chapter}:${selection.verse}-${selection.verseEnd}`;
+    } else {
+      return `${selection.book} ${selection.chapter}:${selection.verse}`;
+    }
   }
 
   return (
@@ -86,8 +115,9 @@ function App() {
           <div id="verses" className='wrapper'>
             <VerseList 
               verses={verses} 
-              onSelectVerse={handleSelectVerse} 
+              onSelectVerse={handleSelectVerse}
               selectedVerse={currentSelection?.verse} 
+              selectedVerseEnd={currentSelection?.verseEnd}
             />
           </div>
         </div>
@@ -103,11 +133,7 @@ function App() {
       </div>
       <div id="row-info">
         <div id="info">
-          {currentSelection && (
-            <span>
-              {currentSelection.book} {currentSelection.chapter}:{currentSelection.verse}
-            </span>
-          )}
+          {formatSelection(currentSelection)}
         </div>
         <button 
           id="btn-select" 
