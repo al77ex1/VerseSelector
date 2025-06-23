@@ -8,7 +8,7 @@ import '../components.css';
 const VerseList = ({ verses, onSelectVerse, selectedVerse: externalSelectedVerse, selectedVerseEnd: externalSelectedVerseEnd }) => {
   const [selectedVerse, setSelectedVerse] = useState(null);
   const [selectedVerseEnd, setSelectedVerseEnd] = useState(null);
-  const [selectionMode, setSelectionMode] = useState('single'); // 'single' or 'range'
+  const [isSelectionInProgress, setIsSelectionInProgress] = useState(false);
 
   // Sync with external selected verses when they change
   useEffect(() => {
@@ -17,12 +17,8 @@ const VerseList = ({ verses, onSelectVerse, selectedVerse: externalSelectedVerse
     }
     if (externalSelectedVerseEnd !== null && externalSelectedVerseEnd !== undefined) {
       setSelectedVerseEnd(externalSelectedVerseEnd);
-      setSelectionMode('range');
     } else {
       setSelectedVerseEnd(null);
-      if (externalSelectedVerse !== null && externalSelectedVerse !== undefined) {
-        setSelectionMode('single');
-      }
     }
   }, [externalSelectedVerse, externalSelectedVerseEnd]);
 
@@ -31,16 +27,16 @@ const VerseList = ({ verses, onSelectVerse, selectedVerse: externalSelectedVerse
     if (selectedVerse === null) {
       setSelectedVerse(verse);
       setSelectedVerseEnd(null);
-      setSelectionMode('single');
-      onSelectVerse(verse, null);
+      setIsSelectionInProgress(true);
+      // Don't call onSelectVerse yet - just mark that selection is in progress
       return;
     }
 
-    // If we're in single selection mode and clicking a different verse
-    if (selectionMode === 'single' && verse !== selectedVerse) {
-      // Start range selection
-      setSelectionMode('range');
+    // If we're in selection progress mode and clicking a different verse
+    if (isSelectionInProgress && verse !== selectedVerse) {
+      // Complete range selection
       setSelectedVerseEnd(verse);
+      setIsSelectionInProgress(false);
       
       // Ensure start verse is always lower than end verse for proper display
       if (verse < selectedVerse) {
@@ -49,13 +45,19 @@ const VerseList = ({ verses, onSelectVerse, selectedVerse: externalSelectedVerse
         onSelectVerse(selectedVerse, verse);
       }
     } 
-    // If clicking the same verse again or we're already in range mode
+    // If clicking the same verse again while selection is in progress
+    else if (isSelectionInProgress && verse === selectedVerse) {
+      // Complete single verse selection
+      setIsSelectionInProgress(false);
+      onSelectVerse(verse, null);
+    }
+    // If starting a new selection after completing a previous one
     else {
-      // Reset to single selection mode with the new verse
-      setSelectionMode('single');
+      // Start a new selection
       setSelectedVerse(verse);
       setSelectedVerseEnd(null);
-      onSelectVerse(verse, null);
+      setIsSelectionInProgress(true);
+      // Don't call onSelectVerse yet
     }
   };
 
