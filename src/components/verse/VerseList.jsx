@@ -12,13 +12,13 @@ const VerseList = ({ verses, onSelectVerse, selectedVerse: externalSelectedVerse
 
   // Sync with external selected verses when they change
   useEffect(() => {
-    if (externalSelectedVerse !== null && externalSelectedVerse !== undefined) {
-      setSelectedVerse(externalSelectedVerse);
-    }
-    if (externalSelectedVerseEnd !== null && externalSelectedVerseEnd !== undefined) {
-      setSelectedVerseEnd(externalSelectedVerseEnd);
-    } else {
-      setSelectedVerseEnd(null);
+    // Always update internal state to match external state, including when it's null
+    setSelectedVerse(externalSelectedVerse);
+    setSelectedVerseEnd(externalSelectedVerseEnd);
+    
+    // Reset selection progress when verse selection changes externally
+    if (externalSelectedVerse === null) {
+      setIsSelectionInProgress(false);
     }
   }, [externalSelectedVerse, externalSelectedVerseEnd]);
 
