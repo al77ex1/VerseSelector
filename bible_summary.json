@@ -1,0 +1,7550 @@
+[
+  {
+    "book": "Бытие",
+    "total chapters": 50,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 24
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 26
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 32
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 24
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 32
+        }
+      },
+      {
+        "chapter": {
+          "number": 11,
+          "total verses": 32
+        }
+      },
+      {
+        "chapter": {
+          "number": 12,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 13,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 14,
+          "total verses": 24
+        }
+      },
+      {
+        "chapter": {
+          "number": 15,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 16,
+          "total verses": 16
+        }
+      },
+      {
+        "chapter": {
+          "number": 17,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 18,
+          "total verses": 33
+        }
+      },
+      {
+        "chapter": {
+          "number": 19,
+          "total verses": 38
+        }
+      },
+      {
+        "chapter": {
+          "number": 20,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 21,
+          "total verses": 34
+        }
+      },
+      {
+        "chapter": {
+          "number": 22,
+          "total verses": 24
+        }
+      },
+      {
+        "chapter": {
+          "number": 23,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 24,
+          "total verses": 67
+        }
+      },
+      {
+        "chapter": {
+          "number": 25,
+          "total verses": 34
+        }
+      },
+      {
+        "chapter": {
+          "number": 26,
+          "total verses": 35
+        }
+      },
+      {
+        "chapter": {
+          "number": 27,
+          "total verses": 46
+        }
+      },
+      {
+        "chapter": {
+          "number": 28,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 29,
+          "total verses": 35
+        }
+      },
+      {
+        "chapter": {
+          "number": 30,
+          "total verses": 43
+        }
+      },
+      {
+        "chapter": {
+          "number": 31,
+          "total verses": 54
+        }
+      },
+      {
+        "chapter": {
+          "number": 32,
+          "total verses": 33
+        }
+      },
+      {
+        "chapter": {
+          "number": 33,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 34,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 35,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 36,
+          "total verses": 43
+        }
+      },
+      {
+        "chapter": {
+          "number": 37,
+          "total verses": 36
+        }
+      },
+      {
+        "chapter": {
+          "number": 38,
+          "total verses": 30
+        }
+      },
+      {
+        "chapter": {
+          "number": 39,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 40,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 41,
+          "total verses": 57
+        }
+      },
+      {
+        "chapter": {
+          "number": 42,
+          "total verses": 38
+        }
+      },
+      {
+        "chapter": {
+          "number": 43,
+          "total verses": 34
+        }
+      },
+      {
+        "chapter": {
+          "number": 44,
+          "total verses": 34
+        }
+      },
+      {
+        "chapter": {
+          "number": 45,
+          "total verses": 28
+        }
+      },
+      {
+        "chapter": {
+          "number": 46,
+          "total verses": 34
+        }
+      },
+      {
+        "chapter": {
+          "number": 47,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 48,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 49,
+          "total verses": 33
+        }
+      },
+      {
+        "chapter": {
+          "number": 50,
+          "total verses": 26
+        }
+      }
+    ]
+  },
+  {
+    "book": "Исход",
+    "total chapters": 40,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 30
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 28
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 35
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 11,
+          "total verses": 10
+        }
+      },
+      {
+        "chapter": {
+          "number": 12,
+          "total verses": 51
+        }
+      },
+      {
+        "chapter": {
+          "number": 13,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 14,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 15,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 16,
+          "total verses": 36
+        }
+      },
+      {
+        "chapter": {
+          "number": 17,
+          "total verses": 16
+        }
+      },
+      {
+        "chapter": {
+          "number": 18,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 19,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 20,
+          "total verses": 26
+        }
+      },
+      {
+        "chapter": {
+          "number": 21,
+          "total verses": 37
+        }
+      },
+      {
+        "chapter": {
+          "number": 22,
+          "total verses": 30
+        }
+      },
+      {
+        "chapter": {
+          "number": 23,
+          "total verses": 33
+        }
+      },
+      {
+        "chapter": {
+          "number": 24,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 25,
+          "total verses": 40
+        }
+      },
+      {
+        "chapter": {
+          "number": 26,
+          "total verses": 37
+        }
+      },
+      {
+        "chapter": {
+          "number": 27,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 28,
+          "total verses": 43
+        }
+      },
+      {
+        "chapter": {
+          "number": 29,
+          "total verses": 46
+        }
+      },
+      {
+        "chapter": {
+          "number": 30,
+          "total verses": 38
+        }
+      },
+      {
+        "chapter": {
+          "number": 31,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 32,
+          "total verses": 35
+        }
+      },
+      {
+        "chapter": {
+          "number": 33,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 34,
+          "total verses": 35
+        }
+      },
+      {
+        "chapter": {
+          "number": 35,
+          "total verses": 35
+        }
+      },
+      {
+        "chapter": {
+          "number": 36,
+          "total verses": 38
+        }
+      },
+      {
+        "chapter": {
+          "number": 37,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 38,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 39,
+          "total verses": 43
+        }
+      },
+      {
+        "chapter": {
+          "number": 40,
+          "total verses": 38
+        }
+      }
+    ]
+  },
+  {
+    "book": "Левит",
+    "total chapters": 27,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 16
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 35
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 26
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 38
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 36
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 24
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 11,
+          "total verses": 47
+        }
+      },
+      {
+        "chapter": {
+          "number": 12,
+          "total verses": 8
+        }
+      },
+      {
+        "chapter": {
+          "number": 13,
+          "total verses": 59
+        }
+      },
+      {
+        "chapter": {
+          "number": 14,
+          "total verses": 57
+        }
+      },
+      {
+        "chapter": {
+          "number": 15,
+          "total verses": 33
+        }
+      },
+      {
+        "chapter": {
+          "number": 16,
+          "total verses": 34
+        }
+      },
+      {
+        "chapter": {
+          "number": 17,
+          "total verses": 16
+        }
+      },
+      {
+        "chapter": {
+          "number": 18,
+          "total verses": 30
+        }
+      },
+      {
+        "chapter": {
+          "number": 19,
+          "total verses": 37
+        }
+      },
+      {
+        "chapter": {
+          "number": 20,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 21,
+          "total verses": 24
+        }
+      },
+      {
+        "chapter": {
+          "number": 22,
+          "total verses": 33
+        }
+      },
+      {
+        "chapter": {
+          "number": 23,
+          "total verses": 44
+        }
+      },
+      {
+        "chapter": {
+          "number": 24,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 25,
+          "total verses": 55
+        }
+      },
+      {
+        "chapter": {
+          "number": 26,
+          "total verses": 46
+        }
+      },
+      {
+        "chapter": {
+          "number": 27,
+          "total verses": 34
+        }
+      }
+    ]
+  },
+  {
+    "book": "Числа",
+    "total chapters": 36,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 54
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 34
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 51
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 49
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 89
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 26
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 36
+        }
+      },
+      {
+        "chapter": {
+          "number": 11,
+          "total verses": 35
+        }
+      },
+      {
+        "chapter": {
+          "number": 12,
+          "total verses": 16
+        }
+      },
+      {
+        "chapter": {
+          "number": 13,
+          "total verses": 33
+        }
+      },
+      {
+        "chapter": {
+          "number": 14,
+          "total verses": 45
+        }
+      },
+      {
+        "chapter": {
+          "number": 15,
+          "total verses": 41
+        }
+      },
+      {
+        "chapter": {
+          "number": 16,
+          "total verses": 35
+        }
+      },
+      {
+        "chapter": {
+          "number": 17,
+          "total verses": 28
+        }
+      },
+      {
+        "chapter": {
+          "number": 18,
+          "total verses": 32
+        }
+      },
+      {
+        "chapter": {
+          "number": 19,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 20,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 21,
+          "total verses": 35
+        }
+      },
+      {
+        "chapter": {
+          "number": 22,
+          "total verses": 41
+        }
+      },
+      {
+        "chapter": {
+          "number": 23,
+          "total verses": 30
+        }
+      },
+      {
+        "chapter": {
+          "number": 24,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 25,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 26,
+          "total verses": 65
+        }
+      },
+      {
+        "chapter": {
+          "number": 27,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 28,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 29,
+          "total verses": 39
+        }
+      },
+      {
+        "chapter": {
+          "number": 30,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 31,
+          "total verses": 54
+        }
+      },
+      {
+        "chapter": {
+          "number": 32,
+          "total verses": 42
+        }
+      },
+      {
+        "chapter": {
+          "number": 33,
+          "total verses": 56
+        }
+      },
+      {
+        "chapter": {
+          "number": 34,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 35,
+          "total verses": 34
+        }
+      },
+      {
+        "chapter": {
+          "number": 36,
+          "total verses": 13
+        }
+      }
+    ]
+  },
+  {
+    "book": "Второзаконие",
+    "total chapters": 34,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 46
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 37
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 49
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 33
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 26
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 11,
+          "total verses": 32
+        }
+      },
+      {
+        "chapter": {
+          "number": 12,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 13,
+          "total verses": 19
+        }
+      },
+      {
+        "chapter": {
+          "number": 14,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 15,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 16,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 17,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 18,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 19,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 20,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 21,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 22,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 23,
+          "total verses": 26
+        }
+      },
+      {
+        "chapter": {
+          "number": 24,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 25,
+          "total verses": 19
+        }
+      },
+      {
+        "chapter": {
+          "number": 26,
+          "total verses": 19
+        }
+      },
+      {
+        "chapter": {
+          "number": 27,
+          "total verses": 26
+        }
+      },
+      {
+        "chapter": {
+          "number": 28,
+          "total verses": 69
+        }
+      },
+      {
+        "chapter": {
+          "number": 29,
+          "total verses": 28
+        }
+      },
+      {
+        "chapter": {
+          "number": 30,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 31,
+          "total verses": 30
+        }
+      },
+      {
+        "chapter": {
+          "number": 32,
+          "total verses": 52
+        }
+      },
+      {
+        "chapter": {
+          "number": 33,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 34,
+          "total verses": 12
+        }
+      }
+    ]
+  },
+  {
+    "book": "Иисус Навин",
+    "total chapters": 24,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 24
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 24
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 15
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 26
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 35
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 43
+        }
+      },
+      {
+        "chapter": {
+          "number": 11,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 12,
+          "total verses": 24
+        }
+      },
+      {
+        "chapter": {
+          "number": 13,
+          "total verses": 33
+        }
+      },
+      {
+        "chapter": {
+          "number": 14,
+          "total verses": 15
+        }
+      },
+      {
+        "chapter": {
+          "number": 15,
+          "total verses": 63
+        }
+      },
+      {
+        "chapter": {
+          "number": 16,
+          "total verses": 10
+        }
+      },
+      {
+        "chapter": {
+          "number": 17,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 18,
+          "total verses": 28
+        }
+      },
+      {
+        "chapter": {
+          "number": 19,
+          "total verses": 51
+        }
+      },
+      {
+        "chapter": {
+          "number": 20,
+          "total verses": 9
+        }
+      },
+      {
+        "chapter": {
+          "number": 21,
+          "total verses": 45
+        }
+      },
+      {
+        "chapter": {
+          "number": 22,
+          "total verses": 34
+        }
+      },
+      {
+        "chapter": {
+          "number": 23,
+          "total verses": 16
+        }
+      },
+      {
+        "chapter": {
+          "number": 24,
+          "total verses": 36
+        }
+      }
+    ]
+  },
+  {
+    "book": "Судьи",
+    "total chapters": 21,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 36
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 24
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 40
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 35
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 57
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 11,
+          "total verses": 40
+        }
+      },
+      {
+        "chapter": {
+          "number": 12,
+          "total verses": 15
+        }
+      },
+      {
+        "chapter": {
+          "number": 13,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 14,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 15,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 16,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 17,
+          "total verses": 13
+        }
+      },
+      {
+        "chapter": {
+          "number": 18,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 19,
+          "total verses": 30
+        }
+      },
+      {
+        "chapter": {
+          "number": 20,
+          "total verses": 48
+        }
+      },
+      {
+        "chapter": {
+          "number": 21,
+          "total verses": 25
+        }
+      }
+    ]
+  },
+  {
+    "book": "Руфь",
+    "total chapters": 4,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 22
+        }
+      }
+    ]
+  },
+  {
+    "book": "1 Царств",
+    "total chapters": 31,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 28
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 36
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 12
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 11,
+          "total verses": 15
+        }
+      },
+      {
+        "chapter": {
+          "number": 12,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 13,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 14,
+          "total verses": 52
+        }
+      },
+      {
+        "chapter": {
+          "number": 15,
+          "total verses": 35
+        }
+      },
+      {
+        "chapter": {
+          "number": 16,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 17,
+          "total verses": 58
+        }
+      },
+      {
+        "chapter": {
+          "number": 18,
+          "total verses": 30
+        }
+      },
+      {
+        "chapter": {
+          "number": 19,
+          "total verses": 24
+        }
+      },
+      {
+        "chapter": {
+          "number": 20,
+          "total verses": 42
+        }
+      },
+      {
+        "chapter": {
+          "number": 21,
+          "total verses": 16
+        }
+      },
+      {
+        "chapter": {
+          "number": 22,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 23,
+          "total verses": 28
+        }
+      },
+      {
+        "chapter": {
+          "number": 24,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 25,
+          "total verses": 44
+        }
+      },
+      {
+        "chapter": {
+          "number": 26,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 27,
+          "total verses": 12
+        }
+      },
+      {
+        "chapter": {
+          "number": 28,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 29,
+          "total verses": 11
+        }
+      },
+      {
+        "chapter": {
+          "number": 30,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 31,
+          "total verses": 13
+        }
+      }
+    ]
+  },
+  {
+    "book": "2 Царств",
+    "total chapters": 24,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 32
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 39
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 12
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 13
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 19
+        }
+      },
+      {
+        "chapter": {
+          "number": 11,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 12,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 13,
+          "total verses": 39
+        }
+      },
+      {
+        "chapter": {
+          "number": 14,
+          "total verses": 33
+        }
+      },
+      {
+        "chapter": {
+          "number": 15,
+          "total verses": 37
+        }
+      },
+      {
+        "chapter": {
+          "number": 16,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 17,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 18,
+          "total verses": 32
+        }
+      },
+      {
+        "chapter": {
+          "number": 19,
+          "total verses": 44
+        }
+      },
+      {
+        "chapter": {
+          "number": 20,
+          "total verses": 26
+        }
+      },
+      {
+        "chapter": {
+          "number": 21,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 22,
+          "total verses": 51
+        }
+      },
+      {
+        "chapter": {
+          "number": 23,
+          "total verses": 39
+        }
+      },
+      {
+        "chapter": {
+          "number": 24,
+          "total verses": 25
+        }
+      }
+    ]
+  },
+  {
+    "book": "3 Царств",
+    "total chapters": 22,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 53
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 46
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 28
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 32
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 38
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 51
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 66
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 28
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 11,
+          "total verses": 43
+        }
+      },
+      {
+        "chapter": {
+          "number": 12,
+          "total verses": 33
+        }
+      },
+      {
+        "chapter": {
+          "number": 13,
+          "total verses": 34
+        }
+      },
+      {
+        "chapter": {
+          "number": 14,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 15,
+          "total verses": 34
+        }
+      },
+      {
+        "chapter": {
+          "number": 16,
+          "total verses": 34
+        }
+      },
+      {
+        "chapter": {
+          "number": 17,
+          "total verses": 24
+        }
+      },
+      {
+        "chapter": {
+          "number": 18,
+          "total verses": 46
+        }
+      },
+      {
+        "chapter": {
+          "number": 19,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 20,
+          "total verses": 43
+        }
+      },
+      {
+        "chapter": {
+          "number": 21,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 22,
+          "total verses": 54
+        }
+      }
+    ]
+  },
+  {
+    "book": "4 Царств",
+    "total chapters": 25,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 44
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 33
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 37
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 36
+        }
+      },
+      {
+        "chapter": {
+          "number": 11,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 12,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 13,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 14,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 15,
+          "total verses": 38
+        }
+      },
+      {
+        "chapter": {
+          "number": 16,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 17,
+          "total verses": 41
+        }
+      },
+      {
+        "chapter": {
+          "number": 18,
+          "total verses": 37
+        }
+      },
+      {
+        "chapter": {
+          "number": 19,
+          "total verses": 37
+        }
+      },
+      {
+        "chapter": {
+          "number": 20,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 21,
+          "total verses": 26
+        }
+      },
+      {
+        "chapter": {
+          "number": 22,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 23,
+          "total verses": 37
+        }
+      },
+      {
+        "chapter": {
+          "number": 24,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 25,
+          "total verses": 30
+        }
+      }
+    ]
+  },
+  {
+    "book": "1 Паралипоменон",
+    "total chapters": 29,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 54
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 55
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 24
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 43
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 41
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 66
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 40
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 40
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 44
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 11,
+          "total verses": 47
+        }
+      },
+      {
+        "chapter": {
+          "number": 12,
+          "total verses": 41
+        }
+      },
+      {
+        "chapter": {
+          "number": 13,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 14,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 15,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 16,
+          "total verses": 43
+        }
+      },
+      {
+        "chapter": {
+          "number": 17,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 18,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 19,
+          "total verses": 19
+        }
+      },
+      {
+        "chapter": {
+          "number": 20,
+          "total verses": 8
+        }
+      },
+      {
+        "chapter": {
+          "number": 21,
+          "total verses": 30
+        }
+      },
+      {
+        "chapter": {
+          "number": 22,
+          "total verses": 19
+        }
+      },
+      {
+        "chapter": {
+          "number": 23,
+          "total verses": 32
+        }
+      },
+      {
+        "chapter": {
+          "number": 24,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 25,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 26,
+          "total verses": 32
+        }
+      },
+      {
+        "chapter": {
+          "number": 27,
+          "total verses": 34
+        }
+      },
+      {
+        "chapter": {
+          "number": 28,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 29,
+          "total verses": 30
+        }
+      }
+    ]
+  },
+  {
+    "book": "2 Паралипоменон",
+    "total chapters": 36,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 42
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 19
+        }
+      },
+      {
+        "chapter": {
+          "number": 11,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 12,
+          "total verses": 16
+        }
+      },
+      {
+        "chapter": {
+          "number": 13,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 14,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 15,
+          "total verses": 19
+        }
+      },
+      {
+        "chapter": {
+          "number": 16,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 17,
+          "total verses": 19
+        }
+      },
+      {
+        "chapter": {
+          "number": 18,
+          "total verses": 34
+        }
+      },
+      {
+        "chapter": {
+          "number": 19,
+          "total verses": 11
+        }
+      },
+      {
+        "chapter": {
+          "number": 20,
+          "total verses": 37
+        }
+      },
+      {
+        "chapter": {
+          "number": 21,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 22,
+          "total verses": 12
+        }
+      },
+      {
+        "chapter": {
+          "number": 23,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 24,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 25,
+          "total verses": 28
+        }
+      },
+      {
+        "chapter": {
+          "number": 26,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 27,
+          "total verses": 9
+        }
+      },
+      {
+        "chapter": {
+          "number": 28,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 29,
+          "total verses": 36
+        }
+      },
+      {
+        "chapter": {
+          "number": 30,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 31,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 32,
+          "total verses": 33
+        }
+      },
+      {
+        "chapter": {
+          "number": 33,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 34,
+          "total verses": 33
+        }
+      },
+      {
+        "chapter": {
+          "number": 35,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 36,
+          "total verses": 24
+        }
+      }
+    ]
+  },
+  {
+    "book": "Ездра",
+    "total chapters": 10,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 11
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 70
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 13
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 24
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 28
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 36
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 15
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 44
+        }
+      }
+    ]
+  },
+  {
+    "book": "Неемия",
+    "total chapters": 13,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 11
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 38
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 19
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 19
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 73
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 37
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 40
+        }
+      },
+      {
+        "chapter": {
+          "number": 11,
+          "total verses": 36
+        }
+      },
+      {
+        "chapter": {
+          "number": 12,
+          "total verses": 47
+        }
+      },
+      {
+        "chapter": {
+          "number": 13,
+          "total verses": 31
+        }
+      }
+    ]
+  },
+  {
+    "book": "Есфирь",
+    "total chapters": 10,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 15
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 10
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 32
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 3
+        }
+      }
+    ]
+  },
+  {
+    "book": "Иов",
+    "total chapters": 42,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 13
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 26
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 30
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 35
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 11,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 12,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 13,
+          "total verses": 28
+        }
+      },
+      {
+        "chapter": {
+          "number": 14,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 15,
+          "total verses": 35
+        }
+      },
+      {
+        "chapter": {
+          "number": 16,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 17,
+          "total verses": 16
+        }
+      },
+      {
+        "chapter": {
+          "number": 18,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 19,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 20,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 21,
+          "total verses": 34
+        }
+      },
+      {
+        "chapter": {
+          "number": 22,
+          "total verses": 30
+        }
+      },
+      {
+        "chapter": {
+          "number": 23,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 24,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 25,
+          "total verses": 6
+        }
+      },
+      {
+        "chapter": {
+          "number": 26,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 27,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 28,
+          "total verses": 28
+        }
+      },
+      {
+        "chapter": {
+          "number": 29,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 30,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 31,
+          "total verses": 40
+        }
+      },
+      {
+        "chapter": {
+          "number": 32,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 33,
+          "total verses": 33
+        }
+      },
+      {
+        "chapter": {
+          "number": 34,
+          "total verses": 37
+        }
+      },
+      {
+        "chapter": {
+          "number": 35,
+          "total verses": 16
+        }
+      },
+      {
+        "chapter": {
+          "number": 36,
+          "total verses": 33
+        }
+      },
+      {
+        "chapter": {
+          "number": 37,
+          "total verses": 24
+        }
+      },
+      {
+        "chapter": {
+          "number": 38,
+          "total verses": 41
+        }
+      },
+      {
+        "chapter": {
+          "number": 39,
+          "total verses": 30
+        }
+      },
+      {
+        "chapter": {
+          "number": 40,
+          "total verses": 32
+        }
+      },
+      {
+        "chapter": {
+          "number": 41,
+          "total verses": 26
+        }
+      },
+      {
+        "chapter": {
+          "number": 42,
+          "total verses": 18
+        }
+      }
+    ]
+  },
+  {
+    "book": "Псалтирь",
+    "total chapters": 150,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 6
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 12
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 9
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 9
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 13
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 11
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 10
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 11,
+          "total verses": 7
+        }
+      },
+      {
+        "chapter": {
+          "number": 12,
+          "total verses": 9
+        }
+      },
+      {
+        "chapter": {
+          "number": 13,
+          "total verses": 7
+        }
+      },
+      {
+        "chapter": {
+          "number": 14,
+          "total verses": 7
+        }
+      },
+      {
+        "chapter": {
+          "number": 15,
+          "total verses": 5
+        }
+      },
+      {
+        "chapter": {
+          "number": 16,
+          "total verses": 11
+        }
+      },
+      {
+        "chapter": {
+          "number": 17,
+          "total verses": 15
+        }
+      },
+      {
+        "chapter": {
+          "number": 18,
+          "total verses": 51
+        }
+      },
+      {
+        "chapter": {
+          "number": 19,
+          "total verses": 15
+        }
+      },
+      {
+        "chapter": {
+          "number": 20,
+          "total verses": 10
+        }
+      },
+      {
+        "chapter": {
+          "number": 21,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 22,
+          "total verses": 32
+        }
+      },
+      {
+        "chapter": {
+          "number": 23,
+          "total verses": 6
+        }
+      },
+      {
+        "chapter": {
+          "number": 24,
+          "total verses": 10
+        }
+      },
+      {
+        "chapter": {
+          "number": 25,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 26,
+          "total verses": 12
+        }
+      },
+      {
+        "chapter": {
+          "number": 27,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 28,
+          "total verses": 9
+        }
+      },
+      {
+        "chapter": {
+          "number": 29,
+          "total verses": 11
+        }
+      },
+      {
+        "chapter": {
+          "number": 30,
+          "total verses": 13
+        }
+      },
+      {
+        "chapter": {
+          "number": 31,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 32,
+          "total verses": 11
+        }
+      },
+      {
+        "chapter": {
+          "number": 33,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 34,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 35,
+          "total verses": 28
+        }
+      },
+      {
+        "chapter": {
+          "number": 36,
+          "total verses": 13
+        }
+      },
+      {
+        "chapter": {
+          "number": 37,
+          "total verses": 40
+        }
+      },
+      {
+        "chapter": {
+          "number": 38,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 39,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 40,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 41,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 42,
+          "total verses": 12
+        }
+      },
+      {
+        "chapter": {
+          "number": 43,
+          "total verses": 5
+        }
+      },
+      {
+        "chapter": {
+          "number": 44,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 45,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 46,
+          "total verses": 12
+        }
+      },
+      {
+        "chapter": {
+          "number": 47,
+          "total verses": 10
+        }
+      },
+      {
+        "chapter": {
+          "number": 48,
+          "total verses": 15
+        }
+      },
+      {
+        "chapter": {
+          "number": 49,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 50,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 51,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 52,
+          "total verses": 11
+        }
+      },
+      {
+        "chapter": {
+          "number": 53,
+          "total verses": 7
+        }
+      },
+      {
+        "chapter": {
+          "number": 54,
+          "total verses": 9
+        }
+      },
+      {
+        "chapter": {
+          "number": 55,
+          "total verses": 24
+        }
+      },
+      {
+        "chapter": {
+          "number": 56,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 57,
+          "total verses": 12
+        }
+      },
+      {
+        "chapter": {
+          "number": 58,
+          "total verses": 12
+        }
+      },
+      {
+        "chapter": {
+          "number": 59,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 60,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 61,
+          "total verses": 9
+        }
+      },
+      {
+        "chapter": {
+          "number": 62,
+          "total verses": 13
+        }
+      },
+      {
+        "chapter": {
+          "number": 63,
+          "total verses": 12
+        }
+      },
+      {
+        "chapter": {
+          "number": 64,
+          "total verses": 11
+        }
+      },
+      {
+        "chapter": {
+          "number": 65,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 66,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 67,
+          "total verses": 8
+        }
+      },
+      {
+        "chapter": {
+          "number": 68,
+          "total verses": 36
+        }
+      },
+      {
+        "chapter": {
+          "number": 69,
+          "total verses": 37
+        }
+      },
+      {
+        "chapter": {
+          "number": 70,
+          "total verses": 6
+        }
+      },
+      {
+        "chapter": {
+          "number": 71,
+          "total verses": 24
+        }
+      },
+      {
+        "chapter": {
+          "number": 72,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 73,
+          "total verses": 28
+        }
+      },
+      {
+        "chapter": {
+          "number": 74,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 75,
+          "total verses": 11
+        }
+      },
+      {
+        "chapter": {
+          "number": 76,
+          "total verses": 13
+        }
+      },
+      {
+        "chapter": {
+          "number": 77,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 78,
+          "total verses": 72
+        }
+      },
+      {
+        "chapter": {
+          "number": 79,
+          "total verses": 13
+        }
+      },
+      {
+        "chapter": {
+          "number": 80,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 81,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 82,
+          "total verses": 8
+        }
+      },
+      {
+        "chapter": {
+          "number": 83,
+          "total verses": 19
+        }
+      },
+      {
+        "chapter": {
+          "number": 84,
+          "total verses": 13
+        }
+      },
+      {
+        "chapter": {
+          "number": 85,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 86,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 87,
+          "total verses": 7
+        }
+      },
+      {
+        "chapter": {
+          "number": 88,
+          "total verses": 19
+        }
+      },
+      {
+        "chapter": {
+          "number": 89,
+          "total verses": 53
+        }
+      },
+      {
+        "chapter": {
+          "number": 90,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 91,
+          "total verses": 16
+        }
+      },
+      {
+        "chapter": {
+          "number": 92,
+          "total verses": 16
+        }
+      },
+      {
+        "chapter": {
+          "number": 93,
+          "total verses": 5
+        }
+      },
+      {
+        "chapter": {
+          "number": 94,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 95,
+          "total verses": 11
+        }
+      },
+      {
+        "chapter": {
+          "number": 96,
+          "total verses": 13
+        }
+      },
+      {
+        "chapter": {
+          "number": 97,
+          "total verses": 12
+        }
+      },
+      {
+        "chapter": {
+          "number": 98,
+          "total verses": 9
+        }
+      },
+      {
+        "chapter": {
+          "number": 99,
+          "total verses": 9
+        }
+      },
+      {
+        "chapter": {
+          "number": 100,
+          "total verses": 5
+        }
+      },
+      {
+        "chapter": {
+          "number": 101,
+          "total verses": 8
+        }
+      },
+      {
+        "chapter": {
+          "number": 102,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 103,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 104,
+          "total verses": 35
+        }
+      },
+      {
+        "chapter": {
+          "number": 105,
+          "total verses": 45
+        }
+      },
+      {
+        "chapter": {
+          "number": 106,
+          "total verses": 48
+        }
+      },
+      {
+        "chapter": {
+          "number": 107,
+          "total verses": 43
+        }
+      },
+      {
+        "chapter": {
+          "number": 108,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 109,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 110,
+          "total verses": 7
+        }
+      },
+      {
+        "chapter": {
+          "number": 111,
+          "total verses": 10
+        }
+      },
+      {
+        "chapter": {
+          "number": 112,
+          "total verses": 10
+        }
+      },
+      {
+        "chapter": {
+          "number": 113,
+          "total verses": 9
+        }
+      },
+      {
+        "chapter": {
+          "number": 114,
+          "total verses": 8
+        }
+      },
+      {
+        "chapter": {
+          "number": 115,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 116,
+          "total verses": 19
+        }
+      },
+      {
+        "chapter": {
+          "number": 117,
+          "total verses": 2
+        }
+      },
+      {
+        "chapter": {
+          "number": 118,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 119,
+          "total verses": 176
+        }
+      },
+      {
+        "chapter": {
+          "number": 120,
+          "total verses": 7
+        }
+      },
+      {
+        "chapter": {
+          "number": 121,
+          "total verses": 8
+        }
+      },
+      {
+        "chapter": {
+          "number": 122,
+          "total verses": 9
+        }
+      },
+      {
+        "chapter": {
+          "number": 123,
+          "total verses": 4
+        }
+      },
+      {
+        "chapter": {
+          "number": 124,
+          "total verses": 8
+        }
+      },
+      {
+        "chapter": {
+          "number": 125,
+          "total verses": 5
+        }
+      },
+      {
+        "chapter": {
+          "number": 126,
+          "total verses": 6
+        }
+      },
+      {
+        "chapter": {
+          "number": 127,
+          "total verses": 5
+        }
+      },
+      {
+        "chapter": {
+          "number": 128,
+          "total verses": 6
+        }
+      },
+      {
+        "chapter": {
+          "number": 129,
+          "total verses": 8
+        }
+      },
+      {
+        "chapter": {
+          "number": 130,
+          "total verses": 8
+        }
+      },
+      {
+        "chapter": {
+          "number": 131,
+          "total verses": 3
+        }
+      },
+      {
+        "chapter": {
+          "number": 132,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 133,
+          "total verses": 3
+        }
+      },
+      {
+        "chapter": {
+          "number": 134,
+          "total verses": 3
+        }
+      },
+      {
+        "chapter": {
+          "number": 135,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 136,
+          "total verses": 26
+        }
+      },
+      {
+        "chapter": {
+          "number": 137,
+          "total verses": 9
+        }
+      },
+      {
+        "chapter": {
+          "number": 138,
+          "total verses": 8
+        }
+      },
+      {
+        "chapter": {
+          "number": 139,
+          "total verses": 24
+        }
+      },
+      {
+        "chapter": {
+          "number": 140,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 141,
+          "total verses": 10
+        }
+      },
+      {
+        "chapter": {
+          "number": 142,
+          "total verses": 8
+        }
+      },
+      {
+        "chapter": {
+          "number": 143,
+          "total verses": 12
+        }
+      },
+      {
+        "chapter": {
+          "number": 144,
+          "total verses": 15
+        }
+      },
+      {
+        "chapter": {
+          "number": 145,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 146,
+          "total verses": 10
+        }
+      },
+      {
+        "chapter": {
+          "number": 147,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 148,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 149,
+          "total verses": 9
+        }
+      },
+      {
+        "chapter": {
+          "number": 150,
+          "total verses": 6
+        }
+      }
+    ]
+  },
+  {
+    "book": "Притчи",
+    "total chapters": 31,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 33
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 35
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 35
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 36
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 32
+        }
+      },
+      {
+        "chapter": {
+          "number": 11,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 12,
+          "total verses": 28
+        }
+      },
+      {
+        "chapter": {
+          "number": 13,
+          "total verses": 26
+        }
+      },
+      {
+        "chapter": {
+          "number": 14,
+          "total verses": 35
+        }
+      },
+      {
+        "chapter": {
+          "number": 15,
+          "total verses": 33
+        }
+      },
+      {
+        "chapter": {
+          "number": 16,
+          "total verses": 33
+        }
+      },
+      {
+        "chapter": {
+          "number": 17,
+          "total verses": 28
+        }
+      },
+      {
+        "chapter": {
+          "number": 18,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 19,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 20,
+          "total verses": 30
+        }
+      },
+      {
+        "chapter": {
+          "number": 21,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 22,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 23,
+          "total verses": 35
+        }
+      },
+      {
+        "chapter": {
+          "number": 24,
+          "total verses": 34
+        }
+      },
+      {
+        "chapter": {
+          "number": 25,
+          "total verses": 28
+        }
+      },
+      {
+        "chapter": {
+          "number": 26,
+          "total verses": 28
+        }
+      },
+      {
+        "chapter": {
+          "number": 27,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 28,
+          "total verses": 28
+        }
+      },
+      {
+        "chapter": {
+          "number": 29,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 30,
+          "total verses": 33
+        }
+      },
+      {
+        "chapter": {
+          "number": 31,
+          "total verses": 31
+        }
+      }
+    ]
+  },
+  {
+    "book": "Екклесиаст",
+    "total chapters": 12,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 26
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 19
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 12
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 11,
+          "total verses": 10
+        }
+      },
+      {
+        "chapter": {
+          "number": 12,
+          "total verses": 14
+        }
+      }
+    ]
+  },
+  {
+    "book": "Песни Песней",
+    "total chapters": 8,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 11
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 16
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 16
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 12
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 14
+        }
+      }
+    ]
+  },
+  {
+    "book": "Исаия",
+    "total chapters": 66,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 26
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 6
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 30
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 13
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 34
+        }
+      },
+      {
+        "chapter": {
+          "number": 11,
+          "total verses": 16
+        }
+      },
+      {
+        "chapter": {
+          "number": 12,
+          "total verses": 6
+        }
+      },
+      {
+        "chapter": {
+          "number": 13,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 14,
+          "total verses": 32
+        }
+      },
+      {
+        "chapter": {
+          "number": 15,
+          "total verses": 9
+        }
+      },
+      {
+        "chapter": {
+          "number": 16,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 17,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 18,
+          "total verses": 7
+        }
+      },
+      {
+        "chapter": {
+          "number": 19,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 20,
+          "total verses": 6
+        }
+      },
+      {
+        "chapter": {
+          "number": 21,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 22,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 23,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 24,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 25,
+          "total verses": 12
+        }
+      },
+      {
+        "chapter": {
+          "number": 26,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 27,
+          "total verses": 13
+        }
+      },
+      {
+        "chapter": {
+          "number": 28,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 29,
+          "total verses": 24
+        }
+      },
+      {
+        "chapter": {
+          "number": 30,
+          "total verses": 33
+        }
+      },
+      {
+        "chapter": {
+          "number": 31,
+          "total verses": 9
+        }
+      },
+      {
+        "chapter": {
+          "number": 32,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 33,
+          "total verses": 24
+        }
+      },
+      {
+        "chapter": {
+          "number": 34,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 35,
+          "total verses": 10
+        }
+      },
+      {
+        "chapter": {
+          "number": 36,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 37,
+          "total verses": 38
+        }
+      },
+      {
+        "chapter": {
+          "number": 38,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 39,
+          "total verses": 8
+        }
+      },
+      {
+        "chapter": {
+          "number": 40,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 41,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 42,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 43,
+          "total verses": 28
+        }
+      },
+      {
+        "chapter": {
+          "number": 44,
+          "total verses": 28
+        }
+      },
+      {
+        "chapter": {
+          "number": 45,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 46,
+          "total verses": 13
+        }
+      },
+      {
+        "chapter": {
+          "number": 47,
+          "total verses": 15
+        }
+      },
+      {
+        "chapter": {
+          "number": 48,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 49,
+          "total verses": 26
+        }
+      },
+      {
+        "chapter": {
+          "number": 50,
+          "total verses": 11
+        }
+      },
+      {
+        "chapter": {
+          "number": 51,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 52,
+          "total verses": 15
+        }
+      },
+      {
+        "chapter": {
+          "number": 53,
+          "total verses": 12
+        }
+      },
+      {
+        "chapter": {
+          "number": 54,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 55,
+          "total verses": 13
+        }
+      },
+      {
+        "chapter": {
+          "number": 56,
+          "total verses": 12
+        }
+      },
+      {
+        "chapter": {
+          "number": 57,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 58,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 59,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 60,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 61,
+          "total verses": 11
+        }
+      },
+      {
+        "chapter": {
+          "number": 62,
+          "total verses": 12
+        }
+      },
+      {
+        "chapter": {
+          "number": 63,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 64,
+          "total verses": 11
+        }
+      },
+      {
+        "chapter": {
+          "number": 65,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 66,
+          "total verses": 24
+        }
+      }
+    ]
+  },
+  {
+    "book": "Иеремия",
+    "total chapters": 52,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 19
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 37
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 30
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 34
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 11,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 12,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 13,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 14,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 15,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 16,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 17,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 18,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 19,
+          "total verses": 15
+        }
+      },
+      {
+        "chapter": {
+          "number": 20,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 21,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 22,
+          "total verses": 30
+        }
+      },
+      {
+        "chapter": {
+          "number": 23,
+          "total verses": 40
+        }
+      },
+      {
+        "chapter": {
+          "number": 24,
+          "total verses": 10
+        }
+      },
+      {
+        "chapter": {
+          "number": 25,
+          "total verses": 38
+        }
+      },
+      {
+        "chapter": {
+          "number": 26,
+          "total verses": 24
+        }
+      },
+      {
+        "chapter": {
+          "number": 27,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 28,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 29,
+          "total verses": 32
+        }
+      },
+      {
+        "chapter": {
+          "number": 30,
+          "total verses": 24
+        }
+      },
+      {
+        "chapter": {
+          "number": 31,
+          "total verses": 40
+        }
+      },
+      {
+        "chapter": {
+          "number": 32,
+          "total verses": 44
+        }
+      },
+      {
+        "chapter": {
+          "number": 33,
+          "total verses": 26
+        }
+      },
+      {
+        "chapter": {
+          "number": 34,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 35,
+          "total verses": 19
+        }
+      },
+      {
+        "chapter": {
+          "number": 36,
+          "total verses": 32
+        }
+      },
+      {
+        "chapter": {
+          "number": 37,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 38,
+          "total verses": 28
+        }
+      },
+      {
+        "chapter": {
+          "number": 39,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 40,
+          "total verses": 16
+        }
+      },
+      {
+        "chapter": {
+          "number": 41,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 42,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 43,
+          "total verses": 13
+        }
+      },
+      {
+        "chapter": {
+          "number": 44,
+          "total verses": 30
+        }
+      },
+      {
+        "chapter": {
+          "number": 45,
+          "total verses": 5
+        }
+      },
+      {
+        "chapter": {
+          "number": 46,
+          "total verses": 28
+        }
+      },
+      {
+        "chapter": {
+          "number": 47,
+          "total verses": 7
+        }
+      },
+      {
+        "chapter": {
+          "number": 48,
+          "total verses": 47
+        }
+      },
+      {
+        "chapter": {
+          "number": 49,
+          "total verses": 39
+        }
+      },
+      {
+        "chapter": {
+          "number": 50,
+          "total verses": 46
+        }
+      },
+      {
+        "chapter": {
+          "number": 51,
+          "total verses": 64
+        }
+      },
+      {
+        "chapter": {
+          "number": 52,
+          "total verses": 34
+        }
+      }
+    ]
+  },
+  {
+    "book": "Плач Иеремии",
+    "total chapters": 5,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 66
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 22
+        }
+      }
+    ]
+  },
+  {
+    "book": "Иезекииль",
+    "total chapters": 48,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 28
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 10
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 11
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 11,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 12,
+          "total verses": 28
+        }
+      },
+      {
+        "chapter": {
+          "number": 13,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 14,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 15,
+          "total verses": 8
+        }
+      },
+      {
+        "chapter": {
+          "number": 16,
+          "total verses": 63
+        }
+      },
+      {
+        "chapter": {
+          "number": 17,
+          "total verses": 24
+        }
+      },
+      {
+        "chapter": {
+          "number": 18,
+          "total verses": 32
+        }
+      },
+      {
+        "chapter": {
+          "number": 19,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 20,
+          "total verses": 44
+        }
+      },
+      {
+        "chapter": {
+          "number": 21,
+          "total verses": 37
+        }
+      },
+      {
+        "chapter": {
+          "number": 22,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 23,
+          "total verses": 49
+        }
+      },
+      {
+        "chapter": {
+          "number": 24,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 25,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 26,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 27,
+          "total verses": 36
+        }
+      },
+      {
+        "chapter": {
+          "number": 28,
+          "total verses": 26
+        }
+      },
+      {
+        "chapter": {
+          "number": 29,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 30,
+          "total verses": 26
+        }
+      },
+      {
+        "chapter": {
+          "number": 31,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 32,
+          "total verses": 32
+        }
+      },
+      {
+        "chapter": {
+          "number": 33,
+          "total verses": 33
+        }
+      },
+      {
+        "chapter": {
+          "number": 34,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 35,
+          "total verses": 15
+        }
+      },
+      {
+        "chapter": {
+          "number": 36,
+          "total verses": 38
+        }
+      },
+      {
+        "chapter": {
+          "number": 37,
+          "total verses": 28
+        }
+      },
+      {
+        "chapter": {
+          "number": 38,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 39,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 40,
+          "total verses": 49
+        }
+      },
+      {
+        "chapter": {
+          "number": 41,
+          "total verses": 26
+        }
+      },
+      {
+        "chapter": {
+          "number": 42,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 43,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 44,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 45,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 46,
+          "total verses": 24
+        }
+      },
+      {
+        "chapter": {
+          "number": 47,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 48,
+          "total verses": 35
+        }
+      }
+    ]
+  },
+  {
+    "book": "Даниил",
+    "total chapters": 14,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 49
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 100
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 34
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 30
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 28
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 11,
+          "total verses": 45
+        }
+      },
+      {
+        "chapter": {
+          "number": 12,
+          "total verses": 13
+        }
+      },
+      {
+        "chapter": {
+          "number": 13,
+          "total verses": 64
+        }
+      },
+      {
+        "chapter": {
+          "number": 14,
+          "total verses": 42
+        }
+      }
+    ]
+  },
+  {
+    "book": "Осия",
+    "total chapters": 14,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 9
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 5
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 19
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 15
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 11
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 16
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 15
+        }
+      },
+      {
+        "chapter": {
+          "number": 11,
+          "total verses": 11
+        }
+      },
+      {
+        "chapter": {
+          "number": 12,
+          "total verses": 15
+        }
+      },
+      {
+        "chapter": {
+          "number": 13,
+          "total verses": 15
+        }
+      },
+      {
+        "chapter": {
+          "number": 14,
+          "total verses": 10
+        }
+      }
+    ]
+  },
+  {
+    "book": "Иоиль",
+    "total chapters": 4,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 5
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 21
+        }
+      }
+    ]
+  },
+  {
+    "book": "Амос",
+    "total chapters": 9,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 15
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 16
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 15
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 13
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 15
+        }
+      }
+    ]
+  },
+  {
+    "book": "Авдий",
+    "total chapters": 1,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 21
+        }
+      }
+    ]
+  },
+  {
+    "book": "Иона",
+    "total chapters": 4,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 16
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 11
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 10
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 11
+        }
+      }
+    ]
+  },
+  {
+    "book": "Михей",
+    "total chapters": 7,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 16
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 13
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 12
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 16
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 20
+        }
+      }
+    ]
+  },
+  {
+    "book": "Наум",
+    "total chapters": 3,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 19
+        }
+      }
+    ]
+  },
+  {
+    "book": "Аввакум",
+    "total chapters": 3,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 19
+        }
+      }
+    ]
+  },
+  {
+    "book": "Софония",
+    "total chapters": 3,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 15
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 20
+        }
+      }
+    ]
+  },
+  {
+    "book": "Аггей",
+    "total chapters": 2,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 15
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 23
+        }
+      }
+    ]
+  },
+  {
+    "book": "Захария",
+    "total chapters": 14,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 10
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 11
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 15
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 12
+        }
+      },
+      {
+        "chapter": {
+          "number": 11,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 12,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 13,
+          "total verses": 9
+        }
+      },
+      {
+        "chapter": {
+          "number": 14,
+          "total verses": 21
+        }
+      }
+    ]
+  },
+  {
+    "book": "Малахия",
+    "total chapters": 4,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 6
+        }
+      }
+    ]
+  },
+  {
+    "book": "Матфея",
+    "total chapters": 28,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 48
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 34
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 34
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 38
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 42
+        }
+      },
+      {
+        "chapter": {
+          "number": 11,
+          "total verses": 30
+        }
+      },
+      {
+        "chapter": {
+          "number": 12,
+          "total verses": 50
+        }
+      },
+      {
+        "chapter": {
+          "number": 13,
+          "total verses": 58
+        }
+      },
+      {
+        "chapter": {
+          "number": 14,
+          "total verses": 36
+        }
+      },
+      {
+        "chapter": {
+          "number": 15,
+          "total verses": 39
+        }
+      },
+      {
+        "chapter": {
+          "number": 16,
+          "total verses": 28
+        }
+      },
+      {
+        "chapter": {
+          "number": 17,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 18,
+          "total verses": 35
+        }
+      },
+      {
+        "chapter": {
+          "number": 19,
+          "total verses": 30
+        }
+      },
+      {
+        "chapter": {
+          "number": 20,
+          "total verses": 34
+        }
+      },
+      {
+        "chapter": {
+          "number": 21,
+          "total verses": 46
+        }
+      },
+      {
+        "chapter": {
+          "number": 22,
+          "total verses": 46
+        }
+      },
+      {
+        "chapter": {
+          "number": 23,
+          "total verses": 39
+        }
+      },
+      {
+        "chapter": {
+          "number": 24,
+          "total verses": 51
+        }
+      },
+      {
+        "chapter": {
+          "number": 25,
+          "total verses": 46
+        }
+      },
+      {
+        "chapter": {
+          "number": 26,
+          "total verses": 75
+        }
+      },
+      {
+        "chapter": {
+          "number": 27,
+          "total verses": 66
+        }
+      },
+      {
+        "chapter": {
+          "number": 28,
+          "total verses": 20
+        }
+      }
+    ]
+  },
+  {
+    "book": "Марка",
+    "total chapters": 16,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 45
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 28
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 35
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 41
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 43
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 56
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 37
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 38
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 50
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 52
+        }
+      },
+      {
+        "chapter": {
+          "number": 11,
+          "total verses": 33
+        }
+      },
+      {
+        "chapter": {
+          "number": 12,
+          "total verses": 44
+        }
+      },
+      {
+        "chapter": {
+          "number": 13,
+          "total verses": 37
+        }
+      },
+      {
+        "chapter": {
+          "number": 14,
+          "total verses": 72
+        }
+      },
+      {
+        "chapter": {
+          "number": 15,
+          "total verses": 47
+        }
+      },
+      {
+        "chapter": {
+          "number": 16,
+          "total verses": 20
+        }
+      }
+    ]
+  },
+  {
+    "book": "Луки",
+    "total chapters": 24,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 80
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 52
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 38
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 44
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 39
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 49
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 50
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 56
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 62
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 42
+        }
+      },
+      {
+        "chapter": {
+          "number": 11,
+          "total verses": 54
+        }
+      },
+      {
+        "chapter": {
+          "number": 12,
+          "total verses": 59
+        }
+      },
+      {
+        "chapter": {
+          "number": 13,
+          "total verses": 35
+        }
+      },
+      {
+        "chapter": {
+          "number": 14,
+          "total verses": 35
+        }
+      },
+      {
+        "chapter": {
+          "number": 15,
+          "total verses": 32
+        }
+      },
+      {
+        "chapter": {
+          "number": 16,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 17,
+          "total verses": 37
+        }
+      },
+      {
+        "chapter": {
+          "number": 18,
+          "total verses": 43
+        }
+      },
+      {
+        "chapter": {
+          "number": 19,
+          "total verses": 48
+        }
+      },
+      {
+        "chapter": {
+          "number": 20,
+          "total verses": 47
+        }
+      },
+      {
+        "chapter": {
+          "number": 21,
+          "total verses": 38
+        }
+      },
+      {
+        "chapter": {
+          "number": 22,
+          "total verses": 71
+        }
+      },
+      {
+        "chapter": {
+          "number": 23,
+          "total verses": 56
+        }
+      },
+      {
+        "chapter": {
+          "number": 24,
+          "total verses": 53
+        }
+      }
+    ]
+  },
+  {
+    "book": "Иоанна",
+    "total chapters": 21,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 51
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 36
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 54
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 47
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 71
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 53
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 59
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 41
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 42
+        }
+      },
+      {
+        "chapter": {
+          "number": 11,
+          "total verses": 57
+        }
+      },
+      {
+        "chapter": {
+          "number": 12,
+          "total verses": 50
+        }
+      },
+      {
+        "chapter": {
+          "number": 13,
+          "total verses": 38
+        }
+      },
+      {
+        "chapter": {
+          "number": 14,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 15,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 16,
+          "total verses": 33
+        }
+      },
+      {
+        "chapter": {
+          "number": 17,
+          "total verses": 26
+        }
+      },
+      {
+        "chapter": {
+          "number": 18,
+          "total verses": 40
+        }
+      },
+      {
+        "chapter": {
+          "number": 19,
+          "total verses": 42
+        }
+      },
+      {
+        "chapter": {
+          "number": 20,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 21,
+          "total verses": 25
+        }
+      }
+    ]
+  },
+  {
+    "book": "Деяния апостолов",
+    "total chapters": 28,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 26
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 47
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 26
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 37
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 42
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 15
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 60
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 40
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 43
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 48
+        }
+      },
+      {
+        "chapter": {
+          "number": 11,
+          "total verses": 30
+        }
+      },
+      {
+        "chapter": {
+          "number": 12,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 13,
+          "total verses": 52
+        }
+      },
+      {
+        "chapter": {
+          "number": 14,
+          "total verses": 28
+        }
+      },
+      {
+        "chapter": {
+          "number": 15,
+          "total verses": 41
+        }
+      },
+      {
+        "chapter": {
+          "number": 16,
+          "total verses": 40
+        }
+      },
+      {
+        "chapter": {
+          "number": 17,
+          "total verses": 34
+        }
+      },
+      {
+        "chapter": {
+          "number": 18,
+          "total verses": 28
+        }
+      },
+      {
+        "chapter": {
+          "number": 19,
+          "total verses": 40
+        }
+      },
+      {
+        "chapter": {
+          "number": 20,
+          "total verses": 38
+        }
+      },
+      {
+        "chapter": {
+          "number": 21,
+          "total verses": 40
+        }
+      },
+      {
+        "chapter": {
+          "number": 22,
+          "total verses": 30
+        }
+      },
+      {
+        "chapter": {
+          "number": 23,
+          "total verses": 35
+        }
+      },
+      {
+        "chapter": {
+          "number": 24,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 25,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 26,
+          "total verses": 32
+        }
+      },
+      {
+        "chapter": {
+          "number": 27,
+          "total verses": 44
+        }
+      },
+      {
+        "chapter": {
+          "number": 28,
+          "total verses": 31
+        }
+      }
+    ]
+  },
+  {
+    "book": "Римлянам",
+    "total chapters": 16,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 32
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 39
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 33
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 11,
+          "total verses": 36
+        }
+      },
+      {
+        "chapter": {
+          "number": 12,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 13,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 14,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 15,
+          "total verses": 33
+        }
+      },
+      {
+        "chapter": {
+          "number": 16,
+          "total verses": 27
+        }
+      }
+    ]
+  },
+  {
+    "book": "1 Коринфянам",
+    "total chapters": 16,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 16
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 13
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 40
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 13
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 33
+        }
+      },
+      {
+        "chapter": {
+          "number": 11,
+          "total verses": 34
+        }
+      },
+      {
+        "chapter": {
+          "number": 12,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 13,
+          "total verses": 13
+        }
+      },
+      {
+        "chapter": {
+          "number": 14,
+          "total verses": 40
+        }
+      },
+      {
+        "chapter": {
+          "number": 15,
+          "total verses": 58
+        }
+      },
+      {
+        "chapter": {
+          "number": 16,
+          "total verses": 24
+        }
+      }
+    ]
+  },
+  {
+    "book": "2 Коринфянам",
+    "total chapters": 13,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 24
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 16
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 24
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 15
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 11,
+          "total verses": 33
+        }
+      },
+      {
+        "chapter": {
+          "number": 12,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 13,
+          "total verses": 13
+        }
+      }
+    ]
+  },
+  {
+    "book": "Галатам",
+    "total chapters": 6,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 24
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 31
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 26
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 18
+        }
+      }
+    ]
+  },
+  {
+    "book": "Ефесянам",
+    "total chapters": 6,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 32
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 33
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 24
+        }
+      }
+    ]
+  },
+  {
+    "book": "Филиппийцам",
+    "total chapters": 4,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 30
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 30
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 23
+        }
+      }
+    ]
+  },
+  {
+    "book": "Колоссянам",
+    "total chapters": 4,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 23
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 18
+        }
+      }
+    ]
+  },
+  {
+    "book": "1 Фессалоникийцам",
+    "total chapters": 5,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 10
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 13
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 28
+        }
+      }
+    ]
+  },
+  {
+    "book": "2 Фессалоникийцам",
+    "total chapters": 3,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 12
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 18
+        }
+      }
+    ]
+  },
+  {
+    "book": "1 Тимофею",
+    "total chapters": 6,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 15
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 16
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 16
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 21
+        }
+      }
+    ]
+  },
+  {
+    "book": "2 Тимофею",
+    "total chapters": 4,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 26
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 22
+        }
+      }
+    ]
+  },
+  {
+    "book": "Титу",
+    "total chapters": 3,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 16
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 15
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 15
+        }
+      }
+    ]
+  },
+  {
+    "book": "Филимону",
+    "total chapters": 1,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 25
+        }
+      }
+    ]
+  },
+  {
+    "book": "Евреям",
+    "total chapters": 13,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 19
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 16
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 28
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 13
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 28
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 39
+        }
+      },
+      {
+        "chapter": {
+          "number": 11,
+          "total verses": 40
+        }
+      },
+      {
+        "chapter": {
+          "number": 12,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 13,
+          "total verses": 25
+        }
+      }
+    ]
+  },
+  {
+    "book": "Иакова",
+    "total chapters": 5,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 26
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 20
+        }
+      }
+    ]
+  },
+  {
+    "book": "1 Петра",
+    "total chapters": 5,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 25
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 19
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 14
+        }
+      }
+    ]
+  },
+  {
+    "book": "2 Петра",
+    "total chapters": 3,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 18
+        }
+      }
+    ]
+  },
+  {
+    "book": "1 Иоанна",
+    "total chapters": 5,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 10
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 24
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 21
+        }
+      }
+    ]
+  },
+  {
+    "book": "2 Иоанна",
+    "total chapters": 1,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 13
+        }
+      }
+    ]
+  },
+  {
+    "book": "3 Иоанна",
+    "total chapters": 1,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 14
+        }
+      }
+    ]
+  },
+  {
+    "book": "Иуды",
+    "total chapters": 1,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 25
+        }
+      }
+    ]
+  },
+  {
+    "book": "Откровение",
+    "total chapters": 22,
+    "chapters": [
+      {
+        "chapter": {
+          "number": 1,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 2,
+          "total verses": 29
+        }
+      },
+      {
+        "chapter": {
+          "number": 3,
+          "total verses": 22
+        }
+      },
+      {
+        "chapter": {
+          "number": 4,
+          "total verses": 11
+        }
+      },
+      {
+        "chapter": {
+          "number": 5,
+          "total verses": 14
+        }
+      },
+      {
+        "chapter": {
+          "number": 6,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 7,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 8,
+          "total verses": 13
+        }
+      },
+      {
+        "chapter": {
+          "number": 9,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 10,
+          "total verses": 11
+        }
+      },
+      {
+        "chapter": {
+          "number": 11,
+          "total verses": 19
+        }
+      },
+      {
+        "chapter": {
+          "number": 12,
+          "total verses": 17
+        }
+      },
+      {
+        "chapter": {
+          "number": 13,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 14,
+          "total verses": 20
+        }
+      },
+      {
+        "chapter": {
+          "number": 15,
+          "total verses": 8
+        }
+      },
+      {
+        "chapter": {
+          "number": 16,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 17,
+          "total verses": 18
+        }
+      },
+      {
+        "chapter": {
+          "number": 18,
+          "total verses": 24
+        }
+      },
+      {
+        "chapter": {
+          "number": 19,
+          "total verses": 21
+        }
+      },
+      {
+        "chapter": {
+          "number": 20,
+          "total verses": 15
+        }
+      },
+      {
+        "chapter": {
+          "number": 21,
+          "total verses": 27
+        }
+      },
+      {
+        "chapter": {
+          "number": 22,
+          "total verses": 21
+        }
+      }
+    ]
+  }
+]
