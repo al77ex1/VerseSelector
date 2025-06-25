@@ -24,6 +24,28 @@ function App() {
     setBooks(getBookNames())
   }, [])
 
+  // Add document click listener to clear filters when clicking outside filter-bar
+  useEffect(() => {
+    const handleDocumentClick = (e) => {
+      const filterBar = document.querySelector('.filter-bar');
+      
+      const isComboboxElement = e.target.closest('.autocomplete-container') ||
+                               e.target.closest('[role="listbox"]') ||
+                               e.target.closest('[role="option"]');
+      
+      if (filterBar && !filterBar.contains(e.target) && !isComboboxElement && 
+          (filters.book || filters.chapter || filters.verseStart || filters.verseEnd)) {
+        const clearedFilters = { book: '', chapter: '', verseStart: '', verseEnd: '' };
+        setFilters(clearedFilters);
+      }
+    };
+
+    document.addEventListener('mousedown', handleDocumentClick);
+    return () => {
+      document.removeEventListener('mousedown', handleDocumentClick);
+    };
+  }, [filters]);
+
   const handleSelectBook = (book) => {
     setSelectedBook(book)
     setChapters(getChapters(book))
