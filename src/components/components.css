@@ -59,7 +59,7 @@
 .book-list h3,
 .chapter-list h3,
 .verse-list h3,
-.history-list h3 {
+.history-header {
   margin-top: 0;
   margin-bottom: 10px;
   font-size: 1rem;
@@ -118,6 +118,40 @@
 
 .history-list button {
   border-bottom: 1px solid rgba(95, 98, 101, 0.2);
+}
+
+/* History component styles */
+.history-list-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.history-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #888;
+  border-bottom: 2px solid #2a2e32;
+  padding-bottom: 5px;
+}
+
+.history-header h3 {
+  margin: 0;
+  grid-column: 2;
+  text-align: center;
+}
+
+.header-left {
+  grid-column: 1;
+}
+
+.header-right {
+  grid-column: 3;
+  display: flex;
+  justify-content: flex-end;
 }
 
 /* Empty state messages */

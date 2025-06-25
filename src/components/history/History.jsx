@@ -55,10 +55,13 @@ const History = ({ history, onSelectHistoryItem, currentSelection, onClearHistor
   return (
     <div className="history-list-wrapper">
       <div className="history-header">
+        <div className="header-left"></div>
         <h3>История</h3>
-        <ClearButton 
-          onClick={onClearHistory}
-        />
+        <div className="header-right">
+          <ClearButton 
+            onClick={onClearHistory}
+          />
+        </div>
       </div>
       {history && history.length > 0 ? (
         <ul className="history-list">
