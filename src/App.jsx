@@ -5,6 +5,7 @@ import ChapterList from './components/chapter/ChapterList'
 import VerseList from './components/verse/VerseList'
 import History from './components/history/History'
 import LiveButton from './components/live/LiveButton'
+import FilterBar from './components/filter/FilterBar'
 import { getBookNames, getChapters, getVerses } from './utils/bibleDataLoader'
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
   const [history, setHistory] = useState([])
   const [currentSelection, setCurrentSelection] = useState(null)
   const [apiStatus, setApiStatus] = useState(null) // null, 'sending', 'success', 'error'
+  const [filters, setFilters] = useState({ book: '', chapter: '', verseStart: '', verseEnd: '' })
 
   // Load Bible data on component mount
   useEffect(() => {
@@ -94,6 +96,13 @@ function App() {
     // It will only be reset when the selection changes
   };
 
+  // Handle filter changes
+  const handleFilterChange = (newFilters) => {
+    setFilters(newFilters);
+    // Here you can implement filtering logic based on the new filters
+    // For example, filtering the history items or searching for specific verses
+  };
+
   // Format the current selection for display
   const formatSelection = (selection) => {
     if (!selection?.book || !selection?.chapter || !selection?.verse) {
@@ -170,7 +179,10 @@ function App() {
       </div>
       <div id="row-info">
         <div id="info">
-          {getInfoText()}
+          <FilterBar onFilterChange={handleFilterChange} />
+          <div className="selection-info">
+            {getInfoText()}
+          </div>
         </div>
         <LiveButton 
           verseReference={formatSelection(currentSelection)}

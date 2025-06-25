@@ -60,10 +60,11 @@
   align-items: center;
 }
 
+/* Info div layout */
 #info {
-  flex: 1;
-  text-align: left;
-  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 
 #info.sending {
@@ -170,4 +171,10 @@
 
 .wrapper:hover {
   border-color: #3daee9;
+}
+
+/* Selection info styles */
+.selection-info {
+  padding: 5px 0;
+  margin-left: 20px;
 }

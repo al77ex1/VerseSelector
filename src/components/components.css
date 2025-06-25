@@ -129,3 +129,70 @@
   text-align: center;
   margin-top: 20px;
 }
+
+/* Filter bar styles */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-bar span {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.filter-bar label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.filter-bar input {
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 80px;
+  transition: border-color 0.3s ease;
+}
+
+.filter-bar input.filter-book {
+  width: 200px;
+}
+
+.filter-bar input:hover,
+.filter-bar input:focus {
+  border-color: #3daee9;
+  outline: none;
+}
+
+/* Filter clear button */
+.filter-clear-button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+}
+
+.filter-clear-button:focus {
+  outline: none;
+}
+
+/* Filter clear icon */
+.filter-clear-icon {
+  width: 26px;
+  height: 26px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.filter-clear-button:hover .filter-clear-icon {
+  opacity: 1;
+}
