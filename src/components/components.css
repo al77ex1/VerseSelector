@@ -225,6 +225,8 @@
   margin: 0 0 2px;
   padding: 0;
   list-style: none;
+  display: flex;
+  flex-direction: column;
 }
 
 .book-suggestions div {
@@ -232,6 +234,8 @@
   cursor: pointer;
   transition: background-color 0.2s ease;
   color: #ffffff;
+  width: 100%;
+  text-align: left;
 }
 
 .book-suggestions div.active {

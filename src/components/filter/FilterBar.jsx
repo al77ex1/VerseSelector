@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Combobox } from '@headlessui/react';
+import { Combobox, ComboboxInput, ComboboxOption, ComboboxOptions } from '@headlessui/react';
 import clearIcon from '../../assets/clear.svg';
 import { getBookNames } from '../../utils/bibleDataLoader';
 
@@ -55,21 +55,20 @@ const FilterBar = ({ onFilterChange }) => {
     <div className="filter-bar">
       <span>Фильтр:</span>
       <div className="autocomplete-container">
-        <Combobox value={filters.book} onChange={handleBookSelect}>
+        <Combobox value={filters.book} onChange={handleBookSelect} onClose={() => setBookQuery(filters.book || '')}>
           <div className="combobox-wrapper">
-            {/* @ts-ignore - Ignore the deprecation warning */}
-            <Combobox.Input
+            <ComboboxInput
               className="filter-book"
               placeholder="Книга"
               displayValue={() => filters.book}
               onChange={(event) => setBookQuery(event.target.value)}
             />
-            <Combobox.Options 
+            <ComboboxOptions 
               className="book-suggestions"
               style={{ backgroundColor: '#1B1E20' }}
             >
               {filteredBooks.slice(0, 15).map((book) => (
-                <Combobox.Option
+                <ComboboxOption
                   key={book}
                   value={book}
                   className={({ focus, selected }) =>
@@ -77,12 +76,12 @@ const FilterBar = ({ onFilterChange }) => {
                   }
                 >
                   {book}
-                </Combobox.Option>
+                </ComboboxOption>
               ))}
               {filteredBooks.length === 0 && bookQuery !== '' && (
                 <div className="no-results">Книга не найдена</div>
               )}
-            </Combobox.Options>
+            </ComboboxOptions>
           </div>
         </Combobox>
       </div>
