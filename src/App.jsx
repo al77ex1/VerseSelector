@@ -31,7 +31,6 @@ function App() {
     setVerses([])
     setCurrentSelection({ book })
     setApiStatus(null)
-    setFilters(prev => ({ ...prev, book }))
   }
 
   const handleSelectChapter = (chapter) => {
