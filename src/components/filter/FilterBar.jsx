@@ -131,8 +131,15 @@ const FilterBar = ({ onFilterChange, filters: externalFilters }) => {
     
     // Validate verseEnd
     if (filters.verseEnd) {
-      const verseNum = parseInt(filters.verseEnd, 10);
-      setIsVerseEndValid(!isNaN(verseNum) && availableVerses.includes(verseNum));
+      const verseEndNum = parseInt(filters.verseEnd, 10);
+      const verseStartNum = parseInt(filters.verseStart, 10);
+      
+      // Check if verse end is valid and greater than or equal to verse start
+      const isValidVerseEnd = !isNaN(verseEndNum) && 
+                             availableVerses.includes(verseEndNum) && 
+                             (!filters.verseStart || isNaN(verseStartNum) || verseEndNum >= verseStartNum);
+      
+      setIsVerseEndValid(isValidVerseEnd);
     } else {
       setIsVerseEndValid(true);
     }

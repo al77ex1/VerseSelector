@@ -41,6 +41,12 @@ function App() {
   }
 
   const handleSelectVerse = (verse, verseEnd) => {
+    // Validate verse range - ensure verseEnd is greater than or equal to verse
+    if (verseEnd !== null && verseEnd !== undefined && verse > verseEnd) {
+      // Invalid range - don't update selection or history
+      return;
+    }
+    
     const newSelection = {
       book: selectedBook,
       chapter: selectedChapter,
