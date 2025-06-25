@@ -29,11 +29,8 @@ function App() {
     setChapters(getChapters(book))
     setSelectedChapter(null)
     setVerses([])
-    // Clear the verse selection when changing books
     setCurrentSelection({ book })
-    // Reset API status when selection changes
     setApiStatus(null)
-    // Update filters when book is selected from BookList
     setFilters(prev => ({ ...prev, book }))
   }
 
@@ -41,7 +38,6 @@ function App() {
     setSelectedChapter(chapter)
     setVerses(getVerses(selectedBook, chapter))
     setCurrentSelection({ book: selectedBook, chapter })
-    // Reset API status when selection changes
     setApiStatus(null)
   }
 
@@ -53,7 +49,6 @@ function App() {
       verseEnd: verseEnd
     }
     setCurrentSelection(newSelection)
-    // Reset API status when selection changes
     setApiStatus(null)
     
     // Only add to history if this is a complete selection (single verse or valid range)
@@ -86,16 +81,12 @@ function App() {
     setSelectedChapter(item.chapter)
     setVerses(getVerses(item.book, item.chapter))
     setCurrentSelection(item)
-    // Reset API status when selection changes
     setApiStatus(null)
   }
 
   // Handle API status change from LiveButton
   const handleApiStatusChange = (status) => {
     setApiStatus(status);
-    
-    // We don't reset the status automatically anymore
-    // It will only be reset when the selection changes
   };
 
   // Handle filter changes

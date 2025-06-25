@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Combobox, ComboboxInput, ComboboxOption, ComboboxOptions } from '@headlessui/react';
 import clearIcon from '../../assets/clear.svg';
 import { getBookNames, getChapters } from '../../utils/bibleDataLoader';
+import { allowOnlyNumbers, formatNumberInput } from '../../utils/inputValidation';
 
 const FilterBar = ({ onFilterChange, filters: externalFilters }) => {
   const [filters, setFilters] = useState({
@@ -67,20 +68,34 @@ const FilterBar = ({ onFilterChange, filters: externalFilters }) => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    const updatedFilters = { ...filters, [name]: value };
+    
+    // Apply number formatting for numeric fields
+    let formattedValue = value;
+    if (['chapter', 'verseStart', 'verseEnd'].includes(name)) {
+      formattedValue = formatNumberInput(value);
+    }
+    
+    const updatedFilters = { ...filters, [name]: formattedValue };
     
     // Validate chapter input
     if (name === 'chapter') {
-      if (value === '') {
+      if (formattedValue === '') {
         setIsChapterValid(true);
       } else {
-        const chapterNum = parseInt(value, 10);
+        const chapterNum = parseInt(formattedValue, 10);
         setIsChapterValid(!isNaN(chapterNum) && availableChapters.includes(chapterNum));
       }
     }
     
     setFilters(updatedFilters);
     onFilterChange?.(updatedFilters);
+  };
+  
+  const handleKeyDown = (e) => {
+    const { name } = e.target;
+    if (['chapter', 'verseStart', 'verseEnd'].includes(name)) {
+      allowOnlyNumbers(e);
+    }
   };
   
   const handleBookSelect = (book) => {
@@ -149,6 +164,7 @@ const FilterBar = ({ onFilterChange, filters: externalFilters }) => {
         name="chapter"
         value={filters.chapter}
         onChange={handleInputChange}
+        onKeyDown={handleKeyDown}
         placeholder="Глава"
       />
       <input
@@ -157,6 +173,7 @@ const FilterBar = ({ onFilterChange, filters: externalFilters }) => {
         name="verseStart"
         value={filters.verseStart}
         onChange={handleInputChange}
+        onKeyDown={handleKeyDown}
         placeholder="От стиха"
       />
       <input
@@ -165,6 +182,7 @@ const FilterBar = ({ onFilterChange, filters: externalFilters }) => {
         name="verseEnd"
         value={filters.verseEnd}
         onChange={handleInputChange}
+        onKeyDown={handleKeyDown}
         placeholder="До стиха"
       />
       <button 
