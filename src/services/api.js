@@ -3,13 +3,11 @@
  */
 
 // Base URL for the API
-const API_BASE_URL = 'http://localhost:4316/api/v2/plugins/bibles';
+const API_BASE_URL = (() => {
+  const hostname = window.location.hostname;
+  return `http://${hostname}:4316/api/v2/plugins/bibles`;
+})();
 
-/**
- * Send a verse reference to the Live API endpoint
- * @param {string} verseReference - The verse reference in the format "Book Chapter:Verse-VerseEnd"
- * @returns {Promise} - Promise that resolves when the request is complete
- */
 export const sendVerseToLive = async (verseReference) => {
   try {
     const response = await fetch(`${API_BASE_URL}/live`, {
