@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { getChapters } from '../../utils/bibleDataLoader';
+import { getChapters, getVerses } from '../../utils/bibleDataLoader';
 import BookAutocomplete from './BookAutocomplete';
 import NumericInput from './NumericInput';
 import ClearButton from './ClearButton';
@@ -16,31 +16,81 @@ const FilterBar = ({ onFilterChange, filters: externalFilters }) => {
     verseEnd: ''
   });
   const [isChapterValid, setIsChapterValid] = useState(true);
+  const [isVerseStartValid, setIsVerseStartValid] = useState(true);
+  const [isVerseEndValid, setIsVerseEndValid] = useState(true);
   const [availableChapters, setAvailableChapters] = useState([]);
+  const [availableVerses, setAvailableVerses] = useState([]);
+  
+  // Helper function to update chapters data when book changes
+  const updateChaptersForBook = (book) => {
+    const chaptersData = getChapters(book);
+    if (!chaptersData) {
+      resetChaptersAndVerses();
+      return;
+    }
+    
+    const chapterNumbers = chaptersData.map(c => c.chapter.number);
+    setAvailableChapters(chapterNumbers);
+    return chapterNumbers;
+  };
+  
+  // Helper function to validate chapter and update verses
+  const validateChapterAndUpdateVerses = (chapter, book, chapterNumbers) => {
+    if (!chapter) {
+      setIsChapterValid(true);
+      setAvailableVerses([]);
+      return;
+    }
+    
+    const chapterNum = parseInt(chapter, 10);
+    const isValid = !isNaN(chapterNum) && chapterNumbers.includes(chapterNum);
+    setIsChapterValid(isValid);
+    
+    if (isValid) {
+      updateAvailableVerses(book, chapterNum);
+    } else {
+      setAvailableVerses([]);
+    }
+  };
+  
+  // Helper function to reset chapters and verses
+  const resetChaptersAndVerses = () => {
+    setAvailableChapters([]);
+    setAvailableVerses([]);
+    setIsChapterValid(true);
+  };
   
   // Update available chapters when book changes
   useEffect(() => {
-    if (filters.book) {
-      const chaptersData = getChapters(filters.book);
-      if (chaptersData) {
-        const chapterNumbers = chaptersData.map(c => c.chapter.number);
-        setAvailableChapters(chapterNumbers);
-        
-        // Validate current chapter input if it exists
-        if (filters.chapter) {
-          const chapterNum = parseInt(filters.chapter, 10);
-          setIsChapterValid(!isNaN(chapterNum) && chapterNumbers.includes(chapterNum));
-        } else {
-          setIsChapterValid(true);
-        }
-      } else {
-        setAvailableChapters([]);
-      }
-    } else {
-      setAvailableChapters([]);
-      setIsChapterValid(true);
+    if (!filters.book) {
+      resetChaptersAndVerses();
+      return;
+    }
+    
+    const chapterNumbers = updateChaptersForBook(filters.book);
+    if (chapterNumbers) {
+      validateChapterAndUpdateVerses(filters.chapter, filters.book, chapterNumbers);
     }
   }, [filters.book]);
+
+  // Update available verses when chapter changes
+  useEffect(() => {
+    if (filters.book && filters.chapter) {
+      const chapterNum = parseInt(filters.chapter, 10);
+      if (!isNaN(chapterNum) && availableChapters.includes(chapterNum)) {
+        updateAvailableVerses(filters.book, chapterNum);
+      } else {
+        setAvailableVerses([]);
+      }
+    } else {
+      setAvailableVerses([]);
+    }
+  }, [filters.chapter, availableChapters]);
+
+  // Validate verse inputs when available verses change
+  useEffect(() => {
+    validateVerseInputs();
+  }, [availableVerses, filters.verseStart, filters.verseEnd]);
 
   // Sync with external filters when they change
   useEffect(() => {
@@ -53,11 +103,40 @@ const FilterBar = ({ onFilterChange, filters: externalFilters }) => {
         if (chaptersData) {
           const chapterNumbers = chaptersData.map(c => c.chapter.number);
           const chapterNum = parseInt(externalFilters.chapter, 10);
-          setIsChapterValid(!isNaN(chapterNum) && chapterNumbers.includes(chapterNum));
+          const isChapterValid = !isNaN(chapterNum) && chapterNumbers.includes(chapterNum);
+          setIsChapterValid(isChapterValid);
+          
+          // Update available verses if chapter is valid
+          if (isChapterValid) {
+            updateAvailableVerses(externalFilters.book, chapterNum);
+          }
         }
       }
     }
   }, [externalFilters]);
+
+  const updateAvailableVerses = (book, chapter) => {
+    const verses = getVerses(book, chapter);
+    setAvailableVerses(verses);
+  };
+
+  const validateVerseInputs = () => {
+    // Validate verseStart
+    if (filters.verseStart) {
+      const verseNum = parseInt(filters.verseStart, 10);
+      setIsVerseStartValid(!isNaN(verseNum) && availableVerses.includes(verseNum));
+    } else {
+      setIsVerseStartValid(true);
+    }
+    
+    // Validate verseEnd
+    if (filters.verseEnd) {
+      const verseNum = parseInt(filters.verseEnd, 10);
+      setIsVerseEndValid(!isNaN(verseNum) && availableVerses.includes(verseNum));
+    } else {
+      setIsVerseEndValid(true);
+    }
+  };
 
   const handleInputChange = (name, value) => {
     const updatedFilters = { ...filters, [name]: value };
@@ -66,6 +145,9 @@ const FilterBar = ({ onFilterChange, filters: externalFilters }) => {
     if (name === 'chapter') {
       if (value === '') {
         setIsChapterValid(true);
+        // Clear verse inputs when chapter is cleared
+        updatedFilters.verseStart = '';
+        updatedFilters.verseEnd = '';
       } else {
         const chapterNum = parseInt(value, 10);
         setIsChapterValid(!isNaN(chapterNum) && availableChapters.includes(chapterNum));
@@ -77,7 +159,7 @@ const FilterBar = ({ onFilterChange, filters: externalFilters }) => {
   };
   
   const handleBookSelect = (book) => {
-    const updatedFilters = { ...filters, book, chapter: '' };
+    const updatedFilters = { ...filters, book, chapter: '', verseStart: '', verseEnd: '' };
     setFilters(updatedFilters);
     onFilterChange?.(updatedFilters);
   };
@@ -91,6 +173,8 @@ const FilterBar = ({ onFilterChange, filters: externalFilters }) => {
     };
     setFilters(clearedFilters);
     setIsChapterValid(true);
+    setIsVerseStartValid(true);
+    setIsVerseEndValid(true);
     onFilterChange?.(clearedFilters);
   };
 
@@ -115,6 +199,7 @@ const FilterBar = ({ onFilterChange, filters: externalFilters }) => {
         value={filters.verseStart}
         onChange={handleInputChange}
         placeholder="От стиха"
+        isInvalid={!isVerseStartValid}
       />
       <NumericInput
         className="filter-verse-to"
@@ -122,6 +207,7 @@ const FilterBar = ({ onFilterChange, filters: externalFilters }) => {
         value={filters.verseEnd}
         onChange={handleInputChange}
         placeholder="До стиха"
+        isInvalid={!isVerseEndValid}
       />
       <ClearButton onClick={handleClearFilters} />
     </div>

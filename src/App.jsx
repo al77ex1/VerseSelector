@@ -89,26 +89,69 @@ function App() {
     setApiStatus(status);
   };
 
+  // Handle book filter changes
+  const handleBookFilterChange = (newBook, oldBook) => {
+    if (newBook !== oldBook && newBook) {
+      handleSelectBook(newBook);
+    }
+  };
+
+  // Handle chapter filter changes
+  const handleChapterFilterChange = (newChapter, oldChapter, book) => {
+    if (newChapter !== oldChapter && newChapter && book) {
+      const chapterNum = parseInt(newChapter, 10);
+      if (isValidChapter(chapterNum, chapters)) {
+        handleSelectChapter(chapterNum);
+      }
+    }
+  };
+
+  // Check if a chapter number is valid
+  const isValidChapter = (chapterNum, chaptersData) => {
+    return !isNaN(chapterNum) && chaptersData?.some(c => c.chapter.number === chapterNum);
+  };
+
+  // Handle verse filter changes
+  const handleVerseFilterChange = (verseStart, verseEnd) => {
+    // Only proceed if we have all required fields filled
+    if (!selectedBook || !selectedChapter || verses.length === 0 || 
+        !verseStart) {
+      return;
+    }
+
+    const parsedVerseStart = verseStart ? parseInt(verseStart, 10) : null;
+    const parsedVerseEnd = verseEnd ? parseInt(verseEnd, 10) : null;
+    
+    // Only update selection if all required fields are filled and valid
+    if (isValidVerseSelection(parsedVerseStart, parsedVerseEnd)) {
+      selectVerses(parsedVerseStart, parsedVerseEnd);
+    }
+  };
+
+  // Check if verse selection is valid
+  const isValidVerseSelection = (verseStart, verseEnd) => {
+    const isValidStart = verseStart !== null && !isNaN(verseStart) && verses.includes(verseStart);
+    const isValidEnd = verseEnd === null || (verseEnd !== null && !isNaN(verseEnd) && verses.includes(verseEnd));
+    return isValidStart && isValidEnd;
+  };
+
+  // Select verses based on input
+  const selectVerses = (verseStart, verseEnd) => {
+    if (verseEnd !== null && verseStart !== verseEnd) {
+      handleSelectVerse(verseStart, verseEnd);
+    } else {
+      handleSelectVerse(verseStart, null);
+    }
+  };
+
   // Handle filter changes
   const handleFilterChange = (newFilters) => {
     setFilters(newFilters);
     
-    // If book filter changed, update the selected book
-    if (newFilters.book !== filters.book && newFilters.book) {
-      handleSelectBook(newFilters.book);
-    }
-    
-    // If chapter filter changed, update the selected chapter
-    if (newFilters.chapter !== filters.chapter && newFilters.chapter && selectedBook) {
-      const chapterNum = parseInt(newFilters.chapter, 10);
-      if (!isNaN(chapterNum) && chapters) {
-        // Check if the chapter exists in the chapters array
-        const chapterExists = chapters.some(c => c.chapter.number === chapterNum);
-        if (chapterExists) {
-          handleSelectChapter(chapterNum);
-        }
-      }
-    }
+    // Process book, chapter and verse changes
+    handleBookFilterChange(newFilters.book, filters.book);
+    handleChapterFilterChange(newFilters.chapter, filters.chapter, selectedBook);
+    handleVerseFilterChange(newFilters.verseStart, newFilters.verseEnd);
   };
 
   // Format the current selection for display

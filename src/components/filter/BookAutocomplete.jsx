@@ -17,9 +17,7 @@ const BookAutocomplete = ({ value, onChange }) => {
 
   // Update query when external value changes
   useEffect(() => {
-    if (value) {
-      setQuery(value);
-    }
+    setQuery(value || '');
   }, [value]);
 
   const filteredBooks = 
@@ -40,7 +38,7 @@ const BookAutocomplete = ({ value, onChange }) => {
           <ComboboxInput
             className="filter-book"
             placeholder="Книга"
-            displayValue={() => value}
+            displayValue={() => value || ''}
             onChange={(event) => setQuery(event.target.value)}
           />
           <ComboboxOptions 
@@ -69,8 +67,12 @@ const BookAutocomplete = ({ value, onChange }) => {
 };
 
 BookAutocomplete.propTypes = {
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
   onChange: PropTypes.func.isRequired
+};
+
+BookAutocomplete.defaultProps = {
+  value: ''
 };
 
 export default BookAutocomplete;
