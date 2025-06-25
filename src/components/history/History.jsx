@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import '../components.css';
+import ClearButton from '../common/ClearButton';
 
 /**
  * History component displays the history of selected verses
  */
-const History = ({ history, onSelectHistoryItem, currentSelection }) => {
+const History = ({ history, onSelectHistoryItem, currentSelection, onClearHistory }) => {
   const [selectedItem, setSelectedItem] = useState(null);
 
   // Find the index of the current selection in history
@@ -52,10 +53,15 @@ const History = ({ history, onSelectHistoryItem, currentSelection }) => {
   };
 
   return (
-    <div className="history-list">
-      <h3>История</h3>
+    <div className="history-list-wrapper">
+      <div className="history-header">
+        <h3>История</h3>
+        <ClearButton 
+          onClick={onClearHistory}
+        />
+      </div>
       {history && history.length > 0 ? (
-        <ul>
+        <ul className="history-list">
           {history.map((item, index) => (
             <li key={generateHistoryItemKey(item)}>
               <button
@@ -86,6 +92,7 @@ History.propTypes = {
     })
   ),
   onSelectHistoryItem: PropTypes.func.isRequired,
+  onClearHistory: PropTypes.func,
   currentSelection: PropTypes.shape({
     book: PropTypes.string,
     chapter: PropTypes.number,
@@ -97,7 +104,8 @@ History.propTypes = {
 // Default props
 History.defaultProps = {
   history: [],
-  currentSelection: null
+  currentSelection: null,
+  onClearHistory: () => {}
 };
 
 export default History;

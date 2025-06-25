@@ -4,7 +4,7 @@
 .book-list ul,
 .chapter-list ul,
 .verse-list ul,
-.history-list ul {
+.history-list-wrapper ul {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -124,7 +124,7 @@
 .book-list p,
 .chapter-list p,
 .verse-list p,
-.history-list p {
+.history-list-wrapper p {
   color: #888;
   font-style: italic;
   text-align: center;

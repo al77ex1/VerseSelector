@@ -6,17 +6,15 @@ import clearIcon from '../../assets/clear.svg';
  */
 const ClearButton = ({ onClick }) => {
   return (
-    <button 
+    <button
       type="button"
-      className="filter-clear-button" 
+      className="filter-clear-button"
       onClick={onClick}
-      title="Очистить фильтры"
-      aria-label="Очистить фильтры"
     >
-      <img 
-        src={clearIcon} 
-        alt="" 
-        className="filter-clear-icon" 
+      <img
+        src={clearIcon}
+        alt=""
+        className="filter-clear-icon"
       />
     </button>
   );

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { getChapters, getVerses } from '../../utils/bibleDataLoader';
 import BookAutocomplete from './BookAutocomplete';
 import NumericInput from './NumericInput';
-import ClearButton from './ClearButton';
+import ClearButton from '../common/ClearButton';
 
 /**
  * FilterBar component for Bible verse selection

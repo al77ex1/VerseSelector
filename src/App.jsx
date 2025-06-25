@@ -109,7 +109,12 @@ function App() {
     setVerses(getVerses(item.book, item.chapter))
     setCurrentSelection(item)
     setApiStatus(null)
-  }
+  };
+
+  const handleClearHistory = () => {
+    setHistory([]);
+    setCurrentSelection(null);
+  };
 
   // Handle API status change from LiveButton
   const handleApiStatusChange = (status) => {
@@ -250,7 +255,8 @@ function App() {
             <History 
               history={history} 
               onSelectHistoryItem={handleSelectHistoryItem} 
-              currentSelection={currentSelection} 
+              currentSelection={currentSelection}
+              onClearHistory={handleClearHistory}
             />
           </div>
         </div>
