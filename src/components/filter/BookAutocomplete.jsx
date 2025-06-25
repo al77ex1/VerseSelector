@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Combobox, ComboboxInput, ComboboxOption, ComboboxOptions } from '@headlessui/react';
 import { getBookNames } from '../../utils/bibleDataLoader';
@@ -9,6 +9,7 @@ import { getBookNames } from '../../utils/bibleDataLoader';
 const BookAutocomplete = ({ value, onChange }) => {
   const [query, setQuery] = useState('');
   const [books, setBooks] = useState([]);
+  const inputRef = useRef(null);
   
   // Load book names on component mount
   useEffect(() => {
@@ -18,6 +19,11 @@ const BookAutocomplete = ({ value, onChange }) => {
   // Update query when external value changes
   useEffect(() => {
     setQuery(value || '');
+    
+    // Force input value update when value is cleared
+    if (!value && inputRef.current) {
+      inputRef.current.value = '';
+    }
   }, [value]);
 
   const filteredBooks = 
@@ -30,16 +36,36 @@ const BookAutocomplete = ({ value, onChange }) => {
   const handleSelect = (book) => {
     onChange(book);
   };
+  
+  const handleInputChange = (event) => {
+    setQuery(event.target.value);
+    
+    // If input is cleared manually, also clear the selected value
+    if (event.target.value === '' && value) {
+      onChange('');
+    }
+  };
 
   return (
     <div className="autocomplete-container">
-      <Combobox value={value} onChange={handleSelect} onClose={() => setQuery(value || '')}>
+      <Combobox value={value} onChange={handleSelect}>
         <div className="combobox-wrapper">
           <ComboboxInput
+            ref={inputRef}
             className="filter-book"
             placeholder="Книга"
             displayValue={() => value || ''}
-            onChange={(event) => setQuery(event.target.value)}
+            onChange={handleInputChange}
+            onBlur={() => {
+              // Ensure value and query are in sync on blur
+              if (query !== value) {
+                if (query === '') {
+                  onChange('');
+                } else if (!books.includes(query)) {
+                  setQuery(value || '');
+                }
+              }
+            }}
           />
           <ComboboxOptions 
             className="book-suggestions"
@@ -66,11 +92,13 @@ const BookAutocomplete = ({ value, onChange }) => {
   );
 };
 
+// Prop types validation
 BookAutocomplete.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func.isRequired
 };
 
+// Default props
 BookAutocomplete.defaultProps = {
   value: ''
 };
