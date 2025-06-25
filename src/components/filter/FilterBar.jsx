@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Combobox, ComboboxInput, ComboboxOption, ComboboxOptions } from '@headlessui/react';
-import clearIcon from '../../assets/clear.svg';
-import { getBookNames, getChapters } from '../../utils/bibleDataLoader';
-import { allowOnlyNumbers, formatNumberInput } from '../../utils/inputValidation';
+import { getChapters } from '../../utils/bibleDataLoader';
+import BookAutocomplete from './BookAutocomplete';
+import NumericInput from './NumericInput';
+import ClearButton from './ClearButton';
 
+/**
+ * FilterBar component for Bible verse selection
+ */
 const FilterBar = ({ onFilterChange, filters: externalFilters }) => {
   const [filters, setFilters] = useState({
     book: '',
@@ -12,16 +15,9 @@ const FilterBar = ({ onFilterChange, filters: externalFilters }) => {
     verseStart: '',
     verseEnd: ''
   });
-  const [bookQuery, setBookQuery] = useState('');
-  const [books, setBooks] = useState([]);
   const [isChapterValid, setIsChapterValid] = useState(true);
   const [availableChapters, setAvailableChapters] = useState([]);
   
-  // Load book names on component mount
-  useEffect(() => {
-    setBooks(getBookNames());
-  }, []);
-
   // Update available chapters when book changes
   useEffect(() => {
     if (filters.book) {
@@ -50,52 +46,34 @@ const FilterBar = ({ onFilterChange, filters: externalFilters }) => {
   useEffect(() => {
     if (externalFilters) {
       setFilters(externalFilters);
-      if (externalFilters.book) {
-        setBookQuery(externalFilters.book);
-        
-        // Validate chapter when external filters change
-        if (externalFilters.chapter) {
-          const chaptersData = getChapters(externalFilters.book);
-          if (chaptersData) {
-            const chapterNumbers = chaptersData.map(c => c.chapter.number);
-            const chapterNum = parseInt(externalFilters.chapter, 10);
-            setIsChapterValid(!isNaN(chapterNum) && chapterNumbers.includes(chapterNum));
-          }
+      
+      // Validate chapter when external filters change
+      if (externalFilters.book && externalFilters.chapter) {
+        const chaptersData = getChapters(externalFilters.book);
+        if (chaptersData) {
+          const chapterNumbers = chaptersData.map(c => c.chapter.number);
+          const chapterNum = parseInt(externalFilters.chapter, 10);
+          setIsChapterValid(!isNaN(chapterNum) && chapterNumbers.includes(chapterNum));
         }
       }
     }
   }, [externalFilters]);
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    
-    // Apply number formatting for numeric fields
-    let formattedValue = value;
-    if (['chapter', 'verseStart', 'verseEnd'].includes(name)) {
-      formattedValue = formatNumberInput(value);
-    }
-    
-    const updatedFilters = { ...filters, [name]: formattedValue };
+  const handleInputChange = (name, value) => {
+    const updatedFilters = { ...filters, [name]: value };
     
     // Validate chapter input
     if (name === 'chapter') {
-      if (formattedValue === '') {
+      if (value === '') {
         setIsChapterValid(true);
       } else {
-        const chapterNum = parseInt(formattedValue, 10);
+        const chapterNum = parseInt(value, 10);
         setIsChapterValid(!isNaN(chapterNum) && availableChapters.includes(chapterNum));
       }
     }
     
     setFilters(updatedFilters);
     onFilterChange?.(updatedFilters);
-  };
-  
-  const handleKeyDown = (e) => {
-    const { name } = e.target;
-    if (['chapter', 'verseStart', 'verseEnd'].includes(name)) {
-      allowOnlyNumbers(e);
-    }
   };
   
   const handleBookSelect = (book) => {
@@ -112,92 +90,40 @@ const FilterBar = ({ onFilterChange, filters: externalFilters }) => {
       verseEnd: ''
     };
     setFilters(clearedFilters);
-    setBookQuery('');
     setIsChapterValid(true);
     onFilterChange?.(clearedFilters);
   };
 
-  const filteredBooks = 
-    bookQuery === ''
-      ? books
-      : books.filter((book) =>
-          book.toLowerCase().includes(bookQuery.toLowerCase())
-        );
-
   return (
     <div className="filter-bar">
       <span>Фильтр:</span>
-      <div className="autocomplete-container">
-        <Combobox value={filters.book} onChange={handleBookSelect} onClose={() => setBookQuery(filters.book || '')}>
-          <div className="combobox-wrapper">
-            <ComboboxInput
-              className="filter-book"
-              placeholder="Книга"
-              displayValue={() => filters.book}
-              onChange={(event) => setBookQuery(event.target.value)}
-            />
-            <ComboboxOptions 
-              className="book-suggestions"
-              style={{ backgroundColor: '#1B1E20' }}
-            >
-              {filteredBooks.slice(0, 15).map((book) => (
-                <ComboboxOption
-                  key={book}
-                  value={book}
-                  className={({ focus, selected }) =>
-                    `${focus ? 'active' : ''} ${selected ? 'selected' : ''}`
-                  }
-                >
-                  {book}
-                </ComboboxOption>
-              ))}
-              {filteredBooks.length === 0 && bookQuery !== '' && (
-                <div className="no-results">Книга не найдена</div>
-              )}
-            </ComboboxOptions>
-          </div>
-        </Combobox>
-      </div>
-      <input
-        className={`filter-chapter ${!isChapterValid ? 'invalid' : ''}`}
-        type="text"
+      <BookAutocomplete 
+        value={filters.book} 
+        onChange={handleBookSelect} 
+      />
+      <NumericInput
+        className="filter-chapter"
         name="chapter"
         value={filters.chapter}
         onChange={handleInputChange}
-        onKeyDown={handleKeyDown}
         placeholder="Глава"
+        isInvalid={!isChapterValid}
       />
-      <input
+      <NumericInput
         className="filter-verse-from"
-        type="text"
         name="verseStart"
         value={filters.verseStart}
         onChange={handleInputChange}
-        onKeyDown={handleKeyDown}
         placeholder="От стиха"
       />
-      <input
+      <NumericInput
         className="filter-verse-to"
-        type="text"
         name="verseEnd"
         value={filters.verseEnd}
         onChange={handleInputChange}
-        onKeyDown={handleKeyDown}
         placeholder="До стиха"
       />
-      <button 
-        type="button"
-        className="filter-clear-button" 
-        onClick={handleClearFilters}
-        title="Очистить фильтры"
-        aria-label="Очистить фильтры"
-      >
-        <img 
-          src={clearIcon} 
-          alt="" 
-          className="filter-clear-icon" 
-        />
-      </button>
+      <ClearButton onClick={handleClearFilters} />
     </div>
   );
 };
