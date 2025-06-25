@@ -150,22 +150,32 @@
 }
 
 .filter-bar input {
-  padding: 4px 8px;
+  padding: 8px 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 14px;
-  width: 80px;
-  transition: border-color 0.3s ease;
+  width: 100px;
+  margin-right: 5px;
 }
 
-.filter-bar input.filter-book {
-  width: 200px;
+.filter-bar input.invalid {
+  border-color: #e74c3c;
 }
 
-.filter-bar input:hover,
-.filter-bar input:focus {
-  border-color: #3daee9;
+.filter-bar input.invalid:hover,
+.filter-bar input.invalid:focus {
+  border-color: #e74c3c;
   outline: none;
+}
+
+.filter-bar input:hover:not(.invalid),
+.filter-bar input:focus:not(.invalid) {
+  border-color: #3498db;
+  outline: none;
+}
+
+.filter-book {
+  width: 200px !important;
 }
 
 /* Filter clear button */

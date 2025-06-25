@@ -110,8 +110,12 @@ function App() {
     // If chapter filter changed, update the selected chapter
     if (newFilters.chapter !== filters.chapter && newFilters.chapter && selectedBook) {
       const chapterNum = parseInt(newFilters.chapter, 10);
-      if (!isNaN(chapterNum) && chapters?.includes(chapterNum)) {
-        handleSelectChapter(chapterNum);
+      if (!isNaN(chapterNum) && chapters) {
+        // Check if the chapter exists in the chapters array
+        const chapterExists = chapters.some(c => c.chapter.number === chapterNum);
+        if (chapterExists) {
+          handleSelectChapter(chapterNum);
+        }
       }
     }
   };
