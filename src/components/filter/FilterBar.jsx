@@ -4,7 +4,7 @@ import { Combobox, ComboboxInput, ComboboxOption, ComboboxOptions } from '@headl
 import clearIcon from '../../assets/clear.svg';
 import { getBookNames } from '../../utils/bibleDataLoader';
 
-const FilterBar = ({ onFilterChange }) => {
+const FilterBar = ({ onFilterChange, filters: externalFilters }) => {
   const [filters, setFilters] = useState({
     book: '',
     chapter: '',
@@ -18,6 +18,16 @@ const FilterBar = ({ onFilterChange }) => {
   useEffect(() => {
     setBooks(getBookNames());
   }, []);
+
+  // Sync with external filters when they change
+  useEffect(() => {
+    if (externalFilters) {
+      setFilters(externalFilters);
+      if (externalFilters.book) {
+        setBookQuery(externalFilters.book);
+      }
+    }
+  }, [externalFilters]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -128,12 +138,24 @@ const FilterBar = ({ onFilterChange }) => {
 
 // Prop types validation
 FilterBar.propTypes = {
-  onFilterChange: PropTypes.func
+  onFilterChange: PropTypes.func,
+  filters: PropTypes.shape({
+    book: PropTypes.string,
+    chapter: PropTypes.string,
+    verseStart: PropTypes.string,
+    verseEnd: PropTypes.string
+  })
 };
 
 // Default props
 FilterBar.defaultProps = {
-  onFilterChange: null
+  onFilterChange: null,
+  filters: {
+    book: '',
+    chapter: '',
+    verseStart: '',
+    verseEnd: ''
+  }
 };
 
 export default FilterBar;

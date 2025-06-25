@@ -33,6 +33,8 @@ function App() {
     setCurrentSelection({ book })
     // Reset API status when selection changes
     setApiStatus(null)
+    // Update filters when book is selected from BookList
+    setFilters(prev => ({ ...prev, book }))
   }
 
   const handleSelectChapter = (chapter) => {
@@ -99,8 +101,19 @@ function App() {
   // Handle filter changes
   const handleFilterChange = (newFilters) => {
     setFilters(newFilters);
-    // Here you can implement filtering logic based on the new filters
-    // For example, filtering the history items or searching for specific verses
+    
+    // If book filter changed, update the selected book
+    if (newFilters.book !== filters.book && newFilters.book) {
+      handleSelectBook(newFilters.book);
+    }
+    
+    // If chapter filter changed, update the selected chapter
+    if (newFilters.chapter !== filters.chapter && newFilters.chapter && selectedBook) {
+      const chapterNum = parseInt(newFilters.chapter, 10);
+      if (!isNaN(chapterNum) && chapters?.includes(chapterNum)) {
+        handleSelectChapter(chapterNum);
+      }
+    }
   };
 
   // Format the current selection for display
@@ -179,7 +192,7 @@ function App() {
       </div>
       <div id="row-info">
         <div id="info">
-          <FilterBar onFilterChange={handleFilterChange} />
+          <FilterBar onFilterChange={handleFilterChange} filters={filters} />
           <div className="selection-info">
             {getInfoText()}
           </div>
