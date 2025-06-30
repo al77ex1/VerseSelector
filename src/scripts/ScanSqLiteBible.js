@@ -1,14 +1,23 @@
-const dbPath = '/home/alex/.local/share/openlp/bibles/RST.sqlite'; // Замените на путь к БД
-
+// Import required modules
+import dotenv from 'dotenv';
 import sqlite3 from 'sqlite3';
 import { open } from 'sqlite';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-// Get the directory name of the current module
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+dotenv.config({ path: path.resolve(__dirname, '../../.env') });
+const dbPath = process.env.DB_PATH;
+
+if (!dbPath) {
+  console.error('Error: DB_PATH not found in .env file');
+  process.exit(1);
+}
+
+console.log('Using database path:', dbPath);
 
 // Открытие соединения с БД
 async function openDb() {
