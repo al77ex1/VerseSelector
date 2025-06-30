@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "index-bible": "node scripts/IndexBibleToElasticsearch.js",
+    "scan-bible": "node scripts/ScanSqLiteBible.js"
   },
   "dependencies": {
     "@elastic/elasticsearch": "^7.17.0",

@@ -9,7 +9,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-dotenv.config({ path: path.resolve(__dirname, '../../.env') });
+dotenv.config({ path: path.resolve(__dirname, '../.env') });
 const dbPath = process.env.DB_PATH;
 
 if (!dbPath) {
@@ -66,7 +66,13 @@ async function buildBibleSummary(db) {
 
 // Основная функция
 async function main() {
-  const outputPath = path.join(__dirname, '../data/bible_summary.json');
+  // Создаем директорию для данных, если она не существует
+  const dataDir = path.join(__dirname, '../src/data');
+  if (!fs.existsSync(dataDir)) {
+    fs.mkdirSync(dataDir, { recursive: true });
+  }
+  
+  const outputPath = path.join(dataDir, 'bible_summary.json');
 
   const db = await openDb();
   try {
