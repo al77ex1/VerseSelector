@@ -3,7 +3,7 @@
  * Loads and processes the Bible summary data from the JSON file
  */
 
-import bibleData from '../../bible_summary.json';
+import bibleData from '../data/bible_summary.json';
 
 /**
  * Get the complete Bible data

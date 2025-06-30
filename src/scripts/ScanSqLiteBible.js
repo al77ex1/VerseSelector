@@ -1,8 +1,14 @@
 const dbPath = '/home/alex/.local/share/openlp/bibles/RST.sqlite'; // Замените на путь к БД
 
-const sqlite3 = require('sqlite3');
-const { open } = require('sqlite');
-const fs = require('fs');
+import sqlite3 from 'sqlite3';
+import { open } from 'sqlite';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// Get the directory name of the current module
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Открытие соединения с БД
 async function openDb() {
@@ -51,7 +57,7 @@ async function buildBibleSummary(db) {
 
 // Основная функция
 async function main() {
-  const outputPath = 'bible_summary.json';
+  const outputPath = path.join(__dirname, '../data/bible_summary.json');
 
   const db = await openDb();
   try {
