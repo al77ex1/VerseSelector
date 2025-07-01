@@ -13,7 +13,7 @@ import '../components.css';
 /**
  * Accordion component that toggles between two panels using react-accordion
  */
-const Accordion = ({ previewPanel, historyPanel, onClearHistory }) => {
+const Accordion = ({ previewPanel, historyPanel, searchPanel, onClearHistory }) => {
   // Используем хук для создания провайдера аккордеона
   const providerValue = useAccordionProvider({
     transition: true,
@@ -34,6 +34,16 @@ const Accordion = ({ previewPanel, historyPanel, onClearHistory }) => {
           className="preview-section"
         >
           {previewPanel}
+        </AccordionItem>
+        
+        {/* Блок Поиск в середине */}
+        <AccordionItem 
+          header="Поиск"
+          itemKey="search"
+          initialEntered={false}
+          className="search-section"
+        >
+          {searchPanel}
         </AccordionItem>
         
         {/* Блок История всегда внизу */}
@@ -127,6 +137,7 @@ const AccordionItem = ({ header, children, itemKey, initialEntered, disabled, he
 Accordion.propTypes = {
   previewPanel: PropTypes.node.isRequired,
   historyPanel: PropTypes.node.isRequired,
+  searchPanel: PropTypes.node.isRequired,
   onClearHistory: PropTypes.func
 };
 

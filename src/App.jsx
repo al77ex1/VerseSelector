@@ -6,6 +6,7 @@ import VerseList from './components/verse/VerseList'
 import Accordion from './components/accordion/Accordion'
 import Preview from './components/preview/Preview'
 import History from './components/history/History'
+import Search from './components/search/Search'
 import LiveButton from './components/live/LiveButton'
 import FilterBar from './components/filter/FilterBar'
 import { getBookNames, getChapters, getVerses, getVerseText } from './utils/bibleDataLoader'
@@ -190,6 +191,47 @@ function App() {
     focusLiveButton();
   };
 
+  // Handle search result selection
+  const handleSearchResult = (result) => {
+    // Parse the reference to extract book, chapter, and verse
+    try {
+      const parts = result.reference.split(' ');
+      const book = parts[0];
+      const chapterVerse = parts[1].split(':');
+      const chapter = parseInt(chapterVerse[0], 10);
+      const verse = parseInt(chapterVerse[1], 10);
+      
+      // Set the selection
+      setSelectedBook(book);
+      setChapters(getChapters(book));
+      setSelectedChapter(chapter);
+      setVerses(getVerses(book, chapter));
+      
+      const newSelection = {
+        book,
+        chapter,
+        verse,
+        verseEnd: null
+      };
+      
+      setCurrentSelection(newSelection);
+      
+      // Update filters
+      const updatedFilters = {
+        book,
+        chapter: String(chapter),
+        verseStart: String(verse),
+        verseEnd: ''
+      };
+      setFilters(updatedFilters);
+      
+      // Focus on Live button
+      focusLiveButton();
+    } catch (error) {
+      console.error('Ошибка при обработке результата поиска:', error);
+    }
+  };
+
   const handleClearHistory = () => {
     setHistory([]);
     setCurrentSelection(null);
@@ -336,6 +378,11 @@ function App() {
                 <Preview 
                   currentSelection={currentSelection}
                   verseText={currentVerseText}
+                />
+              }
+              searchPanel={
+                <Search 
+                  onSearchResult={handleSearchResult}
                 />
               }
               historyPanel={
