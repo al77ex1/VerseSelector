@@ -9,9 +9,6 @@ import { sendVerseToLive } from './openLPService';
 // Import from Elasticsearch service
 import { searchVerses, checkElasticsearchStatus } from './elasticsearchService';
 
-// Import from SQLite service
-import { getVerses } from './sqliteService';
-
 // Export all API methods
 export {
   // OpenLP API
@@ -21,6 +18,4 @@ export {
   searchVerses,
   checkElasticsearchStatus,
   
-  // SQLite API
-  getVerses
 };
