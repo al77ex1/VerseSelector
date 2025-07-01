@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { sendVerseToLive } from '../../services/api';
 import '../../App.css';
@@ -31,6 +31,22 @@ const LiveButton = ({ verseReference, disabled, onStatusChange }) => {
       console.error('Error in LiveButton:', error);
     }
   };
+
+  // Add event listener for Enter key to trigger the Live button
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'Enter' && !disabled && !isSending && verseReference) {
+        handleClick();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    
+    // Clean up the event listener when component unmounts
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [disabled, isSending, verseReference]); // Dependencies to re-add listener when these change
 
   return (
     <button 
