@@ -551,7 +551,7 @@
 
 .search-result-item {
   padding: 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #2a2e32;
 }
 
 .search-result-button {
@@ -563,30 +563,25 @@
   border: none;
   cursor: pointer;
   transition: background-color 0.2s;
+  border-radius: 0;
 }
 
-.search-result-button:hover {
-  background-color: #f5f5f5;
-}
-
-.search-result-button:active {
-  background-color: #e5e5e5;
-}
-
+.search-result-button:hover,
+.search-result-button:active,
 .search-result-button:focus {
-  outline: 2px solid #3daee9;
-  outline-offset: -2px;
+  outline: 1px solid #3daee9;
+  outline-offset: -1px;
+  background-color: rgba(61, 174, 233, 0.1);
 }
 
 .search-result-reference {
   font-weight: bold;
-  margin-bottom: 4px;
-  color: #4a76a8;
+  margin-top: 10px;
 }
 
 .search-result-text {
-  font-size: 14px;
-  color: #333;
+  font-weight: normal;
+  margin-top: 10px;
 }
 
 .search-no-results {
