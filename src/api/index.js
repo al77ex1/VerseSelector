@@ -10,7 +10,7 @@ import { sendVerseToLive } from './openLPService';
 import { searchVerses, checkElasticsearchStatus } from './elasticsearchService';
 
 // Import from SQLite service
-import { executeQuery } from './sqliteService';
+import { getVerses } from './sqliteService';
 
 // Export all API methods
 export {
@@ -22,5 +22,5 @@ export {
   checkElasticsearchStatus,
   
   // SQLite API
-  executeQuery
+  getVerses
 };
