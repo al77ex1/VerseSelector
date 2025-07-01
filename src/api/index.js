@@ -4,10 +4,13 @@
  */
 
 // Import from OpenLP API
-import { sendVerseToLive } from './openLP';
+import { sendVerseToLive } from './openLPService';
 
 // Import from Elasticsearch service
-import { searchVerses, checkElasticsearchStatus } from './elasticsearch';
+import { searchVerses, checkElasticsearchStatus } from './elasticsearchService';
+
+// Import from SQLite service
+import { executeQuery } from './sqliteService';
 
 // Export all API methods
 export {
@@ -16,5 +19,8 @@ export {
   
   // Elasticsearch API
   searchVerses,
-  checkElasticsearchStatus
+  checkElasticsearchStatus,
+  
+  // SQLite API
+  executeQuery
 };
