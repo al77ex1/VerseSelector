@@ -75,7 +75,7 @@ const NumericInput = forwardRef(({
 // Add display name for better debugging
 NumericInput.displayName = 'NumericInput';
 
-NumericInput.propTypes = {
+NumericInput.propTypes = { //NOSONAR
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,

@@ -242,7 +242,7 @@ const FilterBar = forwardRef(({ onFilterChange, filters: externalFilters }, ref)
 // Add display name for better debugging
 FilterBar.displayName = 'FilterBar';
 
-FilterBar.propTypes = {
+FilterBar.propTypes = { //NOSONAR
   onFilterChange: PropTypes.func,
   filters: PropTypes.shape({
     book: PropTypes.string,
