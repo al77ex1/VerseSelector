@@ -6,7 +6,7 @@ import { getBookNames } from '../../utils/bibleDataLoader';
 /**
  * Book autocomplete component with dropdown suggestions
  */
-const BookAutocomplete = ({ value, onChange }) => {
+const BookAutocomplete = ({ value, onChange, onSelect }) => {
   const [query, setQuery] = useState('');
   const [books, setBooks] = useState([]);
   const inputRef = useRef(null);
@@ -35,6 +35,13 @@ const BookAutocomplete = ({ value, onChange }) => {
 
   const handleSelect = (book) => {
     onChange(book);
+    
+    // Call onSelect callback after a short delay to allow state updates to complete
+    if (onSelect && book) {
+      setTimeout(() => {
+        onSelect();
+      }, 0);
+    }
   };
   
   const handleInputChange = (event) => {
@@ -95,12 +102,14 @@ const BookAutocomplete = ({ value, onChange }) => {
 // Prop types validation
 BookAutocomplete.propTypes = {
   value: PropTypes.string,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  onSelect: PropTypes.func
 };
 
 // Default props
 BookAutocomplete.defaultProps = {
-  value: ''
+  value: '',
+  onSelect: null
 };
 
 export default BookAutocomplete;

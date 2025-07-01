@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { getChapters, getVerses } from '../../utils/bibleDataLoader';
 import BookAutocomplete from './BookAutocomplete';
@@ -8,7 +8,7 @@ import ClearButton from '../common/ClearButton';
 /**
  * FilterBar component for Bible verse selection
  */
-const FilterBar = ({ onFilterChange, filters: externalFilters }) => {
+const FilterBar = forwardRef(({ onFilterChange, filters: externalFilters }, ref) => {
   const [filters, setFilters] = useState({
     book: '',
     chapter: '',
@@ -20,7 +20,8 @@ const FilterBar = ({ onFilterChange, filters: externalFilters }) => {
   const [isVerseEndValid, setIsVerseEndValid] = useState(true);
   const [availableChapters, setAvailableChapters] = useState([]);
   const [availableVerses, setAvailableVerses] = useState([]);
-  
+  const chapterInputRef = useRef(null);
+
   // Helper function to update chapters data when book changes
   const updateChaptersForBook = (book) => {
     const chaptersData = getChapters(book);
@@ -28,12 +29,12 @@ const FilterBar = ({ onFilterChange, filters: externalFilters }) => {
       resetChaptersAndVerses();
       return;
     }
-    
+
     const chapterNumbers = chaptersData.map(c => c.chapter.number);
     setAvailableChapters(chapterNumbers);
     return chapterNumbers;
   };
-  
+
   // Helper function to validate chapter and update verses
   const validateChapterAndUpdateVerses = (chapter, book, chapterNumbers) => {
     if (!chapter) {
@@ -41,35 +42,47 @@ const FilterBar = ({ onFilterChange, filters: externalFilters }) => {
       setAvailableVerses([]);
       return;
     }
-    
+
     const chapterNum = parseInt(chapter, 10);
     const isValid = !isNaN(chapterNum) && chapterNumbers.includes(chapterNum);
     setIsChapterValid(isValid);
-    
+
     if (isValid) {
       updateAvailableVerses(book, chapterNum);
     } else {
       setAvailableVerses([]);
     }
   };
-  
+
   // Helper function to reset chapters and verses
   const resetChaptersAndVerses = () => {
     setAvailableChapters([]);
     setAvailableVerses([]);
     setIsChapterValid(true);
   };
-  
+
+  // Function to focus the chapter input
+  const focusChapterInput = () => {
+    if (chapterInputRef.current) {
+      chapterInputRef.current.focus();
+    }
+  };
+
   // Update available chapters when book changes
   useEffect(() => {
     if (!filters.book) {
       resetChaptersAndVerses();
       return;
     }
-    
+
     const chapterNumbers = updateChaptersForBook(filters.book);
     if (chapterNumbers) {
       validateChapterAndUpdateVerses(filters.chapter, filters.book, chapterNumbers);
+
+      // Focus on chapter input when a book is selected and chapter is empty
+      if (filters.chapter === '') {
+        focusChapterInput();
+      }
     }
   }, [filters.book]);
 
@@ -96,7 +109,7 @@ const FilterBar = ({ onFilterChange, filters: externalFilters }) => {
   useEffect(() => {
     if (externalFilters) {
       setFilters(externalFilters);
-      
+
       // Validate chapter when external filters change
       if (externalFilters.book && externalFilters.chapter) {
         const chaptersData = getChapters(externalFilters.book);
@@ -105,7 +118,7 @@ const FilterBar = ({ onFilterChange, filters: externalFilters }) => {
           const chapterNum = parseInt(externalFilters.chapter, 10);
           const isChapterValid = !isNaN(chapterNum) && chapterNumbers.includes(chapterNum);
           setIsChapterValid(isChapterValid);
-          
+
           // Update available verses if chapter is valid
           if (isChapterValid) {
             updateAvailableVerses(externalFilters.book, chapterNum);
@@ -128,17 +141,17 @@ const FilterBar = ({ onFilterChange, filters: externalFilters }) => {
     } else {
       setIsVerseStartValid(true);
     }
-    
+
     // Validate verseEnd
     if (filters.verseEnd) {
       const verseEndNum = parseInt(filters.verseEnd, 10);
       const verseStartNum = parseInt(filters.verseStart, 10);
-      
+
       // Check if verse end is valid and greater than or equal to verse start
-      const isValidVerseEnd = !isNaN(verseEndNum) && 
-                             availableVerses.includes(verseEndNum) && 
+      const isValidVerseEnd = !isNaN(verseEndNum) &&
+                             availableVerses.includes(verseEndNum) &&
                              (!filters.verseStart || isNaN(verseStartNum) || verseEndNum >= verseStartNum);
-      
+
       setIsVerseEndValid(isValidVerseEnd);
     } else {
       setIsVerseEndValid(true);
@@ -147,7 +160,7 @@ const FilterBar = ({ onFilterChange, filters: externalFilters }) => {
 
   const handleInputChange = (name, value) => {
     const updatedFilters = { ...filters, [name]: value };
-    
+
     // Validate chapter input
     if (name === 'chapter') {
       if (value === '') {
@@ -160,17 +173,20 @@ const FilterBar = ({ onFilterChange, filters: externalFilters }) => {
         setIsChapterValid(!isNaN(chapterNum) && availableChapters.includes(chapterNum));
       }
     }
-    
+
     setFilters(updatedFilters);
     onFilterChange?.(updatedFilters);
   };
-  
+
   const handleBookSelect = (book) => {
     const updatedFilters = { ...filters, book, chapter: '', verseStart: '', verseEnd: '' };
     setFilters(updatedFilters);
     onFilterChange?.(updatedFilters);
+
+    // Focus will be handled in the useEffect that watches filters.book
+    // and by the onSelect callback for mouse clicks
   };
-  
+
   const handleClearFilters = () => {
     const clearedFilters = {
       book: '',
@@ -186,13 +202,15 @@ const FilterBar = ({ onFilterChange, filters: externalFilters }) => {
   };
 
   return (
-    <div className="filter-bar">
+    <div className="filter-bar" ref={ref}>
       <span>Фильтр:</span>
-      <BookAutocomplete 
-        value={filters.book} 
-        onChange={handleBookSelect} 
+      <BookAutocomplete
+        value={filters.book}
+        onChange={handleBookSelect}
+        onSelect={focusChapterInput}
       />
       <NumericInput
+        ref={chapterInputRef}
         className="filter-chapter"
         name="chapter"
         value={filters.chapter}
@@ -219,9 +237,11 @@ const FilterBar = ({ onFilterChange, filters: externalFilters }) => {
       <ClearButton onClick={handleClearFilters} />
     </div>
   );
-};
+});
 
-// Prop types validation
+// Add display name for better debugging
+FilterBar.displayName = 'FilterBar';
+
 FilterBar.propTypes = {
   onFilterChange: PropTypes.func,
   filters: PropTypes.shape({
@@ -232,7 +252,6 @@ FilterBar.propTypes = {
   })
 };
 
-// Default props
 FilterBar.defaultProps = {
   onFilterChange: null,
   filters: {

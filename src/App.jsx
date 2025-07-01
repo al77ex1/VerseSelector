@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import './App.css'
 import BookList from './components/book/BookList'
 import ChapterList from './components/chapter/ChapterList'
@@ -18,6 +18,7 @@ function App() {
   const [currentSelection, setCurrentSelection] = useState(null)
   const [apiStatus, setApiStatus] = useState(null) // null, 'sending', 'success', 'error'
   const [filters, setFilters] = useState({ book: '', chapter: '', verseStart: '', verseEnd: '' })
+  const filterBarRef = useRef(null)
 
   // Load Bible data on component mount
   useEffect(() => {
@@ -53,6 +54,11 @@ function App() {
     setVerses([])
     setCurrentSelection({ book })
     setApiStatus(null)
+    
+    // Update filters to match the selected book
+    // This will trigger the useEffect in FilterBar that focuses the chapter input
+    const updatedFilters = { ...filters, book, chapter: '', verseStart: '', verseEnd: '' }
+    setFilters(updatedFilters)
   }
 
   const handleSelectChapter = (chapter) => {
@@ -263,7 +269,11 @@ function App() {
       </div>
       <div id="row-info">
         <div id="info">
-          <FilterBar onFilterChange={handleFilterChange} filters={filters} />
+          <FilterBar 
+            ref={filterBarRef}
+            onFilterChange={handleFilterChange} 
+            filters={filters} 
+          />
           <div className="selection-info">
             {getInfoText()}
           </div>

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { allowOnlyNumbers, formatNumberInput } from '../../utils/inputValidation';
 
@@ -6,7 +6,7 @@ import { allowOnlyNumbers, formatNumberInput } from '../../utils/inputValidation
  * Numeric input component that only allows number input
  * with debounce functionality to delay onChange events
  */
-const NumericInput = ({ 
+const NumericInput = forwardRef(({ 
   name, 
   value, 
   onChange, 
@@ -14,7 +14,7 @@ const NumericInput = ({
   className,
   isInvalid,
   debounceTime = 300
-}) => {
+}, ref) => {
   const [localValue, setLocalValue] = useState(value);
   const debounceTimerRef = useRef(null);
   
@@ -60,6 +60,7 @@ const NumericInput = ({
   
   return (
     <input
+      ref={ref}
       className={inputClassName}
       type="text"
       name={name}
@@ -69,7 +70,10 @@ const NumericInput = ({
       placeholder={placeholder}
     />
   );
-};
+});
+
+// Add display name for better debugging
+NumericInput.displayName = 'NumericInput';
 
 NumericInput.propTypes = {
   name: PropTypes.string.isRequired,
