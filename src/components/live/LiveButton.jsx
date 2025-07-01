@@ -1,6 +1,6 @@
 import { useState, useEffect, forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { sendVerseToLive } from '../../services/api';
+import { sendVerseToLive } from '../../api/openLP';
 import '../../App.css';
 
 /**
