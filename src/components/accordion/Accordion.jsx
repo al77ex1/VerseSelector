@@ -62,10 +62,17 @@ const AccordionItem = ({ header, children, itemKey, initialEntered, disabled, he
     disabled
   });
 
+  // Создаем кастомную функцию переключения, которая не закрывает активный элемент
+  const customToggle = () => {
+    if (!state.isEnter) {
+      toggle();
+    }
+  };
+
   // Получаем пропсы для кнопки и панели
   const { buttonProps, panelProps } = useAccordionItem({
     state,
-    toggle,
+    toggle: customToggle,
     disabled
   });
 
