@@ -3,10 +3,13 @@ import './App.css'
 import BookList from './components/book/BookList'
 import ChapterList from './components/chapter/ChapterList'
 import VerseList from './components/verse/VerseList'
+import Accordion from './components/accordion/Accordion'
+import Preview from './components/preview/Preview'
 import History from './components/history/History'
 import LiveButton from './components/live/LiveButton'
 import FilterBar from './components/filter/FilterBar'
 import { getBookNames, getChapters, getVerses } from './utils/bibleDataLoader'
+import { getVerses as getVersesFromApi } from './api'
 
 function App() {
   const [books, setBooks] = useState([])
@@ -16,6 +19,7 @@ function App() {
   const [verses, setVerses] = useState([])
   const [history, setHistory] = useState([])
   const [currentSelection, setCurrentSelection] = useState(null)
+  const [currentVerseText, setCurrentVerseText] = useState('')
   const [apiStatus, setApiStatus] = useState(null) // null, 'sending', 'success', 'error'
   const [filters, setFilters] = useState({ book: '', chapter: '', verseStart: '', verseEnd: '' })
   const filterBarRef = useRef(null)
@@ -46,7 +50,37 @@ function App() {
     return () => {
       document.removeEventListener('mousedown', handleDocumentClick);
     };
-  }, [filters]);
+  }, []);
+
+  // Load verse text when selection changes
+  useEffect(() => {
+    const loadVerseText = async () => {
+      if (currentSelection) {
+        try {
+          const { book, chapter, verse, verseEnd } = currentSelection;
+          const verseTo = verseEnd || verse;
+          
+          // Загружаем текст стиха через API
+          const versesData = await getVersesFromApi(book, chapter, verseTo, verse);
+          
+          if (versesData && versesData.length > 0) {
+            // Объединяем тексты стихов, если выбран диапазон
+            const text = versesData.map(v => `${v.verse} ${v.text}`).join('\n\n');
+            setCurrentVerseText(text);
+          } else {
+            setCurrentVerseText('');
+          }
+        } catch (error) {
+          console.error('Ошибка при загрузке текста стиха:', error);
+          setCurrentVerseText('Ошибка при загрузке текста стиха');
+        }
+      } else {
+        setCurrentVerseText('');
+      }
+    };
+    
+    loadVerseText();
+  }, [currentSelection]);
 
   // Function to focus the Live button
   const focusLiveButton = () => {
@@ -297,11 +331,21 @@ function App() {
           </div>
         </div>
         <div id="column-right">
-          <div id="history" className='wrapper'>
-            <History 
-              history={history} 
-              onSelectHistoryItem={handleSelectHistoryItem} 
-              currentSelection={currentSelection}
+          <div id="accordion" className='wrapper no-outline'>
+            <Accordion 
+              previewPanel={
+                <Preview 
+                  currentSelection={currentSelection}
+                  verseText={currentVerseText}
+                />
+              }
+              historyPanel={
+                <History 
+                  history={history} 
+                  onSelectHistoryItem={handleSelectHistoryItem} 
+                  currentSelection={currentSelection}
+                />
+              }
               onClearHistory={handleClearHistory}
             />
           </div>

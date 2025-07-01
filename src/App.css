@@ -173,6 +173,15 @@
   border-color: #3daee9;
 }
 
+/* No outline wrapper */
+.no-outline {
+  border: none !important;
+}
+
+.no-outline:hover {
+  border: none !important;
+}
+
 /* Selection info styles */
 .selection-info {
   padding: 5px 0;

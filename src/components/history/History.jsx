@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import '../components.css';
-import ClearButton from '../common/ClearButton';
 
 /**
  * History component displays the history of selected verses
  */
-const History = ({ history, onSelectHistoryItem, currentSelection, onClearHistory }) => {
+const History = ({ history, onSelectHistoryItem, currentSelection }) => {
   const [selectedItem, setSelectedItem] = useState(null);
 
   // Find the index of the current selection in history
@@ -53,32 +52,21 @@ const History = ({ history, onSelectHistoryItem, currentSelection, onClearHistor
   };
 
   return (
-    <div className="history-list-wrapper">
-      <div className="history-header">
-        <div className="header-left"></div>
-        <h3>История</h3>
-        <div className="header-right">
-          <ClearButton 
-            onClick={onClearHistory}
-          />
-        </div>
-      </div>
+    <div className="history-container">
       {history && history.length > 0 ? (
-        <ul className="history-list">
+        <div className="history-list">
           {history.map((item, index) => (
-            <li key={generateHistoryItemKey(item)}>
-              <button
-                className={selectedItem === index ? 'selected' : ''}
-                onClick={() => handleItemClick(index)}
-                aria-pressed={selectedItem === index}
-              >
-                {formatVerseReference(item)}
-              </button>
-            </li>
+            <div 
+              key={generateHistoryItemKey(item)}
+              className={`history-item ${selectedItem === index ? 'active' : ''}`}
+              onClick={() => handleItemClick(index)}
+            >
+              {formatVerseReference(item)}
+            </div>
           ))}
-        </ul>
+        </div>
       ) : (
-        <p>История пуста</p>
+        <div className="history-empty">История пуста</div>
       )}
     </div>
   );
@@ -95,20 +83,12 @@ History.propTypes = {
     })
   ),
   onSelectHistoryItem: PropTypes.func.isRequired,
-  onClearHistory: PropTypes.func,
   currentSelection: PropTypes.shape({
     book: PropTypes.string,
     chapter: PropTypes.number,
     verse: PropTypes.number,
     verseEnd: PropTypes.number
   })
-};
-
-// Default props
-History.defaultProps = {
-  history: [],
-  currentSelection: null,
-  onClearHistory: () => {}
 };
 
 export default History;
