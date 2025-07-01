@@ -58,10 +58,44 @@ export const getVerses = (bookName, chapterNumber) => {
   return Array.from({ length: totalVerses }, (_, i) => i + 1);
 };
 
+/**
+ * Get verse text for a specific verse or range of verses
+ * @param {string} bookName - The name of the book
+ * @param {number} chapterNumber - The chapter number
+ * @param {number} verseStart - The starting verse number
+ * @param {number} verseEnd - The ending verse number (optional)
+ * @returns {Array} Array of verse objects with number and text
+ */
+export const getVerseText = (bookName, chapterNumber, verseStart, verseEnd = null) => {
+  const book = bibleData.find(b => b.book === bookName);
+  if (!book) return [];
+  
+  const chapter = book.chapters.find(c => c.chapter.number === chapterNumber);
+  if (!chapter) return [];
+  
+  const verses = chapter.chapter.verses;
+  const result = [];
+  
+  const start = verseStart;
+  const end = verseEnd || verseStart;
+  
+  for (let i = start - 1; i < end; i++) {
+    if (verses[i]) {
+      result.push({
+        verse: verses[i].verse.number,
+        text: verses[i].verse.text
+      });
+    }
+  }
+  
+  return result;
+};
+
 export default {
   getBibleData,
   getBookNames,
   getChapters,
   getVerseCount,
-  getVerses
+  getVerses,
+  getVerseText
 };

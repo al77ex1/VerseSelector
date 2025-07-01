@@ -8,8 +8,7 @@ import Preview from './components/preview/Preview'
 import History from './components/history/History'
 import LiveButton from './components/live/LiveButton'
 import FilterBar from './components/filter/FilterBar'
-import { getBookNames, getChapters, getVerses } from './utils/bibleDataLoader'
-import { getVerses as getVersesFromApi } from './api'
+import { getBookNames, getChapters, getVerses, getVerseText } from './utils/bibleDataLoader'
 
 function App() {
   const [books, setBooks] = useState([])
@@ -55,13 +54,13 @@ function App() {
   // Load verse text when selection changes
   useEffect(() => {
     const loadVerseText = async () => {
-      if (currentSelection) {
+      if (currentSelection?.book && currentSelection?.chapter && currentSelection?.verse) {
         try {
           const { book, chapter, verse, verseEnd } = currentSelection;
           const verseTo = verseEnd || verse;
           
-          // Загружаем текст стиха через API
-          const versesData = await getVersesFromApi(book, chapter, verseTo, verse);
+          // Загружаем текст стиха из локальных данных
+          const versesData = getVerseText(book, chapter, verse, verseTo);
           
           if (versesData && versesData.length > 0) {
             // Объединяем тексты стихов, если выбран диапазон

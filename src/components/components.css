@@ -406,13 +406,12 @@
 .accordion-body {
   flex: 1;
   overflow-y: auto;
-  padding: 10px;
+  padding: 10px 0px;
   height: 100%;
 }
 
 /* Preview Component */
 .preview-container {
-  padding: 10px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -429,11 +428,11 @@
   white-space: pre-wrap;
   overflow-y: auto;
   flex: 1;
+  text-align: left;
 }
 
 .preview-reference {
   font-weight: bold;
-  margin-bottom: 10px;
 }
 
 /* History Component */
