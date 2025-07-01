@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { searchVerses } from '../../api';
 import '../components.css';
 
 /**
@@ -9,30 +10,46 @@ const Search = ({ onSearchResult }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearching, setIsSearching] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
+  const [error, setError] = useState(null);
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
+    setError(null);
   };
 
   const handleSearch = async () => {
     if (!searchQuery.trim()) return;
     
     setIsSearching(true);
+    setError(null);
     
     try {
-      // Здесь будет реализован поиск через Elasticsearch API
-      // Пока просто заглушка для демонстрации интерфейса
-      setTimeout(() => {
-        const mockResults = [
-          { reference: 'Бытие 1:1', text: 'В начале сотворил Бог небо и землю.' },
-          { reference: 'Бытие 1:2', text: 'Земля же была безвидна и пуста, и тьма над бездною, и Дух Божий носился над водою.' }
-        ];
+      // Используем API Elasticsearch для поиска стихов
+      const results = await searchVerses(searchQuery, { size: 20 });
+      
+      if (results && results.length > 0) {
+        // Преобразуем результаты в нужный формат
+        const formattedResults = results.map(hit => {
+          const source = hit._source;
+          return {
+            id: hit._id,
+            reference: source.reference,
+            text: hit.highlight?.text?.[0] || source.text,
+            book: source.book_name,
+            chapter: source.chapter,
+            verse: source.verse
+          };
+        });
         
-        setSearchResults(mockResults);
-        setIsSearching(false);
-      }, 500);
+        setSearchResults(formattedResults);
+      } else {
+        setSearchResults([]);
+      }
     } catch (error) {
       console.error('Ошибка при поиске:', error);
+      setError('Произошла ошибка при поиске. Пожалуйста, попробуйте позже.');
+      setSearchResults([]);
+    } finally {
       setIsSearching(false);
     }
   };
@@ -65,11 +82,13 @@ const Search = ({ onSearchResult }) => {
       </div>
       
       <div className="search-results">
+        {error && <div className="search-error">{error}</div>}
+        
         {searchResults.length > 0 ? (
           <ul className="search-results-list">
             {searchResults.map((result) => (
               <li 
-                key={result.reference}
+                key={result.id || result.reference}
                 className="search-result-item"
               >
                 <button 
@@ -78,15 +97,22 @@ const Search = ({ onSearchResult }) => {
                   onClick={() => handleResultClick(result)}
                 >
                   <div className="search-result-reference">{result.reference}</div>
-                  <div className="search-result-text">{result.text}</div>
+                  <div 
+                    className="search-result-text"
+                    dangerouslySetInnerHTML={{ __html: result.text }}
+                  />
                 </button>
               </li>
             ))}
           </ul>
         ) : (
-          searchQuery.trim() && !isSearching && (
+          searchQuery.trim() && !isSearching && !error && (
             <div className="search-no-results">Нет результатов</div>
           )
+        )}
+        
+        {isSearching && (
+          <div className="search-loading">Поиск...</div>
         )}
       </div>
     </div>

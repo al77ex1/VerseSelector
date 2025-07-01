@@ -2,8 +2,8 @@
  * Elasticsearch service for searching Bible verses using browser-compatible fetch API
  */
 
-// Base URL for Elasticsearch
-const ES_BASE_URL = import.meta.env.VITE_ELASTICSEARCH_URL || 'http://localhost:9200';
+// Base URL for Elasticsearch - now using the Vite proxy to avoid CORS issues
+const ES_BASE_URL = '/es';
 
 // Index name for Bible verses
 const INDEX_NAME = 'bible_verses';
