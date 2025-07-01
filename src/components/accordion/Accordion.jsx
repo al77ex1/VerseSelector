@@ -31,6 +31,7 @@ const Accordion = ({ previewPanel, historyPanel, onClearHistory }) => {
           header="Предпросмотр"
           itemKey="preview"
           initialEntered={true}
+          className="preview-section"
         >
           {previewPanel}
         </AccordionItem>
@@ -41,6 +42,7 @@ const Accordion = ({ previewPanel, historyPanel, onClearHistory }) => {
           itemKey="history"
           initialEntered={false}
           headerAction={onClearHistory ? <ClearButton onClick={onClearHistory} /> : null}
+          className="history-section"
         >
           {historyPanel}
         </AccordionItem>
@@ -52,7 +54,7 @@ const Accordion = ({ previewPanel, historyPanel, onClearHistory }) => {
 /**
  * AccordionItem component for individual accordion sections
  */
-const AccordionItem = ({ header, children, itemKey, initialEntered, disabled, headerAction }) => {
+const AccordionItem = ({ header, children, itemKey, initialEntered, disabled, headerAction, className }) => {
   // Используем хук для управления состоянием элемента аккордеона
   const { itemRef, state, toggle } = useAccordionItemEffect({
     itemKey,
@@ -74,7 +76,7 @@ const AccordionItem = ({ header, children, itemKey, initialEntered, disabled, he
   const { status, isMounted, isEnter } = state;
 
   return (
-    <div className="accordion-section" ref={itemRef}>
+    <div className={`accordion-section ${className || ''} ${isEnter ? 'expanded' : ''}`} ref={itemRef}>
       <div 
         className={`accordion-header ${isEnter ? 'active' : ''}`}
       >
@@ -94,10 +96,11 @@ const AccordionItem = ({ header, children, itemKey, initialEntered, disabled, he
       
       {isMounted && (
         <div 
-          className="accordion-content"
+          className={`accordion-content ${isEnter ? 'active' : ''}`}
           style={{ 
             display: status === 'exited' ? 'none' : undefined,
-            ...transitionStyle 
+            ...transitionStyle,
+            flex: isEnter ? '1 1 auto' : '0 0 auto'
           }}
         >
           <div 
@@ -126,7 +129,8 @@ AccordionItem.propTypes = {
   itemKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   initialEntered: PropTypes.bool,
   disabled: PropTypes.bool,
-  headerAction: PropTypes.node
+  headerAction: PropTypes.node,
+  className: PropTypes.string
 };
 
 export default Accordion;
