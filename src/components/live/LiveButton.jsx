@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { sendVerseToLive } from '../../services/api';
 import '../../App.css';
@@ -6,7 +6,7 @@ import '../../App.css';
 /**
  * LiveButton component for sending verse selections to the Live API
  */
-const LiveButton = ({ verseReference, disabled, onStatusChange }) => {
+const LiveButton = forwardRef(({ verseReference, disabled, onStatusChange }, ref) => {
   const [isSending, setIsSending] = useState(false);
 
   const handleClick = async () => {
@@ -58,20 +58,22 @@ const LiveButton = ({ verseReference, disabled, onStatusChange }) => {
         opacity: disabled || isSending ? 0.5 : 1,
         cursor: !disabled && !isSending ? 'pointer' : 'not-allowed'
       }}
+      ref={ref}
     >
       Live
     </button>
   );
-};
+});
 
-// Prop types validation
-LiveButton.propTypes = {
+// Add display name for better debugging
+LiveButton.displayName = 'LiveButton';
+
+LiveButton.propTypes = { //NOSONAR
   verseReference: PropTypes.string,
   disabled: PropTypes.bool,
   onStatusChange: PropTypes.func
 };
 
-// Default props
 LiveButton.defaultProps = {
   verseReference: '',
   disabled: true,

@@ -28,7 +28,8 @@ const VerseList = ({ verses, onSelectVerse, selectedVerse: externalSelectedVerse
       setSelectedVerse(verse);
       setSelectedVerseEnd(null);
       setIsSelectionInProgress(true);
-      // Don't call onSelectVerse yet - just mark that selection is in progress
+      // Immediately call onSelectVerse with single verse selection
+      onSelectVerse(verse, null);
       return;
     }
 
@@ -57,7 +58,8 @@ const VerseList = ({ verses, onSelectVerse, selectedVerse: externalSelectedVerse
       setSelectedVerse(verse);
       setSelectedVerseEnd(null);
       setIsSelectionInProgress(true);
-      // Don't call onSelectVerse yet
+      // Immediately call onSelectVerse with single verse selection
+      onSelectVerse(verse, null);
     }
   };
 

@@ -19,6 +19,7 @@ function App() {
   const [apiStatus, setApiStatus] = useState(null) // null, 'sending', 'success', 'error'
   const [filters, setFilters] = useState({ book: '', chapter: '', verseStart: '', verseEnd: '' })
   const filterBarRef = useRef(null)
+  const liveButtonRef = useRef(null)
 
   // Load Bible data on component mount
   useEffect(() => {
@@ -47,6 +48,15 @@ function App() {
     };
   }, [filters]);
 
+  // Function to focus the Live button
+  const focusLiveButton = () => {
+    if (liveButtonRef.current) {
+      setTimeout(() => {
+        liveButtonRef.current.focus();
+      }, 50);
+    }
+  };
+
   const handleSelectBook = (book) => {
     setSelectedBook(book)
     setChapters(getChapters(book))
@@ -66,6 +76,10 @@ function App() {
     setVerses(getVerses(selectedBook, chapter))
     setCurrentSelection({ book: selectedBook, chapter })
     setApiStatus(null)
+    
+    // Update filters to match the selected chapter
+    const updatedFilters = { ...filters, book: selectedBook, chapter: String(chapter), verseStart: '', verseEnd: '' }
+    setFilters(updatedFilters)
   }
 
   const handleSelectVerse = (verse, verseEnd) => {
@@ -83,6 +97,20 @@ function App() {
     }
     setCurrentSelection(newSelection)
     setApiStatus(null)
+    
+    // Update filters to match the selected verse
+    const updatedFilters = { 
+      book: selectedBook, 
+      chapter: String(selectedChapter), 
+      verseStart: String(verse), 
+      verseEnd: verseEnd !== null && verseEnd !== undefined ? String(verseEnd) : '' 
+    }
+    setFilters(updatedFilters)
+    
+    // Focus on Live button after verse selection is complete
+    if (verse !== null && (verseEnd === null || verseEnd !== undefined)) {
+      focusLiveButton();
+    }
     
     // Only add to history if this is a complete selection (single verse or valid range)
     if (verse !== null && (verseEnd === null || verseEnd !== undefined)) {
@@ -115,6 +143,18 @@ function App() {
     setVerses(getVerses(item.book, item.chapter))
     setCurrentSelection(item)
     setApiStatus(null)
+    
+    // Update filters to match the history item
+    const updatedFilters = { 
+      book: item.book, 
+      chapter: String(item.chapter), 
+      verseStart: String(item.verse), 
+      verseEnd: item.verseEnd !== null && item.verseEnd !== undefined ? String(item.verseEnd) : '' 
+    }
+    setFilters(updatedFilters)
+    
+    // Focus on Live button after selecting from history
+    focusLiveButton();
   };
 
   const handleClearHistory = () => {
@@ -279,6 +319,7 @@ function App() {
           </div>
         </div>
         <LiveButton 
+          ref={liveButtonRef}
           verseReference={formatSelection(currentSelection)}
           disabled={!hasValidSelection()}
           onStatusChange={handleApiStatusChange}

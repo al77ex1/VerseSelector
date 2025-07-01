@@ -21,6 +21,8 @@ const FilterBar = forwardRef(({ onFilterChange, filters: externalFilters }, ref)
   const [availableChapters, setAvailableChapters] = useState([]);
   const [availableVerses, setAvailableVerses] = useState([]);
   const chapterInputRef = useRef(null);
+  const verseStartInputRef = useRef(null);
+  const verseEndInputRef = useRef(null);
 
   // Helper function to update chapters data when book changes
   const updateChaptersForBook = (book) => {
@@ -49,6 +51,8 @@ const FilterBar = forwardRef(({ onFilterChange, filters: externalFilters }, ref)
 
     if (isValid) {
       updateAvailableVerses(book, chapterNum);
+      // Focus verse input when a valid chapter is entered
+      focusVerseInput();
     } else {
       setAvailableVerses([]);
     }
@@ -65,6 +69,20 @@ const FilterBar = forwardRef(({ onFilterChange, filters: externalFilters }, ref)
   const focusChapterInput = () => {
     if (chapterInputRef.current) {
       chapterInputRef.current.focus();
+    }
+  };
+
+  // Function to focus the verse input
+  const focusVerseInput = () => {
+    if (verseStartInputRef.current) {
+      verseStartInputRef.current.focus();
+    }
+  };
+
+  // Function to focus the verse end input
+  const focusVerseEndInput = () => {
+    if (verseEndInputRef.current) {
+      verseEndInputRef.current.focus();
     }
   };
 
@@ -92,6 +110,8 @@ const FilterBar = forwardRef(({ onFilterChange, filters: externalFilters }, ref)
       const chapterNum = parseInt(filters.chapter, 10);
       if (!isNaN(chapterNum) && availableChapters.includes(chapterNum)) {
         updateAvailableVerses(filters.book, chapterNum);
+        // Focus verse input when chapter changes to a valid value
+        focusVerseInput();
       } else {
         setAvailableVerses([]);
       }
@@ -99,6 +119,15 @@ const FilterBar = forwardRef(({ onFilterChange, filters: externalFilters }, ref)
       setAvailableVerses([]);
     }
   }, [filters.chapter, availableChapters]);
+
+  // Focus verse end input when verse start changes
+  useEffect(() => {
+    if (filters.verseStart && filters.verseStart !== '' && !filters.verseEnd) {
+      // Focus on verse end input when verse start is filled and verse end is empty
+      // Use a small delay to ensure the UI has updated
+      setTimeout(() => focusVerseEndInput(), 50);
+    }
+  }, [filters.verseStart]);
 
   // Validate verse inputs when available verses change
   useEffect(() => {
@@ -170,7 +199,22 @@ const FilterBar = forwardRef(({ onFilterChange, filters: externalFilters }, ref)
         updatedFilters.verseEnd = '';
       } else {
         const chapterNum = parseInt(value, 10);
-        setIsChapterValid(!isNaN(chapterNum) && availableChapters.includes(chapterNum));
+        const isValid = !isNaN(chapterNum) && availableChapters.includes(chapterNum);
+        setIsChapterValid(isValid);
+        
+        // If chapter is valid, focus on verse input after a short delay
+        // to allow the UI to update
+        if (isValid) {
+          setTimeout(() => focusVerseInput(), 50);
+        }
+      }
+    }
+    
+    // When verseStart changes and is valid, focus on verseEnd
+    if (name === 'verseStart' && value !== '') {
+      const verseNum = parseInt(value, 10);
+      if (!isNaN(verseNum) && availableVerses.includes(verseNum)) {
+        // Focus will be handled by the useEffect that watches filters.verseStart
       }
     }
 
@@ -219,6 +263,7 @@ const FilterBar = forwardRef(({ onFilterChange, filters: externalFilters }, ref)
         isInvalid={!isChapterValid}
       />
       <NumericInput
+        ref={verseStartInputRef}
         className="filter-verse-from"
         name="verseStart"
         value={filters.verseStart}
@@ -227,6 +272,7 @@ const FilterBar = forwardRef(({ onFilterChange, filters: externalFilters }, ref)
         isInvalid={!isVerseStartValid}
       />
       <NumericInput
+        ref={verseEndInputRef}
         className="filter-verse-to"
         name="verseEnd"
         value={filters.verseEnd}
