@@ -43,23 +43,49 @@ async function getChaptersInfo(db, bookId) {
   `, [bookId]);
 }
 
+// Получение текстов стихов для конкретной книги и главы
+async function getVerseTexts(db, bookId, chapter) {
+  return db.all(`
+    SELECT verse AS number, text
+    FROM verse
+    WHERE book_id = ? AND chapter = ?
+    ORDER BY verse
+  `, [bookId, chapter]);
+}
+
 // Формирование структуры по всем книгам
 async function buildBibleSummary(db) {
   const books = await getBooks(db);
   const summary = [];
 
   for (const book of books) {
+    console.log(`Обрабатываем книгу: ${book.name}`);
     const chapters = await getChaptersInfo(db, book.id);
-    summary.push({
+    const bookData = {
       book: book.name,
       "total chapters": chapters.length,
-      chapters: chapters.map(ch => ({
+      chapters: []
+    };
+
+    for (const ch of chapters) {
+      console.log(`  Глава ${ch.number}: получение ${ch.total_verses} стихов...`);
+      const verses = await getVerseTexts(db, book.id, ch.number);
+      
+      bookData.chapters.push({
         chapter: {
           number: ch.number,
-          "total verses": ch.total_verses
+          "total verses": ch.total_verses,
+          verses: verses.map(v => ({
+            verse: {
+              number: v.number,
+              text: v.text
+            }
+          }))
         }
-      }))
-    });
+      });
+    }
+    
+    summary.push(bookData);
   }
   return summary;
 }
@@ -76,9 +102,22 @@ async function main() {
 
   const db = await openDb();
   try {
+    console.log('Начинаем формирование JSON-файла с текстами стихов...');
     const summary = await buildBibleSummary(db);
     fs.writeFileSync(outputPath, JSON.stringify(summary, null, 2), 'utf8');
     console.log('Файл успешно создан:', outputPath);
+    
+    // Выводим статистику
+    const totalBooks = summary.length;
+    const totalChapters = summary.reduce((sum, book) => sum + book.chapters.length, 0);
+    const totalVerses = summary.reduce((sum, book) => 
+      sum + book.chapters.reduce((chSum, ch) => chSum + ch.chapter.verses.length, 0), 0);
+    
+    console.log(`Статистика:`);
+    console.log(`- Книг: ${totalBooks}`);
+    console.log(`- Глав: ${totalChapters}`);
+    console.log(`- Стихов: ${totalVerses}`);
+    console.log(`- Размер файла: ${(fs.statSync(outputPath).size / (1024 * 1024)).toFixed(2)} МБ`);
   } catch (err) {
     console.error('Ошибка:', err);
   } finally {
