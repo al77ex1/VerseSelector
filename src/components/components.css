@@ -447,15 +447,30 @@
 
 .history-item {
   text-align: left;
-  padding: 2px 1px;
+  padding: 8px 10px;
   cursor: pointer;
   border-left: 3px solid transparent;
   transition: background-color 0.2s ease, border-left-color 0.2s ease;
+  width: 100%;
+  background: none;
+  border-top: none;
+  border-right: none;
+  border-bottom: 1px solid rgba(95, 98, 101, 0.2);
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  display: block;
 }
 
+.history-item:hover {
+  background-color: rgba(61, 174, 233, 0.1);
+  border-left-color: #3daee9;
+}
 
 .history-item.active {
   font-weight: bold;
+  border-left-color: #3daee9;
+  background-color: rgba(61, 174, 233, 0.2);
 }
 
 .clear-history-button {

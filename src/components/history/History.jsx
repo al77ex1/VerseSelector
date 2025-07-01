@@ -56,13 +56,14 @@ const History = ({ history, onSelectHistoryItem, currentSelection }) => {
       {history && history.length > 0 ? (
         <div className="history-list">
           {history.map((item, index) => (
-            <div 
+            <button 
               key={generateHistoryItemKey(item)}
               className={`history-item ${selectedItem === index ? 'active' : ''}`}
               onClick={() => handleItemClick(index)}
+              type="button"
             >
               {formatVerseReference(item)}
-            </div>
+            </button>
           ))}
         </div>
       ) : (
