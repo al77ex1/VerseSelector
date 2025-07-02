@@ -4,9 +4,9 @@ https://openlp.org/
 
 Приложение для выбора и отправки библейских стихов на внешний сервис отображения OpenLP.
 
-[![Библейский Селектор Стихов](./public/verseSelector.png)](./public/verseSelector.png)
+![Библейский Селектор Стихов](./public/verseSelector.png)
 
-<a href="https://www.youtube.com/watch?v=N11VnjwREaI" target="_blank">Демонстрация</a>
+[Демонстрация](https://www.youtube.com/watch?v=N11VnjwREaI){:target="_blank"}
 
 ## Описание
 
