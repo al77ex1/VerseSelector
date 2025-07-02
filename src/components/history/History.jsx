@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import '../components.css';
+import './history.css';
 
 /**
  * History component displays the history of selected verses

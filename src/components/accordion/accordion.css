@@ -1,0 +1,135 @@
+/* Accordion Component */
+.accordion-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  outline: none;
+  border: none;
+  position: relative;
+}
+
+.accordion-section {
+  display: flex;
+  flex-direction: column;
+  outline: none;
+  border: none;
+  min-height: 45px;
+}
+
+.accordion-header {
+  background-color: #232629;
+  transition: background-color 0.2s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  outline: none;
+  border: none;
+  position: relative;
+}
+
+.accordion-header:hover {
+  background-color: rgba(61, 174, 233, 0.1);
+}
+
+.accordion-header.active {
+  background-color: rgba(61, 174, 233, 0.15);
+}
+
+.accordion-header-action {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.accordion-header-action button {
+  background: transparent;
+  border: none;
+  color: #cccccc;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.accordion-header-action button:hover {
+  color: #ffffff;
+}
+
+.accordion-header-action svg {
+  width: 16px;
+  height: 16px;
+}
+
+.accordion-title {
+  width: 100%;
+  padding: 10px 15px;
+  text-align: center;
+  border: 0px;
+  transition: border-left-color 0.2s ease;
+  background: transparent;
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  cursor: pointer;
+  color: inherit;
+  font-family: inherit;
+  outline: none;
+}
+
+.accordion-title:focus,
+.accordion-title:hover {
+  outline: none;
+}
+
+.accordion-title h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.accordion-content {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: flex 0.25s ease;
+}
+
+.accordion-content.active {
+  flex: 1 1 auto !important;
+}
+
+.accordion-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px 0px;
+  height: 100%;
+}
+
+/* Специальные стили для секции предпросмотра */
+.preview-section {
+  flex: 0 0 auto;
+}
+
+.preview-section.expanded {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Специальные стили для секции истории */
+.history-section {
+  flex: 0 0 auto;
+  margin-top: auto; /* Важно для позиционирования внизу */
+}
+
+.history-section.expanded {
+  flex: 1 1 auto;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+}

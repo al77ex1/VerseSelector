@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { searchVerses } from '../../api';
-import '../components.css';
+import './search.css';
 
 /**
  * Search component for searching Bible verses

@@ -1,7 +1,7 @@
 import { useState, useEffect, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { sendVerseToLive } from '../../api';
-import '../../App.css';
+import './live.css';
 
 /**
  * LiveButton component for sending verse selections to the Live API

@@ -8,7 +8,7 @@ import {
   useHeightTransition
 } from '@szhsin/react-accordion';
 import ClearButton from '../common/ClearButton';
-import '../components.css';
+import './accordion.css';
 import { useEffect, useRef } from 'react';
 
 /**
@@ -32,7 +32,7 @@ const Accordion = ({ previewPanel, historyPanel, searchPanel, onClearHistory }) 
   // Обработчик клавиатурных сочетаний
   useEffect(() => {
     const handleKeyDown = (event) => {
-      // Проверяем, что нажаты клавиши Ctrl+Shift
+      // Проверяем, что нажаны клавиши Ctrl+Shift
       if (event.ctrlKey && event.shiftKey) {
         switch (event.key.toLowerCase()) {
           case 'p':

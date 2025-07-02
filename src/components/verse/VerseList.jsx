@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import '../components.css';
+import './verse.css';
 
 /**
  * VerseList component displays verses for a selected chapter
