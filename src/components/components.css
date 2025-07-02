@@ -440,7 +440,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 10px 0px;
 }
 
 .history-list {
@@ -465,15 +465,10 @@
   display: block;
 }
 
+.history-item.active,
 .history-item:hover {
   background-color: rgba(61, 174, 233, 0.1);
-  border-left-color: #3daee9;
-}
-
-.history-item.active {
-  font-weight: bold;
-  border-left-color: #3daee9;
-  background-color: rgba(61, 174, 233, 0.2);
+  border-color: #3daee9;
 }
 
 .clear-history-button {
