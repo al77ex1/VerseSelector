@@ -9,6 +9,7 @@ import {
 } from '@szhsin/react-accordion';
 import ClearButton from '../common/ClearButton';
 import '../components.css';
+import { useEffect, useRef } from 'react';
 
 /**
  * Accordion component that toggles between two panels using react-accordion
@@ -22,6 +23,62 @@ const Accordion = ({ previewPanel, historyPanel, searchPanel, onClearHistory }) 
 
   // Получаем пропсы для аккордеона
   const { accordionProps } = useAccordion();
+  
+  // Refs для кнопок аккордеона
+  const previewButtonRef = useRef(null);
+  const searchButtonRef = useRef(null);
+  const historyButtonRef = useRef(null);
+  
+  // Обработчик клавиатурных сочетаний
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      // Проверяем, что нажата клавиша Shift
+      if (event.shiftKey) {
+        switch (event.key.toLowerCase()) {
+          case 'p':
+            // Активируем Предпросмотр
+            if (previewButtonRef.current) {
+              previewButtonRef.current.click();
+              event.preventDefault();
+            }
+            break;
+          case 'f':
+            // Активируем Поиск и фокусируемся на поле ввода
+            if (searchButtonRef.current) {
+              searchButtonRef.current.click();
+              event.preventDefault();
+              
+              // Даем немного времени для раскрытия аккордеона перед фокусировкой
+              setTimeout(() => {
+                // Находим поле ввода поиска и фокусируемся на нем
+                const searchInput = document.querySelector('.search-input');
+                if (searchInput) {
+                  searchInput.focus();
+                }
+              }, 100);
+            }
+            break;
+          case 'h':
+            // Активируем Историю
+            if (historyButtonRef.current) {
+              historyButtonRef.current.click();
+              event.preventDefault();
+            }
+            break;
+          default:
+            break;
+        }
+      }
+    };
+
+    // Добавляем обработчик события
+    document.addEventListener('keydown', handleKeyDown);
+
+    // Удаляем обработчик при размонтировании компонента
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
 
   return (
     <AccordionProvider value={providerValue}>
@@ -32,6 +89,7 @@ const Accordion = ({ previewPanel, historyPanel, searchPanel, onClearHistory }) 
           itemKey="preview"
           initialEntered={true}
           className="preview-section"
+          buttonRef={previewButtonRef}
         >
           {previewPanel}
         </AccordionItem>
@@ -42,6 +100,7 @@ const Accordion = ({ previewPanel, historyPanel, searchPanel, onClearHistory }) 
           itemKey="search"
           initialEntered={false}
           className="search-section"
+          buttonRef={searchButtonRef}
         >
           {searchPanel}
         </AccordionItem>
@@ -53,6 +112,7 @@ const Accordion = ({ previewPanel, historyPanel, searchPanel, onClearHistory }) 
           initialEntered={false}
           headerAction={onClearHistory ? <ClearButton onClick={onClearHistory} /> : null}
           className="history-section"
+          buttonRef={historyButtonRef}
         >
           {historyPanel}
         </AccordionItem>
@@ -64,7 +124,7 @@ const Accordion = ({ previewPanel, historyPanel, searchPanel, onClearHistory }) 
 /**
  * AccordionItem component for individual accordion sections
  */
-const AccordionItem = ({ header, children, itemKey, initialEntered, disabled, headerAction, className }) => {
+const AccordionItem = ({ header, children, itemKey, initialEntered, disabled, headerAction, className, buttonRef }) => {
   // Используем хук для управления состоянием элемента аккордеона
   const { itemRef, state, toggle } = useAccordionItemEffect({
     itemKey,
@@ -100,6 +160,7 @@ const AccordionItem = ({ header, children, itemKey, initialEntered, disabled, he
         <button
           className="accordion-title"
           type="button"
+          ref={buttonRef}
           {...buttonProps}
         >
           <h3>{header}</h3>
@@ -148,7 +209,8 @@ AccordionItem.propTypes = {
   initialEntered: PropTypes.bool,
   disabled: PropTypes.bool,
   headerAction: PropTypes.node,
-  className: PropTypes.string
+  className: PropTypes.string,
+  buttonRef: PropTypes.object
 };
 
 export default Accordion;
