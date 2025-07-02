@@ -313,7 +313,7 @@
   flex-direction: column;
   outline: none;
   border: none;
-  min-height: 0; /* Важно для правильной работы flex внутри */
+  min-height: 45px;
 }
 
 .accordion-header {
