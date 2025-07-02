@@ -36,6 +36,7 @@ const Accordion = ({ previewPanel, historyPanel, searchPanel, onClearHistory }) 
       if (event.shiftKey) {
         switch (event.key.toLowerCase()) {
           case 'p':
+          case 'з':
             // Активируем Предпросмотр
             if (previewButtonRef.current) {
               previewButtonRef.current.click();
@@ -43,6 +44,7 @@ const Accordion = ({ previewPanel, historyPanel, searchPanel, onClearHistory }) 
             }
             break;
           case 'f':
+          case 'а':
             // Активируем Поиск и фокусируемся на поле ввода
             if (searchButtonRef.current) {
               searchButtonRef.current.click();
@@ -59,6 +61,7 @@ const Accordion = ({ previewPanel, historyPanel, searchPanel, onClearHistory }) 
             }
             break;
           case 'h':
+          case 'р':
             // Активируем Историю
             if (historyButtonRef.current) {
               historyButtonRef.current.click();
@@ -136,6 +139,16 @@ const AccordionItem = ({ header, children, itemKey, initialEntered, disabled, he
   const customToggle = () => {
     if (!state.isEnter) {
       toggle();
+      
+      // Если это секция поиска, фокусируемся на поле ввода после раскрытия
+      if (itemKey === 'search') {
+        setTimeout(() => {
+          const searchInput = document.querySelector('.search-input');
+          if (searchInput) {
+            searchInput.focus();
+          }
+        }, 100);
+      }
     }
   };
 
