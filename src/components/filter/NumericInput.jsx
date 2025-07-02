@@ -69,6 +69,7 @@ const NumericInput = forwardRef(({
       onChange={handleChange}
       onKeyDown={handleKeyDown}
       placeholder={placeholder}
+      autoComplete="off"
     />
   );
 });

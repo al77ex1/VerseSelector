@@ -64,6 +64,7 @@ const BookAutocomplete = ({ value, onChange, onSelect }) => {
             placeholder="Книга"
             displayValue={() => value || ''}
             onChange={handleInputChange}
+            autocomplete="off"
             onBlur={() => {
               // Ensure value and query are in sync on blur
               if (query !== value) {
