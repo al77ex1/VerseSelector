@@ -1,0 +1,102 @@
+/* Filter bar styles */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  
+  span {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  
+  label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  input {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100px;
+    margin-right: 5px;
+    
+    &.invalid {
+      border-color: #e74c3c;
+      
+      &:hover,
+      &:focus {
+        border-color: #e74c3c;
+        outline: none;
+      }
+    }
+    
+    &:hover:not(.invalid),
+    &:focus:not(.invalid) {
+      border-color: #3498db;
+      outline: none;
+    }
+  }
+}
+
+.filter-book {
+  width: 200px !important;
+}
+
+/* Autocomplete container */
+.autocomplete-container {
+  position: relative;
+}
+
+.combobox-wrapper {
+  position: relative;
+}
+
+.combobox-button-container {
+  position: relative;
+  width: 100%;
+}
+
+/* Book suggestions dropdown */
+.book-suggestions {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #1B1E20 !important;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  margin: 0 0 2px;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  
+  div {
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    color: #ffffff;
+    width: 100%;
+    text-align: left;
+    
+    &.active {
+      background-color: #31363b;
+    }
+    
+    &.selected {
+      background-color: #2980b9;
+    }
+  }
+}
+
+.no-results {
+  padding: 8px 12px;
+  color: #cccccc;
+  font-style: italic;
+}

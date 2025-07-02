@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import './preview.css';
+import './preview.scss';
 
 /**
  * Preview component displays the currently selected verse text

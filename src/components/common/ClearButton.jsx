@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import clearIcon from '../../assets/clear.svg';
-import './common.css';
+import './common.scss';
 
 /**
  * Clear button component for filters

@@ -8,7 +8,7 @@ import {
   useHeightTransition
 } from '@szhsin/react-accordion';
 import ClearButton from '../common/ClearButton';
-import './accordion.css';
+import './accordion.scss';
 import { useEffect, useRef } from 'react';
 
 /**

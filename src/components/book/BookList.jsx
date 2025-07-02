@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import './book.css';
+import './book.scss';
 
 /**
  * BookList component displays a list of Bible books

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import './chapter.css';
+import './chapter.scss';
 
 /**
  * ChapterList component displays chapters for a selected book

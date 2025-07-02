@@ -4,7 +4,7 @@ import { getChapters, getVerses } from '../../utils/bibleDataLoader';
 import BookAutocomplete from './BookAutocomplete';
 import NumericInput from './NumericInput';
 import ClearButton from '../common/ClearButton';
-import './filter.css';
+import './filter.scss';
 
 /**
  * FilterBar component for Bible verse selection

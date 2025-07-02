@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Combobox, ComboboxInput, ComboboxOption, ComboboxOptions } from '@headlessui/react';
 import { getBookNames } from '../../utils/bibleDataLoader';
-import './filter.css';
+import './filter.scss';
 
 /**
  * Book autocomplete component with dropdown suggestions

@@ -10,51 +10,58 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-}
-
-.history-list-wrapper ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  max-height: 100%;
-  overflow-y: auto;
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 100%;
+    overflow-y: auto;
+  }
+  
+  p {
+    color: #888;
+    font-style: italic;
+    text-align: center;
+    margin-top: 20px;
+  }
 }
 
 .history-list {
   flex: 1;
   overflow-y: auto;
-}
-
-.history-list li {
-  margin: 2px 0;
-  text-align: left;
-}
-
-.history-list button {
-  width: 100%;
-  text-align: left;
-  padding: 6px 10px;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-  background-color: transparent;
-  border: 1px solid transparent;
-  font-family: inherit;
-  font-size: inherit;
-  color: inherit;
-  outline: none;
-  border-bottom: 1px solid rgba(95, 98, 101, 0.2);
-}
-
-.history-list button:hover {
-  background-color: rgba(61, 174, 233, 0.1);
-  border-color: #3daee9;
-}
-
-.history-list button.selected {
-  background-color: rgba(61, 174, 233, 0.2);
-  font-weight: bold;
-  border-color: #3daee9;
+  
+  li {
+    margin: 2px 0;
+    text-align: left;
+  }
+  
+  button {
+    width: 100%;
+    text-align: left;
+    padding: 6px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    background-color: transparent;
+    border: 1px solid transparent;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    outline: none;
+    border-bottom: 1px solid rgba(95, 98, 101, 0.2);
+    
+    &:hover {
+      background-color: rgba(61, 174, 233, 0.1);
+      border-color: #3daee9;
+    }
+    
+    &.selected {
+      background-color: rgba(61, 174, 233, 0.2);
+      font-weight: bold;
+      border-color: #3daee9;
+    }
+  }
 }
 
 .history-header {
@@ -66,12 +73,12 @@
   color: #888;
   border-bottom: 2px solid #2a2e32;
   padding-bottom: 5px;
-}
-
-.history-header h3 {
-  margin: 0;
-  grid-column: 2;
-  text-align: center;
+  
+  h3 {
+    margin: 0;
+    grid-column: 2;
+    text-align: center;
+  }
 }
 
 .header-left {
@@ -82,13 +89,6 @@
   grid-column: 3;
   display: flex;
   justify-content: flex-end;
-}
-
-.history-list-wrapper p {
-  color: #888;
-  font-style: italic;
-  text-align: center;
-  margin-top: 20px;
 }
 
 .history-item {
@@ -106,12 +106,12 @@
   font-size: inherit;
   color: inherit;
   display: block;
-}
-
-.history-item.active,
-.history-item:hover {
-  background-color: rgba(61, 174, 233, 0.1);
-  border-color: #3daee9;
+  
+  &.active,
+  &:hover {
+    background-color: rgba(61, 174, 233, 0.1);
+    border-color: #3daee9;
+  }
 }
 
 .clear-history-button {
@@ -122,8 +122,8 @@
   color: inherit;
   cursor: pointer;
   transition: background-color 0.2s ease;
-}
-
-.clear-history-button:hover {
-  background-color: #3daee9;
+  
+  &:hover {
+    background-color: #3daee9;
+  }
 }

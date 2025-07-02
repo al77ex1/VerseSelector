@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import './App.css'
+import './App.scss'
 import BookList from './components/book/BookList'
 import ChapterList from './components/chapter/ChapterList'
 import VerseList from './components/verse/VerseList'

@@ -13,12 +13,14 @@
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  
+  &:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+  }
+  
+  &.react:hover {
+    filter: drop-shadow(0 0 2em #61dafbaa);
+  }
 }
 
 @keyframes logo-spin {
@@ -65,18 +67,18 @@
   display: flex;
   align-items: center;
   width: 100%;
-}
-
-#info.sending {
-  color: #0d47a1;
-}
-
-#info.success {
-  color: #1b5e20;
-}
-
-#info.error {
-  color: #b71c1c;
+  
+  &.sending {
+    color: #0d47a1;
+  }
+  
+  &.success {
+    color: #1b5e20;
+  }
+  
+  &.error {
+    color: #b71c1c;
+  }
 }
 
 #btn-select {
@@ -86,34 +88,34 @@
   border: 1px solid #ccc;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
-}
-
-#btn-select.inactive {
-  background-color: #cccccc;
-  color: #333333;
-}
-
-#btn-select.active {
-  background-color: #4CAF50;
-  color: white;
-}
-
-#btn-select.sending {
-  background-color: #2196F3;
-  color: white;
-  cursor: not-allowed;
-}
-
-#btn-select.success {
-  background-color: #4CAF50;
-  color: white;
-  animation: pulse 0.5s;
-}
-
-#btn-select.error {
-  background-color: #f44336;
-  color: white;
-  animation: shake 0.5s;
+  
+  &.inactive {
+    background-color: #cccccc;
+    color: #333333;
+  }
+  
+  &.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  &.sending {
+    background-color: #2196F3;
+    color: white;
+    cursor: not-allowed;
+  }
+  
+  &.success {
+    background-color: #4CAF50;
+    color: white;
+    animation: pulse 0.5s;
+  }
+  
+  &.error {
+    background-color: #f44336;
+    color: white;
+    animation: shake 0.5s;
+  }
 }
 
 @keyframes pulse {
@@ -148,42 +150,24 @@
   padding: 8px;
   border-radius: 4px;
   flex: 1;
-  overflow: auto;
   transition: border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  
+  &:hover {
+    border-color: #3daee9;
+  }
 }
 
-/* Specific height distribution for components */
-#books {
-  flex: 5; /* 50% of available height */
-}
-
-#chapters {
-  flex: 3; /* 30% of available height */
-}
-
-#verses {
-  flex: 2; /* 20% of available height */
-}
-
-#history {
-  flex: 1; /* Takes all available height in right column */
-}
-
-.wrapper:hover {
-  border-color: #3daee9;
-}
-
-/* No outline wrapper */
 .no-outline {
-  border: none !important;
+  outline: none;
+  
+  &:hover {
+    outline: none;
+  }
 }
 
-.no-outline:hover {
-  border: none !important;
-}
-
-/* Selection info styles */
 .selection-info {
-  padding: 5px 0;
-  margin-left: 20px;
+  margin-left: 15px;
 }

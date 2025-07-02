@@ -26,14 +26,14 @@
   outline: none;
   border: none;
   position: relative;
-}
-
-.accordion-header:hover {
-  background-color: rgba(61, 174, 233, 0.1);
-}
-
-.accordion-header.active {
-  background-color: rgba(61, 174, 233, 0.15);
+  
+  &:hover {
+    background-color: rgba(61, 174, 233, 0.1);
+  }
+  
+  &.active {
+    background-color: rgba(61, 174, 233, 0.15);
+  }
 }
 
 .accordion-header-action {
@@ -41,26 +41,26 @@
   right: 10px;
   top: 50%;
   transform: translateY(-50%);
-}
-
-.accordion-header-action button {
-  background: transparent;
-  border: none;
-  color: #cccccc;
-  cursor: pointer;
-  padding: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.accordion-header-action button:hover {
-  color: #ffffff;
-}
-
-.accordion-header-action svg {
-  width: 16px;
-  height: 16px;
+  
+  button {
+    background: transparent;
+    border: none;
+    color: #cccccc;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    &:hover {
+      color: #ffffff;
+    }
+  }
+  
+  svg {
+    width: 16px;
+    height: 16px;
+  }
 }
 
 .accordion-title {
@@ -77,19 +77,19 @@
   color: inherit;
   font-family: inherit;
   outline: none;
-}
-
-.accordion-title:focus,
-.accordion-title:hover {
-  outline: none;
-}
-
-.accordion-title h3 {
-  margin: 0;
-  padding: 0;
-  font-size: 1.1em;
-  font-weight: bold;
-  text-align: center;
+  
+  &:focus,
+  &:hover {
+    outline: none;
+  }
+  
+  h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: center;
+  }
 }
 
 .accordion-content {
@@ -97,10 +97,10 @@
   display: flex;
   flex-direction: column;
   transition: flex 0.25s ease;
-}
-
-.accordion-content.active {
-  flex: 1 1 auto !important;
+  
+  &.active {
+    flex: 1 1 auto !important;
+  }
 }
 
 .accordion-body {
@@ -113,23 +113,23 @@
 /* Специальные стили для секции предпросмотра */
 .preview-section {
   flex: 0 0 auto;
-}
-
-.preview-section.expanded {
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: column;
+  
+  &.expanded {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 /* Специальные стили для секции истории */
 .history-section {
   flex: 0 0 auto;
   margin-top: auto; /* Важно для позиционирования внизу */
-}
-
-.history-section.expanded {
-  flex: 1 1 auto;
-  margin-top: 0;
-  display: flex;
-  flex-direction: column;
+  
+  &.expanded {
+    flex: 1 1 auto;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+  }
 }

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { allowOnlyNumbers, formatNumberInput } from '../../utils/inputValidation';
-import './filter.css';
+import './filter.scss';
 
 /**
  * Numeric input component that only allows number input

@@ -1,0 +1,60 @@
+/* Verse component styles */
+.verse-list {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 100%;
+    overflow-y: auto;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+  }
+
+  li {
+    margin: 2px 0;
+    text-align: center;
+  }
+
+  button {
+    width: 100%;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    background-color: transparent;
+    border: 1px solid transparent;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    outline: none;
+    padding: 5px;
+    text-align: center;
+
+    &:hover {
+      background-color: rgba(61, 174, 233, 0.1);
+      border-color: #3daee9;
+    }
+
+    &.selected {
+      background-color: rgba(61, 174, 233, 0.2);
+      font-weight: bold;
+      border-color: #3daee9;
+    }
+  }
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #888;
+    border-bottom: 2px solid #2a2e32;
+    padding-bottom: 5px;
+  }
+
+  p {
+    color: #888;
+    font-style: italic;
+    text-align: center;
+    margin-top: 20px;
+  }
+}
