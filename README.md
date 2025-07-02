@@ -6,7 +6,7 @@ https://openlp.org/
 
 ![Библейский Селектор Стихов](./public/verseSelector.png)
 
-[Демонстрация](https://www.youtube.com/watch?v=N11VnjwREaI){:target="_blank"}
+[Демонстрация](https://www.youtube.com/watch?v=N11VnjwREaI)
 
 ## Описание
 
