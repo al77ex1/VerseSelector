@@ -195,11 +195,8 @@ function App() {
   const handleSearchResult = (result) => {
     // Parse the reference to extract book, chapter, and verse
     try {
-      const parts = result.reference.split(' ');
-      const book = parts[0];
-      const chapterVerse = parts[1].split(':');
-      const chapter = parseInt(chapterVerse[0], 10);
-      const verse = parseInt(chapterVerse[1], 10);
+      // Используем свойства из результата поиска напрямую, вместо парсинга строки
+      const { book, chapter, verse } = result;
       
       // Set the selection
       setSelectedBook(book);
