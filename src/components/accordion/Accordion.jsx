@@ -32,8 +32,8 @@ const Accordion = ({ previewPanel, historyPanel, searchPanel, onClearHistory }) 
   // Обработчик клавиатурных сочетаний
   useEffect(() => {
     const handleKeyDown = (event) => {
-      // Проверяем, что нажата клавиша Shift
-      if (event.shiftKey) {
+      // Проверяем, что нажаты клавиши Ctrl+Shift
+      if (event.ctrlKey && event.shiftKey) {
         switch (event.key.toLowerCase()) {
           case 'p':
           case 'з':
