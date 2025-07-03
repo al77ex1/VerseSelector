@@ -2,8 +2,8 @@
  * Elasticsearch service for searching Bible verses using browser-compatible fetch API
  */
 
-// Base URL for Elasticsearch - now using the Vite proxy to avoid CORS issues
-const ES_BASE_URL = '/es';
+// Base URL for Elasticsearch - reading from environment variable
+const ES_BASE_URL = import.meta.env.ELASTICSEARCH_URL || 'http://localhost:9200';
 
 // Index name for Bible verses
 const INDEX_NAME = 'bible_verses';
@@ -69,8 +69,8 @@ export const searchVerses = async (query, options = {}) => {
     
     const result = await response.json();
     
-    // Возвращаем результаты напрямую
-    return result.hits.hits;
+    // Return results directly
+    return result.hits?.hits || [];
   } catch (error) {
     console.error('Error searching Elasticsearch:', error);
     throw new Error('Failed to search Bible verses');

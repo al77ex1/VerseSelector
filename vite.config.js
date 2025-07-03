@@ -31,19 +31,4 @@ export default defineConfig({
     outDir: 'dist',
     emptyOutDir: true,
   },
-  server: {
-    proxy: {
-      // Proxy Elasticsearch requests to avoid CORS issues
-      '/es': {
-        target: 'http://localhost:9200',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/es/, ''),
-        configure: (proxy) => {
-          proxy.on('error', (err) => {
-            console.log('Proxy error:', err);
-          });
-        }
-      }
-    }
-  }
 })
