@@ -5,6 +5,8 @@
 
 ![Bible Verse Selector](./public/verseSelector.png)
 
+[Demo Video | Демонстрационное видео](https://youtu.be/N11VnjwREaI)
+
 ---
 
 <a id="english"></a>
@@ -15,6 +17,8 @@
 ## Overview
 
 Bible Verse Selector is a React application designed for convenient selection and sending of Bible verses to the OpenLP display service. The application allows users to select Bible books, chapters, and individual verses or verse ranges, and then send the selected verses to an external API for display.
+
+[Demo Video](https://youtu.be/N11VnjwREaI)
 
 ### Key Features
 
@@ -143,6 +147,8 @@ MIT
 ## Обзор
 
 Библейский Селектор Стихов - это React-приложение, разработанное для удобного выбора и отправки библейских стихов на сервис отображения OpenLP. Приложение позволяет пользователям выбирать книги Библии, главы и отдельные стихи или диапазоны стихов, а затем отправлять выбранные стихи на внешний API для отображения.
+
+[Демонстрационное видео](https://youtu.be/N11VnjwREaI)
 
 ### Основные возможности
 
