@@ -121,14 +121,7 @@ const FilterBar = forwardRef(({ onFilterChange, filters: externalFilters }, ref)
     }
   }, [filters.chapter, availableChapters]);
 
-  // Focus verse end input when verse start changes
-  useEffect(() => {
-    if (filters.verseStart && filters.verseStart !== '' && !filters.verseEnd) {
-      // Focus on verse end input when verse start is filled and verse end is empty
-      // Use a small delay to ensure the UI has updated
-      setTimeout(() => focusVerseEndInput(), 50);
-    }
-  }, [filters.verseStart]);
+
 
   // Validate verse inputs when available verses change
   useEffect(() => {
@@ -157,6 +150,24 @@ const FilterBar = forwardRef(({ onFilterChange, filters: externalFilters }, ref)
       }
     }
   }, [externalFilters]);
+
+  // Focus verse input after chapter is valid (short timeout)
+  useEffect(() => {
+    if (filters.chapter && isChapterValid) {
+      setTimeout(() => {
+        focusVerseInput();
+      }, 1000);
+    }
+  }, [filters.chapter, isChapterValid]);
+
+  // Focus verse end input after verseStart is valid (short timeout)
+  useEffect(() => {
+    if (filters.verseStart && isVerseStartValid && !filters.verseEnd) {
+      setTimeout(() => {
+        focusVerseEndInput();
+      }, 1000);
+    }
+  }, [filters.verseStart, isVerseStartValid, filters.verseEnd]);
 
   const updateAvailableVerses = (book, chapter) => {
     const verses = getVerses(book, chapter);
@@ -202,12 +213,6 @@ const FilterBar = forwardRef(({ onFilterChange, filters: externalFilters }, ref)
         const chapterNum = parseInt(value, 10);
         const isValid = !isNaN(chapterNum) && availableChapters.includes(chapterNum);
         setIsChapterValid(isValid);
-        
-        // If chapter is valid, focus on verse input after a short delay
-        // to allow the UI to update
-        if (isValid) {
-          setTimeout(() => focusVerseInput(), 50);
-        }
       }
     }
     
@@ -262,6 +267,7 @@ const FilterBar = forwardRef(({ onFilterChange, filters: externalFilters }, ref)
         onChange={handleInputChange}
         placeholder="Глава"
         isInvalid={!isChapterValid}
+        debounceTime={700}
       />
       <NumericInput
         ref={verseStartInputRef}
@@ -271,6 +277,7 @@ const FilterBar = forwardRef(({ onFilterChange, filters: externalFilters }, ref)
         onChange={handleInputChange}
         placeholder="От стиха"
         isInvalid={!isVerseStartValid}
+        debounceTime={700}
       />
       <NumericInput
         ref={verseEndInputRef}
@@ -280,6 +287,7 @@ const FilterBar = forwardRef(({ onFilterChange, filters: externalFilters }, ref)
         onChange={handleInputChange}
         placeholder="До стиха"
         isInvalid={!isVerseEndValid}
+        debounceTime={700}
       />
       <ClearButton onClick={handleClearFilters} />
     </div>
