@@ -1,0 +1,298 @@
+/* Component styling for VerseSelector */
+
+/* Common list styling */
+.book-list ul,
+.chapter-list ul,
+.verse-list ul,
+.history-list-wrapper ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.book-list li,
+.chapter-list li,
+.verse-list li,
+.history-list li {
+  margin: 2px 0;
+}
+
+/* Button styling */
+.book-list button,
+.chapter-list button,
+.verse-list button,
+.history-list button {
+  width: 100%;
+  text-align: left;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  background-color: transparent;
+  border: 1px solid transparent;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  outline: none;
+}
+
+.book-list button:hover,
+.chapter-list button:hover,
+.verse-list button:hover,
+.history-list button:hover {
+  background-color: rgba(61, 174, 233, 0.1);
+  border-color: #3daee9;
+}
+
+.book-list button.selected,
+.chapter-list button.selected,
+.verse-list button.selected,
+.history-list button.selected {
+  background-color: rgba(61, 174, 233, 0.2);
+  font-weight: bold;
+  border-color: #3daee9;
+}
+
+/* Component headers */
+.book-list h3,
+.chapter-list h3,
+.verse-list h3,
+.history-header {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #888;
+  border-bottom: 2px solid #2a2e32;
+  padding-bottom: 5px;
+}
+
+/* Grid layout for books, chapters and verses */
+.book-list ul,
+.chapter-list ul,
+.verse-list ul {
+  display: grid;
+  gap: 5px;
+}
+
+/* Books grid - wider rectangles for single-line text */
+.book-list ul {
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+}
+
+/* Chapters and verses grid */
+.chapter-list ul,
+.verse-list ul {
+  grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+}
+
+.book-list li,
+.chapter-list li,
+.verse-list li {
+  text-align: center;
+}
+
+.book-list button {
+  height: 36px;
+  padding: 5px 10px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chapter-list button,
+.verse-list button {
+  padding: 5px;
+  text-align: center;
+}
+
+/* History items */
+.history-list li {
+  text-align: left;
+}
+
+.history-list button {
+  border-bottom: 1px solid rgba(95, 98, 101, 0.2);
+}
+
+/* History component styles */
+.history-list-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.history-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #888;
+  border-bottom: 2px solid #2a2e32;
+  padding-bottom: 5px;
+}
+
+.history-header h3 {
+  margin: 0;
+  grid-column: 2;
+  text-align: center;
+}
+
+.header-left {
+  grid-column: 1;
+}
+
+.header-right {
+  grid-column: 3;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Empty state messages */
+.book-list p,
+.chapter-list p,
+.verse-list p,
+.history-list-wrapper p {
+  color: #888;
+  font-style: italic;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Filter bar styles */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-bar span {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.filter-bar label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.filter-bar input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 100px;
+  margin-right: 5px;
+}
+
+.filter-bar input.invalid {
+  border-color: #e74c3c;
+}
+
+.filter-bar input.invalid:hover,
+.filter-bar input.invalid:focus {
+  border-color: #e74c3c;
+  outline: none;
+}
+
+.filter-bar input:hover:not(.invalid),
+.filter-bar input:focus:not(.invalid) {
+  border-color: #3498db;
+  outline: none;
+}
+
+.filter-book {
+  width: 200px !important;
+}
+
+/* Filter clear button */
+.filter-clear-button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+}
+
+.filter-clear-button:focus {
+  outline: none;
+}
+
+/* Filter clear icon */
+.filter-clear-icon {
+  width: 26px;
+  height: 26px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.filter-clear-button:hover .filter-clear-icon {
+  opacity: 1;
+}
+
+/* Autocomplete container */
+.autocomplete-container {
+  position: relative;
+}
+
+.combobox-wrapper {
+  position: relative;
+}
+
+.combobox-button-container {
+  position: relative;
+  width: 100%;
+}
+
+/* Book suggestions dropdown */
+.book-suggestions {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #1B1E20 !important;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  margin: 0 0 2px;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.book-suggestions div {
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  color: #ffffff;
+  width: 100%;
+  text-align: left;
+}
+
+.book-suggestions div.active {
+  background-color: #31363b;
+}
+
+.book-suggestions div.selected {
+  background-color: #2980b9;
+}
+
+.no-results {
+  padding: 8px 12px;
+  color: #cccccc;
+  font-style: italic;
+}
