@@ -44,13 +44,13 @@
   overflow-y: auto;
   flex: 1;
   text-align: left;
-  padding: 0 10px;
+  padding: 0 5px 0 0;
   width: 100%;
 }
 
 .preview-verse {
   margin-bottom: 8px;
-  padding: 5px;
+  padding: 10px;
   border-radius: 4px;
   transition: background-color 0.3s ease;
   text-align: left;
@@ -58,9 +58,9 @@
   width: 100%;
   
   &.highlight {
-    background-color: rgba(61, 174, 233, 0.2);
-    font-weight: bold;
-    border-color: #3daee9;
+    outline: 1px solid #3daee9;
+    outline-offset: -1px;
+    background-color: rgba(61, 174, 233, 0.1);
   }
 }
 
