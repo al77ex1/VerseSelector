@@ -11,6 +11,7 @@ const NumericInput = forwardRef(({
   name, 
   value, 
   onChange, 
+  onAfterChange, // New prop for after-change callback
   placeholder, 
   className,
   isInvalid,
@@ -37,10 +38,18 @@ const NumericInput = forwardRef(({
     if (debounceTime > 0) {
       debounceTimerRef.current = setTimeout(() => {
         onChange(name, formattedValue);
+        // Call onAfterChange callback if provided
+        if (onAfterChange) {
+          onAfterChange(name, formattedValue);
+        }
       }, debounceTime);
     } else {
       // No debounce, call onChange immediately
       onChange(name, formattedValue);
+      // Call onAfterChange callback if provided
+      if (onAfterChange) {
+        onAfterChange(name, formattedValue);
+      }
     }
   };
   
@@ -81,6 +90,7 @@ NumericInput.propTypes = { //NOSONAR
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  onAfterChange: PropTypes.func, // New prop type
   placeholder: PropTypes.string,
   className: PropTypes.string,
   isInvalid: PropTypes.bool,
