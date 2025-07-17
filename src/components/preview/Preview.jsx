@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { getVerseText } from '../../utils/bibleDataLoader';
 import './preview.scss';
 
@@ -10,6 +10,8 @@ import './preview.scss';
 const Preview = ({ currentSelection, verseText }) => {
   const [chapterVerses, setChapterVerses] = useState([]);
   const [selectedVerses, setSelectedVerses] = useState(new Set());
+  const previewChapterRef = useRef(null);
+  const firstSelectedVerseRef = useRef(null);
   
   // Format the verse reference
   const formatVerseReference = (item) => {
@@ -56,6 +58,29 @@ const Preview = ({ currentSelection, verseText }) => {
     
     setSelectedVerses(newSelectedVerses);
   }, [currentSelection?.verse, currentSelection?.verseEnd]);
+  
+  // Scroll to the first selected verse when selection changes
+  useEffect(() => {
+    // Wait for the DOM to update with the new selectedVerses
+    setTimeout(() => {
+      if (firstSelectedVerseRef.current) {
+        // Use scrollIntoView with specific options to position the verse at the top
+        // with a small margin (via CSS scroll-margin-top)
+        firstSelectedVerseRef.current.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }, 100); // Small delay to ensure DOM is updated
+  }, [selectedVerses]);
+  
+  // Apply scroll margin to the first verse when it's selected
+  useEffect(() => {
+    if (firstSelectedVerseRef.current) {
+      // Add scroll margin to prevent the element from being flush against the top
+      firstSelectedVerseRef.current.style.scrollMarginTop = '60px';
+    }
+  }, [selectedVerses]);
 
   return (
     <div className="preview-container">
@@ -64,16 +89,18 @@ const Preview = ({ currentSelection, verseText }) => {
           <div className="preview-reference">
             {formatVerseReference(currentSelection)}
           </div>
-          <div className="preview-chapter">
+          <div className="preview-chapter" ref={previewChapterRef}>
             {chapterVerses.length > 0 ? (
               chapterVerses.map(verse => {
                 const verseNum = parseInt(verse.verse, 10);
                 const isSelected = selectedVerses.has(verseNum);
+                const isFirstSelected = isSelected && verseNum === Math.min(...Array.from(selectedVerses));
                 
                 return (
                   <div 
                     key={verse.verse} 
                     className={isSelected ? "preview-verse highlight" : "preview-verse"}
+                    ref={isFirstSelected ? firstSelectedVerseRef : null}
                   >
                     <span className="verse-number">{verse.verse}</span>
                     <span className="verse-text">{verse.text}</span>
