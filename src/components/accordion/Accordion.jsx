@@ -32,45 +32,40 @@ const Accordion = ({ previewPanel, historyPanel, searchPanel, onClearHistory }) 
   // Обработчик клавиатурных сочетаний
   useEffect(() => {
     const handleKeyDown = (event) => {
-      // Проверяем, что нажаны клавиши Ctrl+Shift
-      if (event.ctrlKey && event.shiftKey) {
-        switch (event.key.toLowerCase()) {
-          case 'p':
-          case 'з':
-            // Активируем Предпросмотр
-            if (previewButtonRef.current) {
-              previewButtonRef.current.click();
-              event.preventDefault();
-            }
-            break;
-          case 'f':
-          case 'а':
-            // Активируем Поиск и фокусируемся на поле ввода
-            if (searchButtonRef.current) {
-              searchButtonRef.current.click();
-              event.preventDefault();
-              
-              // Даем немного времени для раскрытия аккордеона перед фокусировкой
-              setTimeout(() => {
-                // Находим поле ввода поиска и фокусируемся на нем
-                const searchInput = document.querySelector('.search-input');
-                if (searchInput) {
-                  searchInput.focus();
-                }
-              }, 100);
-            }
-            break;
-          case 'h':
-          case 'р':
-            // Активируем Историю
-            if (historyButtonRef.current) {
-              historyButtonRef.current.click();
-              event.preventDefault();
-            }
-            break;
-          default:
-            break;
-        }
+      // Используем функциональные клавиши F8, F9, F10
+      switch (event.key) {
+        case 'F8':
+          // Активируем Предпросмотр
+          if (previewButtonRef.current) {
+            previewButtonRef.current.click();
+            event.preventDefault();
+          }
+          break;
+        case 'F9':
+          // Активируем Поиск и фокусируемся на поле ввода
+          if (searchButtonRef.current) {
+            searchButtonRef.current.click();
+            event.preventDefault();
+            
+            // Даем немного времени для раскрытия аккордеона перед фокусировкой
+            setTimeout(() => {
+              // Находим поле ввода поиска и фокусируемся на нем
+              const searchInput = document.querySelector('.search-input');
+              if (searchInput) {
+                searchInput.focus();
+              }
+            }, 100);
+          }
+          break;
+        case 'F10':
+          // Активируем Историю
+          if (historyButtonRef.current) {
+            historyButtonRef.current.click();
+            event.preventDefault();
+          }
+          break;
+        default:
+          break;
       }
     };
 
