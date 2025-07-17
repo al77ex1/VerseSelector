@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { searchVerses } from '../../api';
 import './search.scss';
@@ -11,21 +11,38 @@ const Search = ({ onSearchResult }) => {
   const [isSearching, setIsSearching] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
   const [error, setError] = useState(null);
+  const searchTimeoutRef = useRef(null);
 
   const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value);
+    const value = e.target.value;
+    setSearchQuery(value);
     setError(null);
+    
+    // Clear any existing timeout
+    if (searchTimeoutRef.current) {
+      clearTimeout(searchTimeoutRef.current);
+    }
+    
+    // Set a new timeout for debounced search
+    if (value.trim()) {
+      searchTimeoutRef.current = setTimeout(() => {
+        handleSearch(value);
+      }, 500);
+    } else {
+      setSearchResults([]);
+    }
   };
 
-  const handleSearch = async () => {
-    if (!searchQuery.trim()) return;
+  const handleSearch = async (query) => {
+    const searchText = query || searchQuery;
+    if (!searchText.trim()) return;
     
     setIsSearching(true);
     setError(null);
     
     try {
       // Используем API Elasticsearch для поиска стихов
-      const results = await searchVerses(searchQuery, { size: 20 });
+      const results = await searchVerses(searchText, { size: 20 });
       
       if (results && results.length > 0) {
         // Преобразуем результаты в нужный формат
@@ -60,6 +77,15 @@ const Search = ({ onSearchResult }) => {
     }
   };
 
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (searchTimeoutRef.current) {
+        clearTimeout(searchTimeoutRef.current);
+      }
+    };
+  }, []);
+
   return (
     <div className="search-container">
       <div className="search-input-container">
@@ -69,16 +95,7 @@ const Search = ({ onSearchResult }) => {
           placeholder="Введите текст для поиска..."
           value={searchQuery}
           onChange={handleSearchChange}
-          onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
         />
-        <button 
-          type="button"
-          className="search-button"
-          onClick={handleSearch}
-          disabled={isSearching || !searchQuery.trim()}
-        >
-          {isSearching ? 'Поиск...' : 'Найти'}
-        </button>
       </div>
       
       <div className="search-results">
