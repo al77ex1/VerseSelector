@@ -4,6 +4,7 @@
 import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import os from 'os';
 import { INDEX_NAME, BATCH_SIZE } from './config/elasticsearch.js';
 import { 
   createElasticsearchClient, 
@@ -27,8 +28,13 @@ const __dirname = path.dirname(__filename);
 // Получаем URL Elasticsearch из переменных окружения
 const elasticsearchUrl = process.env.ELASTICSEARCH_URL || 'http://localhost:9200';
 
-// Получаем путь к базе данных из переменных окружения
-const dbPath = process.env.DB_PATH || '~/.local/share/openlp/bibles/RST.sqlite';
+// Получаем путь к базе данных из переменных окружения и расширяем символ ~ до домашней директории
+const dbPathFromEnv = process.env.DB_PATH || '~/.local/share/openlp/bibles/RST.sqlite';
+const dbPath = dbPathFromEnv.startsWith('~') 
+  ? path.join(os.homedir(), dbPathFromEnv.substring(1)) 
+  : dbPathFromEnv;
+
+console.log(`Using database path: ${dbPath}`);
 
 /**
  * Индексирует все стихи из базы данных в Elasticsearch
