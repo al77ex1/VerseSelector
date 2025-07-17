@@ -28,7 +28,7 @@ const __dirname = path.dirname(__filename);
 const elasticsearchUrl = process.env.ELASTICSEARCH_URL || 'http://localhost:9200';
 
 // Получаем путь к базе данных из переменных окружения
-const dbPath = process.env.DB_PATH || path.resolve(__dirname, '../bible.db');
+const dbPath = process.env.DB_PATH || '~/.local/share/openlp/bibles/RST.sqlite';
 
 /**
  * Индексирует все стихи из базы данных в Elasticsearch

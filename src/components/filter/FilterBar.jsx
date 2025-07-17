@@ -254,7 +254,7 @@ const FilterBar = forwardRef(({ onFilterChange, filters: externalFilters }, ref)
               if (verseStartInputRef.current) {
                 verseStartInputRef.current.focus();
               }
-            }, 1000);
+            }, 700);
           }
         }}
         placeholder="Глава"
@@ -276,7 +276,7 @@ const FilterBar = forwardRef(({ onFilterChange, filters: externalFilters }, ref)
               if (verseEndInputRef.current) {
                 verseEndInputRef.current.focus();
               }
-            }, 1000);
+            }, 700);
           }
         }}
         placeholder="От стиха"
