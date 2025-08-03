@@ -52,8 +52,6 @@ const FilterBar = forwardRef(({ onFilterChange, filters: externalFilters }, ref)
 
     if (isValid) {
       updateAvailableVerses(book, chapterNum);
-      // Focus verse input when a valid chapter is entered
-      focusVerseInput();
     } else {
       setAvailableVerses([]);
     }
@@ -70,20 +68,6 @@ const FilterBar = forwardRef(({ onFilterChange, filters: externalFilters }, ref)
   const focusChapterInput = () => {
     if (chapterInputRef.current) {
       chapterInputRef.current.focus();
-    }
-  };
-
-  // Function to focus the verse input
-  const focusVerseInput = () => {
-    if (verseStartInputRef.current) {
-      verseStartInputRef.current.focus();
-    }
-  };
-
-  // Function to focus the verse end input
-  const focusVerseEndInput = () => {
-    if (verseEndInputRef.current) {
-      verseEndInputRef.current.focus();
     }
   };
 
@@ -111,7 +95,6 @@ const FilterBar = forwardRef(({ onFilterChange, filters: externalFilters }, ref)
       const chapterNum = parseInt(filters.chapter, 10);
       if (!isNaN(chapterNum) && availableChapters.includes(chapterNum)) {
         updateAvailableVerses(filters.book, chapterNum);
-        // We'll handle focus in the NumericInput's onAfterChange
       } else {
         setAvailableVerses([]);
       }
@@ -246,20 +229,9 @@ const FilterBar = forwardRef(({ onFilterChange, filters: externalFilters }, ref)
         value={filters.chapter}
         onChange={(name, value) => {
           handleInputChange(name, value);
-          
-          // Schedule focus transition after debounce time
-          const chapterNum = parseInt(value, 10);
-          if (!isNaN(chapterNum) && availableChapters.includes(chapterNum)) {
-            setTimeout(() => {
-              if (verseStartInputRef.current) {
-                verseStartInputRef.current.focus();
-              }
-            }, 700);
-          }
         }}
         placeholder="Глава"
         isInvalid={!isChapterValid}
-        debounceTime={700}
       />
       <NumericInput
         ref={verseStartInputRef}
@@ -268,20 +240,9 @@ const FilterBar = forwardRef(({ onFilterChange, filters: externalFilters }, ref)
         value={filters.verseStart}
         onChange={(name, value) => {
           handleInputChange(name, value);
-          
-          // Schedule focus transition after debounce time
-          const verseNum = parseInt(value, 10);
-          if (!isNaN(verseNum) && availableVerses.includes(verseNum) && !filters.verseEnd) {
-            setTimeout(() => {
-              if (verseEndInputRef.current) {
-                verseEndInputRef.current.focus();
-              }
-            }, 700);
-          }
         }}
         placeholder="От стиха"
         isInvalid={!isVerseStartValid}
-        debounceTime={700}
       />
       <NumericInput
         ref={verseEndInputRef}
@@ -289,20 +250,11 @@ const FilterBar = forwardRef(({ onFilterChange, filters: externalFilters }, ref)
         name="verseEnd"
         value={filters.verseEnd}
         onChange={(name, value) => {
-          // Process the input change
+          // Process the input change without automatic focus management
           handleInputChange(name, value);
-          
-          // Keep focus on this input after processing
-          // Using a longer timeout to ensure it happens after all state updates
-          setTimeout(() => {
-            if (verseEndInputRef.current) {
-              verseEndInputRef.current.focus();
-            }
-          }, 50);
         }}
         placeholder="До стиха"
         isInvalid={!isVerseEndValid}
-        debounceTime={700}
       />
       <ClearButton onClick={handleClearFilters} />
     </div>
