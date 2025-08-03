@@ -141,11 +141,6 @@ function App() {
     }
     setFilters(updatedFilters)
     
-    // Focus on Live button after verse selection is complete
-    if (verse !== null && (verseEnd === null || verseEnd !== undefined)) {
-      focusLiveButton();
-    }
-    
     // Only add to history if this is a complete selection (single verse or valid range)
     if (verse !== null && (verseEnd === null || verseEnd !== undefined)) {
       const existsInHistory = history.some(item => {

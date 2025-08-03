@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, forwardRef } from 'react';
+import { useState, useEffect, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { allowOnlyNumbers, formatNumberInput } from '../../utils/inputValidation';
 import './filter.scss';
@@ -11,14 +11,11 @@ const NumericInput = forwardRef(({
   name, 
   value, 
   onChange, 
-  onAfterChange, // New prop for after-change callback
   placeholder, 
   className,
-  isInvalid,
-  debounceTime = 300
+  isInvalid
 }, ref) => {
   const [localValue, setLocalValue] = useState(value);
-  const debounceTimerRef = useRef(null);
   
   // Sync local value with external value
   useEffect(() => {
@@ -29,38 +26,8 @@ const NumericInput = forwardRef(({
     const formattedValue = formatNumberInput(e.target.value);
     setLocalValue(formattedValue);
     
-    // Clear any existing timer
-    if (debounceTimerRef.current) {
-      clearTimeout(debounceTimerRef.current);
-    }
-    
-    // If debounce is enabled, delay the onChange call
-    if (debounceTime > 0) {
-      debounceTimerRef.current = setTimeout(() => {
-        onChange(name, formattedValue);
-        // Call onAfterChange callback if provided
-        if (onAfterChange) {
-          onAfterChange(name, formattedValue);
-        }
-      }, debounceTime);
-    } else {
-      // No debounce, call onChange immediately
-      onChange(name, formattedValue);
-      // Call onAfterChange callback if provided
-      if (onAfterChange) {
-        onAfterChange(name, formattedValue);
-      }
-    }
+    onChange(name, formattedValue);
   };
-  
-  // Clean up timer on unmount
-  useEffect(() => {
-    return () => {
-      if (debounceTimerRef.current) {
-        clearTimeout(debounceTimerRef.current);
-      }
-    };
-  }, []);
   
   const handleKeyDown = (e) => {
     allowOnlyNumbers(e);
@@ -90,18 +57,15 @@ NumericInput.propTypes = { //NOSONAR
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  onAfterChange: PropTypes.func, // New prop type
   placeholder: PropTypes.string,
   className: PropTypes.string,
-  isInvalid: PropTypes.bool,
-  debounceTime: PropTypes.number
+  isInvalid: PropTypes.bool
 };
 
 NumericInput.defaultProps = {
   placeholder: '',
   className: '',
-  isInvalid: false,
-  debounceTime: 300
+  isInvalid: false
 };
 
 export default NumericInput;
