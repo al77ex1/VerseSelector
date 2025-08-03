@@ -239,6 +239,12 @@ function App() {
     if (newBook !== oldBook && newBook) {
       handleSelectBook(newBook);
     }
+    // Always focus chapter input when a book is clicked, even if it's the same book
+    if (newBook && filterBarRef.current) {
+      setTimeout(() => {
+        filterBarRef.current.focusChapterInput();
+      }, 50);
+    }
   };
 
   // Handle chapter filter changes

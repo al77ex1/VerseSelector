@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, forwardRef } from 'react';
+import { useState, useEffect, useRef, forwardRef, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 import { getChapters, getVerses } from '../../utils/bibleDataLoader';
 import BookAutocomplete from './BookAutocomplete';
@@ -70,6 +70,13 @@ const FilterBar = forwardRef(({ onFilterChange, filters: externalFilters }, ref)
       chapterInputRef.current.focus();
     }
   };
+
+  // Expose focusChapterInput method to parent component
+  useImperativeHandle(ref, () => {
+    if (!filters.book) {
+    focusChapterInput();
+    }
+  });
 
   // Update available chapters when book changes
   useEffect(() => {
