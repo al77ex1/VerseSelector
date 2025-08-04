@@ -288,7 +288,7 @@ function App() {
 
   // Select verses based on input
   const selectVerses = (verseStart, verseEnd) => {
-    if (verseEnd !== null && verseStart !== verseEnd) {
+    if (verseEnd !== null) {
       handleSelectVerse(verseStart, verseEnd);
     } else {
       handleSelectVerse(verseStart, null);
@@ -311,7 +311,7 @@ function App() {
       return '';
     }
     
-    if (selection.verseEnd) {
+    if (selection.verseEnd && selection.verse !== selection.verseEnd) {
       return `${selection.book} ${selection.chapter}:${selection.verse}-${selection.verseEnd}`;
     } else {
       return `${selection.book} ${selection.chapter}:${selection.verse}`;
