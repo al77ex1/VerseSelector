@@ -2,63 +2,47 @@ import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './verse.scss';
 
-/**
- * VerseList component displays verses for a selected chapter
- */
 const VerseList = ({ verses, onSelectVerse, selectedVerse: externalSelectedVerse, selectedVerseEnd: externalSelectedVerseEnd }) => {
   const [selectedVerse, setSelectedVerse] = useState(null);
   const [selectedVerseEnd, setSelectedVerseEnd] = useState(null);
   const [isSelectionInProgress, setIsSelectionInProgress] = useState(false);
 
-  // Sync with external selected verses when they change
   useEffect(() => {
-    // Always update internal state to match external state, including when it's null
     setSelectedVerse(externalSelectedVerse);
     setSelectedVerseEnd(externalSelectedVerseEnd);
     
-    // Reset selection progress when verse selection changes externally
     if (externalSelectedVerse === null) {
       setIsSelectionInProgress(false);
     }
   }, [externalSelectedVerse, externalSelectedVerseEnd]);
 
   const handleVerseClick = (verse) => {
-    // If no verse is selected yet, select it as the start verse
     if (selectedVerse === null) {
       setSelectedVerse(verse);
       setSelectedVerseEnd(null);
       setIsSelectionInProgress(true);
-      // Immediately call onSelectVerse with single verse selection
       onSelectVerse(verse, null);
       return;
     }
 
-    // If we're in selection progress mode and clicking a different verse
     if (isSelectionInProgress && verse !== selectedVerse) {
-      // Complete range selection
       setSelectedVerseEnd(verse);
       setIsSelectionInProgress(false);
       
-      // Ensure start verse is always lower than end verse for proper display
       if (verse < selectedVerse) {
         onSelectVerse(verse, selectedVerse);
       } else {
         onSelectVerse(selectedVerse, verse);
       }
     } 
-    // If clicking the same verse again while selection is in progress
     else if (isSelectionInProgress && verse === selectedVerse) {
-      // Complete single verse selection
       setIsSelectionInProgress(false);
       onSelectVerse(verse, null);
     }
-    // If starting a new selection after completing a previous one
     else {
-      // Start a new selection
       setSelectedVerse(verse);
       setSelectedVerseEnd(null);
       setIsSelectionInProgress(true);
-      // Immediately call onSelectVerse with single verse selection
       onSelectVerse(verse, null);
     }
   };
@@ -67,7 +51,6 @@ const VerseList = ({ verses, onSelectVerse, selectedVerse: externalSelectedVerse
     if (selectedVerse === null) return false;
     if (selectedVerseEnd === null) return verse === selectedVerse;
     
-    // Check if verse is within the selected range
     const start = Math.min(selectedVerse, selectedVerseEnd);
     const end = Math.max(selectedVerse, selectedVerseEnd);
     return verse >= start && verse <= end;
@@ -97,7 +80,6 @@ const VerseList = ({ verses, onSelectVerse, selectedVerse: externalSelectedVerse
   );
 };
 
-// Prop types validation
 VerseList.propTypes = {
   verses: PropTypes.arrayOf(PropTypes.number),
   onSelectVerse: PropTypes.func.isRequired,
@@ -105,7 +87,6 @@ VerseList.propTypes = {
   selectedVerseEnd: PropTypes.number
 };
 
-// Default props
 VerseList.defaultProps = {
   verses: [],
   selectedVerse: null,
