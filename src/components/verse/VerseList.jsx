@@ -16,33 +16,23 @@ const VerseList = ({ verses, onSelectVerse, selectedVerse: externalSelectedVerse
     }
   }, [externalSelectedVerse, externalSelectedVerseEnd]);
 
-  const handleVerseClick = (verse) => {
-    if (selectedVerse === null) {
-      setSelectedVerse(verse);
-      setSelectedVerseEnd(null);
-      setIsSelectionInProgress(true);
-      onSelectVerse(verse, null);
-      return;
-    }
-
-    if (isSelectionInProgress && verse !== selectedVerse) {
+  const handleVerseClick = (verse, event) => {
+    // If shift is pressed and we have a previously selected verse, create a range
+    if (event && event.shiftKey && selectedVerse !== null) {
       setSelectedVerseEnd(verse);
       setIsSelectionInProgress(false);
       
+      // Ensure we always pass start, end in correct order (smaller number first)
       if (verse < selectedVerse) {
         onSelectVerse(verse, selectedVerse);
       } else {
         onSelectVerse(selectedVerse, verse);
       }
-    } 
-    else if (isSelectionInProgress && verse === selectedVerse) {
-      setIsSelectionInProgress(false);
-      onSelectVerse(verse, null);
-    }
-    else {
+    } else {
+      // Normal click - just select a single verse
       setSelectedVerse(verse);
       setSelectedVerseEnd(null);
-      setIsSelectionInProgress(true);
+      setIsSelectionInProgress(false);
       onSelectVerse(verse, null);
     }
   };
@@ -65,7 +55,7 @@ const VerseList = ({ verses, onSelectVerse, selectedVerse: externalSelectedVerse
             <li key={verse}>
               <button
                 className={isVerseInRange(verse) ? 'selected' : ''}
-                onClick={() => handleVerseClick(verse)}
+                onClick={(event) => handleVerseClick(verse, event)}
                 aria-pressed={isVerseInRange(verse)}
               >
                 {verse}
