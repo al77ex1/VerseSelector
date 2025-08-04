@@ -65,7 +65,7 @@ const FilterBar = forwardRef(({ onFilterChange, filters: externalFilters }, ref)
   };
 
   useImperativeHandle(ref, () => {
-    if (filters.book) {
+    if (filters.book && !filters.verseStart && !filters.verseEnd) {
       focusChapterInput();
     }
   });
