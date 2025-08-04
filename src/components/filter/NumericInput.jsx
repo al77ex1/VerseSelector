@@ -3,10 +3,6 @@ import PropTypes from 'prop-types';
 import { allowOnlyNumbers, formatNumberInput } from '../../utils/inputValidation';
 import './filter.scss';
 
-/**
- * Numeric input component that only allows number input
- * with debounce functionality to delay onChange events
- */
 const NumericInput = forwardRef(({ 
   name, 
   value, 
@@ -17,7 +13,6 @@ const NumericInput = forwardRef(({
 }, ref) => {
   const [localValue, setLocalValue] = useState(value);
   
-  // Sync local value with external value
   useEffect(() => {
     setLocalValue(value);
   }, [value]);
@@ -50,7 +45,6 @@ const NumericInput = forwardRef(({
   );
 });
 
-// Add display name for better debugging
 NumericInput.displayName = 'NumericInput';
 
 NumericInput.propTypes = { //NOSONAR
