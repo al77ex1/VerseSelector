@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import { getVerseText } from '../../utils/bibleDataLoader';
 import './preview.scss';
 
@@ -71,7 +71,28 @@ const Preview = ({ currentSelection, verseText, onSelectVerse }) => {
     }
   }, [selectedVerses]);
 
-  const handleVerseClick = (verseNum, event) => {
+  const handleKeyDown = useCallback((event) => {
+    if (!currentSelection?.verse || chapterVerses.length === 0) return;
+    
+    const currentVerse = parseInt(currentSelection.verse, 10);
+    const maxVerse = chapterVerses.length;
+    
+    if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      if (currentVerse < maxVerse) {
+        const nextVerse = currentVerse + 1;
+        handleVerseClick(nextVerse);
+      }
+    } else if (event.key === 'ArrowUp') {
+      event.preventDefault();
+      if (currentVerse > 1) {
+        const prevVerse = currentVerse - 1;
+        handleVerseClick(prevVerse);
+      }
+    }
+  }, [currentSelection?.verse, chapterVerses.length]);
+
+  const handleVerseClick = (verseNum, event = null) => {
     if (event && event.shiftKey && internalSelectedVerse !== null) {
       const start = Math.min(internalSelectedVerse, verseNum);
       const end = Math.max(internalSelectedVerse, verseNum);
@@ -86,6 +107,25 @@ const Preview = ({ currentSelection, verseText, onSelectVerse }) => {
       }
     }
   };
+
+  useEffect(() => {
+    const previewContainer = previewChapterRef.current;
+    if (previewContainer) {
+      previewContainer.tabIndex = 0; // Make the container focusable
+      previewContainer.addEventListener('keydown', handleKeyDown);
+      
+      // Focus the container when a verse is selected
+      if (currentSelection?.verse) {
+        previewContainer.focus();
+      }
+    }
+    
+    return () => {
+      if (previewContainer) {
+        previewContainer.removeEventListener('keydown', handleKeyDown);
+      }
+    };
+  }, [handleKeyDown, currentSelection?.verse]);
 
   return (
     <div className="preview-container">
