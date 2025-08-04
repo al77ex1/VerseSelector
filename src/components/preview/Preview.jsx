@@ -3,9 +3,10 @@ import { useEffect, useState, useRef } from 'react';
 import { getVerseText } from '../../utils/bibleDataLoader';
 import './preview.scss';
 
-const Preview = ({ currentSelection, verseText }) => {
+const Preview = ({ currentSelection, verseText, onSelectVerse }) => {
   const [chapterVerses, setChapterVerses] = useState([]);
   const [selectedVerses, setSelectedVerses] = useState(new Set());
+  const [internalSelectedVerse, setInternalSelectedVerse] = useState(null);
   const previewChapterRef = useRef(null);
   const firstSelectedVerseRef = useRef(null);
   
@@ -41,9 +42,13 @@ const Preview = ({ currentSelection, verseText }) => {
       const endVerse = currentSelection.verseEnd ? 
         parseInt(currentSelection.verseEnd, 10) : startVerse;
       
+      setInternalSelectedVerse(startVerse);
+      
       for (let i = startVerse; i <= endVerse; i++) {
         newSelectedVerses.add(i);
       }
+    } else {
+      setInternalSelectedVerse(null);
     }
     
     setSelectedVerses(newSelectedVerses);
@@ -66,6 +71,22 @@ const Preview = ({ currentSelection, verseText }) => {
     }
   }, [selectedVerses]);
 
+  const handleVerseClick = (verseNum, event) => {
+    if (event && event.shiftKey && internalSelectedVerse !== null) {
+      const start = Math.min(internalSelectedVerse, verseNum);
+      const end = Math.max(internalSelectedVerse, verseNum);
+      
+      if (onSelectVerse) {
+        onSelectVerse(start, end);
+      }
+    } else {
+      setInternalSelectedVerse(verseNum);
+      if (onSelectVerse) {
+        onSelectVerse(verseNum, null);
+      }
+    }
+  };
+
   return (
     <div className="preview-container">
       {currentSelection?.book && currentSelection?.chapter ? (
@@ -85,6 +106,14 @@ const Preview = ({ currentSelection, verseText }) => {
                     key={verse.verse} 
                     className={isSelected ? "preview-verse highlight" : "preview-verse"}
                     ref={isFirstSelected ? firstSelectedVerseRef : null}
+                    onClick={(event) => handleVerseClick(verseNum, event)}
+                    style={{ 
+                      cursor: 'pointer',
+                      userSelect: 'none',
+                      WebkitUserSelect: 'none',
+                      MozUserSelect: 'none',
+                      msUserSelect: 'none'
+                    }}
                   >
                     <span className="verse-number">{verse.verse}</span>
                     <span className="verse-text">{verse.text}</span>
@@ -112,7 +141,8 @@ Preview.propTypes = {
     verse: PropTypes.number,
     verseEnd: PropTypes.number
   }),
-  verseText: PropTypes.string
+  verseText: PropTypes.string,
+  onSelectVerse: PropTypes.func
 };
 
 export default Preview;

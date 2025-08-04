@@ -376,6 +376,7 @@ function App() {
                 <Preview 
                   currentSelection={currentSelection}
                   verseText={currentVerseText}
+                  onSelectVerse={selectVerses}
                 />
               }
               searchPanel={
