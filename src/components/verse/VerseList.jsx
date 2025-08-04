@@ -17,19 +17,16 @@ const VerseList = ({ verses, onSelectVerse, selectedVerse: externalSelectedVerse
   }, [externalSelectedVerse, externalSelectedVerseEnd]);
 
   const handleVerseClick = (verse, event) => {
-    // If shift is pressed and we have a previously selected verse, create a range
     if (event && event.shiftKey && selectedVerse !== null) {
       setSelectedVerseEnd(verse);
       setIsSelectionInProgress(false);
       
-      // Ensure we always pass start, end in correct order (smaller number first)
       if (verse < selectedVerse) {
         onSelectVerse(verse, selectedVerse);
       } else {
         onSelectVerse(selectedVerse, verse);
       }
     } else {
-      // Normal click - just select a single verse
       setSelectedVerse(verse);
       setSelectedVerseEnd(null);
       setIsSelectionInProgress(false);
