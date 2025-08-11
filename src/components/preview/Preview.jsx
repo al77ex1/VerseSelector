@@ -113,11 +113,6 @@ const Preview = ({ currentSelection, verseText, onSelectVerse }) => {
     if (previewContainer) {
       previewContainer.tabIndex = 0; // Make the container focusable
       previewContainer.addEventListener('keydown', handleKeyDown);
-      
-      // Focus the container when a verse is selected
-      if (currentSelection?.verse) {
-        previewContainer.focus();
-      }
     }
     
     return () => {
