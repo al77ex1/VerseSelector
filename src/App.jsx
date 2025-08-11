@@ -23,7 +23,6 @@ function App() {
   const [apiStatus, setApiStatus] = useState(null) // null, 'sending', 'success', 'error'
   const [filters, setFilters] = useState({ book: '', chapter: '', verseStart: '', verseEnd: '' })
   const filterBarRef = useRef(null)
-  const liveButtonRef = useRef(null)
 
   // Load Bible data on component mount
   useEffect(() => {
@@ -82,14 +81,7 @@ function App() {
     loadVerseText();
   }, [currentSelection]);
 
-  // Function to focus the Live button
-  const focusLiveButton = () => {
-    if (liveButtonRef.current) {
-      setTimeout(() => {
-        liveButtonRef.current.focus();
-      }, 50);
-    }
-  };
+  
 
   const handleSelectBook = (book) => {
     setSelectedBook(book)
@@ -182,8 +174,6 @@ function App() {
     }
     setFilters(updatedFilters)
     
-    // Focus on Live button after selecting from history
-    focusLiveButton();
   };
 
   // Handle search result selection
@@ -216,9 +206,6 @@ function App() {
         verseEnd: ''
       };
       setFilters(updatedFilters);
-      
-      // Focus on Live button
-      focusLiveButton();
     } catch (error) {
       console.error('Ошибка при обработке результата поиска:', error);
     }
@@ -408,7 +395,6 @@ function App() {
           </div>
         </div>
         <LiveButton 
-          ref={liveButtonRef}
           verseReference={formatSelection(currentSelection)}
           disabled={!hasValidSelection()}
           onStatusChange={handleApiStatusChange}
