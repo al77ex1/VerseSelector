@@ -29,7 +29,7 @@ async function openDb() {
 
 // Получение списка книг
 async function getBooks(db) {
-  return db.all('SELECT id, name FROM book ORDER BY id');
+  return db.all('SELECT * FROM book ORDER BY id');
 }
 
 // Получение информации о главах и количестве стихов для одной книги
@@ -63,14 +63,15 @@ async function buildBibleSummary(db) {
     const chapters = await getChaptersInfo(db, book.id);
     const bookData = {
       book: book.name,
-      "total chapters": chapters.length,
+      testament_reference_id: book.testament_reference_id,
+      total_chapters: chapters.length,
       chapters: []
     };
 
     for (const ch of chapters) {
       console.log(`  Глава ${ch.number}: получение ${ch.total_verses} стихов...`);
       const verses = await getVerseTexts(db, book.id, ch.number);
-      
+
       bookData.chapters.push({
         chapter: {
           number: ch.number,
@@ -84,7 +85,7 @@ async function buildBibleSummary(db) {
         }
       });
     }
-    
+
     summary.push(bookData);
   }
   return summary;
@@ -97,7 +98,7 @@ async function main() {
   if (!fs.existsSync(dataDir)) {
     fs.mkdirSync(dataDir, { recursive: true });
   }
-  
+
   const outputPath = path.join(dataDir, 'bible_summary.json');
 
   const db = await openDb();
@@ -106,13 +107,13 @@ async function main() {
     const summary = await buildBibleSummary(db);
     fs.writeFileSync(outputPath, JSON.stringify(summary, null, 2), 'utf8');
     console.log('Файл успешно создан:', outputPath);
-    
+
     // Выводим статистику
     const totalBooks = summary.length;
     const totalChapters = summary.reduce((sum, book) => sum + book.chapters.length, 0);
-    const totalVerses = summary.reduce((sum, book) => 
+    const totalVerses = summary.reduce((sum, book) =>
       sum + book.chapters.reduce((chSum, ch) => chSum + ch.chapter.verses.length, 0), 0);
-    
+
     console.log(`Статистика:`);
     console.log(`- Книг: ${totalBooks}`);
     console.log(`- Глав: ${totalChapters}`);
