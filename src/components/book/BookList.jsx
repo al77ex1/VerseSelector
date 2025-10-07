@@ -31,29 +31,57 @@ const BookList = ({ books, onSelectBook, selectedBook: externalSelectedBook }) =
     onSelectBook(book);
   };
 
+  // Separate books by testament
+  const { oldTestamentBooks, newTestamentBooks } = useMemo(() => {
+    const old = [];
+    const newT = [];
+    
+    books.forEach(book => {
+      const testamentId = testamentMap.get(book);
+      if (testamentId === 1) {
+        old.push(book);
+      } else {
+        newT.push(book);
+      }
+    });
+    
+    return { oldTestamentBooks: old, newTestamentBooks: newT };
+  }, [books, testamentMap]);
+
+  const renderBooks = (booksList, testamentClass) => {
+    return booksList.map((book) => {
+      const selectedClass = selectedBook === book ? 'selected' : '';
+      const className = `${selectedClass} ${testamentClass}`.trim();
+      
+      return (
+        <li key={book}>
+          <button 
+            className={className}
+            onClick={() => handleBookClick(book)}
+            aria-pressed={selectedBook === book}
+          >
+            {book}
+          </button>
+        </li>
+      );
+    });
+  };
+
   return (
     <div className="book-list">
-      <h3>Книги</h3>
-      <ul>
-        {books.map((book) => {
-          const testamentId = testamentMap.get(book);
-          const testamentClass = testamentId === 1 ? 'old-testament' : 'new-testament';
-          const selectedClass = selectedBook === book ? 'selected' : '';
-          const className = `${selectedClass} ${testamentClass}`.trim();
-          
-          return (
-            <li key={book}>
-              <button 
-                className={className}
-                onClick={() => handleBookClick(book)}
-                aria-pressed={selectedBook === book}
-              >
-                {book}
-              </button>
-            </li>
-          );
-        })}
-      </ul>
+      <div className="testament-section">
+        <h3>Ветхий Завет</h3>
+        <ul>
+          {renderBooks(oldTestamentBooks, 'old-testament')}
+        </ul>
+      </div>
+      
+      <div className="testament-section">
+        <h3>Новый Завет</h3>
+        <ul>
+          {renderBooks(newTestamentBooks, 'new-testament')}
+        </ul>
+      </div>
     </div>
   );
 };
