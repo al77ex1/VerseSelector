@@ -35,7 +35,7 @@ const BookList = ({ books, onSelectBook, selectedBook: externalSelectedBook }) =
   const { oldTestamentBooks, newTestamentBooks } = useMemo(() => {
     const old = [];
     const newT = [];
-    
+
     books.forEach(book => {
       const testamentId = testamentMap.get(book);
       if (testamentId === 1) {
@@ -44,7 +44,7 @@ const BookList = ({ books, onSelectBook, selectedBook: externalSelectedBook }) =
         newT.push(book);
       }
     });
-    
+
     return { oldTestamentBooks: old, newTestamentBooks: newT };
   }, [books, testamentMap]);
 
@@ -52,10 +52,10 @@ const BookList = ({ books, onSelectBook, selectedBook: externalSelectedBook }) =
     return booksList.map((book) => {
       const selectedClass = selectedBook === book ? 'selected' : '';
       const className = `${selectedClass} ${testamentClass}`.trim();
-      
+
       return (
         <li key={book}>
-          <button 
+          <button
             className={className}
             onClick={() => handleBookClick(book)}
             aria-pressed={selectedBook === book}
@@ -75,9 +75,9 @@ const BookList = ({ books, onSelectBook, selectedBook: externalSelectedBook }) =
           {renderBooks(oldTestamentBooks, 'old-testament')}
         </ul>
       </div>
-      
+
       <div className="testament-section">
-        <h3>Новый Завет</h3>
+        <h3 className="internal-title">Новый Завет</h3>
         <ul>
           {renderBooks(newTestamentBooks, 'new-testament')}
         </ul>
@@ -88,9 +88,9 @@ const BookList = ({ books, onSelectBook, selectedBook: externalSelectedBook }) =
 
 // Prop types validation
 BookList.propTypes = {
-  books: PropTypes.arrayOf(PropTypes.string), 
+  books: PropTypes.arrayOf(PropTypes.string),
   onSelectBook: PropTypes.func.isRequired,
-  selectedBook: PropTypes.string 
+  selectedBook: PropTypes.string
 };
 
 // Default props

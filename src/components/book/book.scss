@@ -1,5 +1,20 @@
 /* Book component styles */
 .book-list {
+  h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #888;
+    border-bottom: 2px solid #2a2e32;
+    padding-bottom: 5px;
+  }
+
+  h3.internal-title {
+    margin-top: 10px;
+    border-top: 2px solid #2a2e32;
+    padding-top: 5px;
+  }
+
   ul {
     list-style: none;
     padding: 0;
