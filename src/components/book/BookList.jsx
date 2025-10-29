@@ -48,8 +48,27 @@ const BookList = ({ books, onSelectBook, selectedBook: externalSelectedBook }) =
     return { oldTestamentBooks: old, newTestamentBooks: newT };
   }, [books, testamentMap]);
 
+  // Distribute books vertically across 4 columns
+  const distributeVertically = (booksList, columns = 4) => {
+    const itemsPerColumn = Math.ceil(booksList.length / columns);
+    const distributed = [];
+    
+    for (let row = 0; row < itemsPerColumn; row++) {
+      for (let col = 0; col < columns; col++) {
+        const index = col * itemsPerColumn + row;
+        if (index < booksList.length) {
+          distributed.push(booksList[index]);
+        }
+      }
+    }
+    
+    return distributed;
+  };
+
   const renderBooks = (booksList, testamentClass) => {
-    return booksList.map((book) => {
+    const distributedBooks = distributeVertically(booksList);
+    
+    return distributedBooks.map((book) => {
       const selectedClass = selectedBook === book ? 'selected' : '';
       const className = `${selectedClass} ${testamentClass}`.trim();
 
@@ -77,7 +96,7 @@ const BookList = ({ books, onSelectBook, selectedBook: externalSelectedBook }) =
       </div>
 
       <div className="testament-section">
-        <h3 className="internal-title">Новый Завет</h3>
+        <h3>Новый Завет</h3>
         <ul>
           {renderBooks(newTestamentBooks, 'new-testament')}
         </ul>
