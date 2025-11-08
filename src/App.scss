@@ -169,18 +169,23 @@
   }
 
   #books {
-    flex: 2.5;
-    overflow-y: auto;
-  }
-
-  #chapters {
-    flex: 1.5;
-    overflow-y: auto;
-  }
-
-  #verses {
     flex: 1;
     overflow-y: auto;
+  }
+
+  #two-columns {
+    display: flex;
+    flex: 1;
+    
+    #chapters {
+      flex: 1;
+      overflow-y: auto;
+    }
+    
+    #verses {
+      flex: 1;
+      overflow-y: auto;
+    }
   }
 }
 

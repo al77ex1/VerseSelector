@@ -340,6 +340,7 @@ function App() {
               selectedBook={selectedBook} 
             />
           </div>
+          <div id="two-columns">
           <div id="chapters" className='wrapper'>
             <ChapterList 
               chapters={chapters} 
@@ -354,6 +355,7 @@ function App() {
               selectedVerse={currentSelection?.verse} 
               selectedVerseEnd={currentSelection?.verseEnd}
             />
+          </div>
           </div>
         </div>
         <div id="column-right">
