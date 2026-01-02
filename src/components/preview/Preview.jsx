@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState, useRef, useCallback } from 'react';
 import { getVerseText } from '../../utils/bibleDataLoader';
+import { useAccordionItemEffect } from '@szhsin/react-accordion';
 import './preview.scss';
 
 const Preview = ({ currentSelection, verseText, onSelectVerse }) => {
@@ -9,6 +10,9 @@ const Preview = ({ currentSelection, verseText, onSelectVerse }) => {
   const [internalSelectedVerse, setInternalSelectedVerse] = useState(null);
   const previewChapterRef = useRef(null);
   const firstSelectedVerseRef = useRef(null);
+  
+  // Получаем состояние аккордеона для отслеживания открытия панели
+  const { state } = useAccordionItemEffect({ itemKey: 'preview' });
   
   const formatVerseReference = (item) => {
     if (!item) return '';
@@ -70,6 +74,18 @@ const Preview = ({ currentSelection, verseText, onSelectVerse }) => {
       firstSelectedVerseRef.current.style.scrollMarginTop = '60px';
     }
   }, [selectedVerses]);
+
+  // Новый эффект для скролла при активации секции, срабатывающий только когда панель открыта
+  useEffect(() => {
+    if (state.isEnter && currentSelection?.verse && firstSelectedVerseRef.current) {
+      setTimeout(() => {
+        firstSelectedVerseRef.current.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }, 100);
+    }
+  }, [state.isEnter, currentSelection?.verse]);
 
   const handleKeyDown = useCallback((event) => {
     if (!currentSelection?.verse || chapterVerses.length === 0) return;
