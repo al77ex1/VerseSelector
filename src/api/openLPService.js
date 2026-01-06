@@ -5,34 +5,60 @@
 // Base URL for the API
 const API_BASE_URL = (() => {
   const hostname = window.location.hostname;
-  return `http://${hostname}:4316/api/v2/plugins/bibles`;
+  return `http://${hostname}:4316/api/v2`;
 })();
 
-export const sendVerseToLive = async (verseReference) => {
+// Вспомогательная функция для отправки команд
+const _sendCommand = async (endpoint, data) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/live`, {
+    const response = await fetch(`${API_BASE_URL}${endpoint}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ id: verseReference }),
+      body: JSON.stringify(data),
     });
-    
+
     if (!response.ok) {
       throw new Error(`API request failed with status ${response.status}`);
     }
-    
-    // API may not return any content, so we just return true for success
-    // Only try to parse JSON if there's content to parse
+
     const contentType = response.headers.get('content-type');
     if (contentType?.includes('application/json') && response.status !== 204) {
       return await response.json();
     }
-    
-    // Return true to indicate success for empty responses
+
     return true;
   } catch (error) {
-    console.error('Error sending verse to API:', error);
+    console.error(`Error sending command to API:`, error);
     throw error;
   }
+};
+
+export const sendVerseToLive = async (verseReference) => {
+  return _sendCommand('/plugins/bibles/live', { id: verseReference });
+};
+
+export const sendNextSlide = async () => {
+  return _sendCommand('/controller/progress', { action: 'next' });
+};
+
+export const sendPreviousSlide = async () => {
+  return _sendCommand('/controller/progress', { action: 'previous' });
+};
+
+export const sendShowPresentation = async () => {
+  return _sendCommand('/core/display', { display: 'show' });
+};
+
+export const sendShowTheme = async () => {
+  return _sendCommand('/core/display', { display: 'theme' });
+};
+
+export const sendShowBlank = async () => {
+  return _sendCommand('/core/display', { display: 'blank' });
+};
+
+export const sendShowDesktop = async () => {
+  return _sendCommand('/core/display', { display: 'desktop' });
 };

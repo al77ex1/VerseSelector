@@ -8,6 +8,8 @@ import Preview from './components/preview/Preview'
 import History from './components/history/History'
 import Search from './components/search/Search'
 import LiveButton from './components/live/LiveButton'
+import TVScreen from './components/live/TVScreen'
+import TVScreenButtons from './components/live/TVScreenButtons'
 import FilterBar from './components/filter/FilterBar'
 import { getBookNames, getChapters, getVerses, getVerseText } from './utils/bibleDataLoader'
 
@@ -22,6 +24,7 @@ function App() {
   const [currentVerseText, setCurrentVerseText] = useState('')
   const [apiStatus, setApiStatus] = useState(null) // null, 'sending', 'success', 'error'
   const [filters, setFilters] = useState({ book: '', chapter: '', verseStart: '', verseEnd: '' })
+  const [isTVScreenVisible, setIsTVScreenVisible] = useState(true)
   const filterBarRef = useRef(null)
 
   // Load Bible data on component mount
@@ -383,6 +386,9 @@ function App() {
               onClearHistory={handleClearHistory}
             />
           </div>
+          <div className="wrapper" style={{ flex: '0.35', display: isTVScreenVisible ? 'none' : 'block' }}>
+            <TVScreen />
+          </div>
         </div>
       </div>
       <div id="row-info">
@@ -396,6 +402,7 @@ function App() {
             {getInfoText()}
           </div>
         </div>
+        <TVScreenButtons onScreenToggle={setIsTVScreenVisible} />
         <LiveButton 
           verseReference={formatSelection(currentSelection)}
           disabled={!hasValidSelection()}

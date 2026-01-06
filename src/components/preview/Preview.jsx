@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { useEffect, useState, useRef, useCallback } from 'react';
 import { getVerseText } from '../../utils/bibleDataLoader';
 import { useAccordionItemEffect } from '@szhsin/react-accordion';
+import { sendPreviousSlide, sendNextSlide } from '../../api/openLPService';
 import './preview.scss';
 
 const Preview = ({ currentSelection, verseText, onSelectVerse }) => {
@@ -87,27 +88,6 @@ const Preview = ({ currentSelection, verseText, onSelectVerse }) => {
     }
   }, [state.isEnter, currentSelection?.verse]);
 
-  const handleKeyDown = useCallback((event) => {
-    if (!currentSelection?.verse || chapterVerses.length === 0) return;
-    
-    const currentVerse = parseInt(currentSelection.verse, 10);
-    const maxVerse = chapterVerses.length;
-    
-    if (event.key === 'ArrowDown') {
-      event.preventDefault();
-      if (currentVerse < maxVerse) {
-        const nextVerse = currentVerse + 1;
-        handleVerseClick(nextVerse);
-      }
-    } else if (event.key === 'ArrowUp') {
-      event.preventDefault();
-      if (currentVerse > 1) {
-        const prevVerse = currentVerse - 1;
-        handleVerseClick(prevVerse);
-      }
-    }
-  }, [currentSelection?.verse, chapterVerses.length]);
-
   const handleVerseClick = (verseNum, event = null) => {
     if (event && event.shiftKey && internalSelectedVerse !== null) {
       const start = Math.min(internalSelectedVerse, verseNum);
@@ -124,19 +104,55 @@ const Preview = ({ currentSelection, verseText, onSelectVerse }) => {
     }
   };
 
+  // Глобальный обработчик клавиш
   useEffect(() => {
-    const previewContainer = previewChapterRef.current;
-    if (previewContainer) {
-      previewContainer.tabIndex = 0; // Make the container focusable
-      previewContainer.addEventListener('keydown', handleKeyDown);
-    }
-    
-    return () => {
-      if (previewContainer) {
-        previewContainer.removeEventListener('keydown', handleKeyDown);
+    const handleGlobalKeyDown = (event) => {
+      // Проверяем, что панель предпросмотра активна
+      if (!currentSelection?.book || !currentSelection?.chapter) return;
+      
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        sendPreviousSlide();
+      } else if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        sendNextSlide();
+      } else if (event.key === 'ArrowDown') {
+        event.preventDefault();
+        const currentVerse = parseInt(currentSelection.verse, 10) || 0;
+        const maxVerse = chapterVerses.length;
+        
+        if (currentVerse < maxVerse) {
+          const nextVerse = currentVerse + 1;
+          handleVerseClick(nextVerse);
+        }
+      } else if (event.key === 'ArrowUp') {
+        event.preventDefault();
+        const currentVerse = parseInt(currentSelection.verse, 10) || 0;
+        
+        if (currentVerse > 1) {
+          const prevVerse = currentVerse - 1;
+          handleVerseClick(prevVerse);
+        }
       }
     };
-  }, [handleKeyDown, currentSelection?.verse]);
+
+    document.addEventListener('keydown', handleGlobalKeyDown);
+    
+    return () => {
+      document.removeEventListener('keydown', handleGlobalKeyDown);
+    };
+  }, [currentSelection, chapterVerses.length, handleVerseClick]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (firstSelectedVerseRef.current) {
+        firstSelectedVerseRef.current.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }, 100);
+  }, [selectedVerses]);
 
   return (
     <div className="preview-container">
