@@ -1,0 +1,27 @@
+# Адрес стейжа Live трансляции
+
+http://192.168.3.3:4316/main
+
+# Следующий слайд
+
+$ curl -X POST http://192.168.3.3:4316/api/v2/controller/progress -H "Content-Type: application/json" -d '{"action": "next"}'
+
+# Предыдущий слайд
+
+$ curl -X POST http://192.168.3.3:4316/api/v2/controller/progress -H "Content-Type: application/json" -d '{"action": "previous"}'
+
+# Показать презентацию
+
+$ curl -X POST http://192.168.3.3:4316/api/v2/core/display -H "Content-Type: application/json" -d '{"display": "show"}'
+
+# Показать тему
+
+$ curl -X POST http://192.168.3.3:4316/api/v2/core/display -H "Content-Type: application/json" -d '{"display": "theme"}'
+
+# Показать черный экран
+
+$ curl -X POST http://192.168.3.3:4316/api/v2/core/display -H "Content-Type: application/json" -d '{"display": "blank"}'
+
+# Показать рабочий стол
+
+$ curl -X POST http://192.168.3.3:4316/api/v2/core/display -H "Content-Type: application/json" -d '{"display": "desktop"}'
