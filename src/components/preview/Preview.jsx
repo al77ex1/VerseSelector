@@ -11,6 +11,7 @@ const Preview = ({ currentSelection, verseText, onSelectVerse }) => {
   const [internalSelectedVerse, setInternalSelectedVerse] = useState(null);
   const previewChapterRef = useRef(null);
   const firstSelectedVerseRef = useRef(null);
+  const previewContainerRef = useRef(null);
   
   // Получаем состояние аккордеона для отслеживания открытия панели
   const { state } = useAccordionItemEffect({ itemKey: 'preview' });
@@ -104,44 +105,32 @@ const Preview = ({ currentSelection, verseText, onSelectVerse }) => {
     }
   };
 
-  // Глобальный обработчик клавиш
-  useEffect(() => {
-    const handleGlobalKeyDown = (event) => {
-      // Проверяем, что панель предпросмотра активна
-      if (!currentSelection?.book || !currentSelection?.chapter) return;
-      
-      if (event.key === 'ArrowLeft') {
-        event.preventDefault();
-        sendPreviousSlide();
-      } else if (event.key === 'ArrowRight') {
-        event.preventDefault();
-        sendNextSlide();
-      } else if (event.key === 'ArrowDown') {
-        event.preventDefault();
-        const currentVerse = parseInt(currentSelection.verse, 10) || 0;
-        const maxVerse = chapterVerses.length;
-        
-        if (currentVerse < maxVerse) {
-          const nextVerse = currentVerse + 1;
-          handleVerseClick(nextVerse);
-        }
-      } else if (event.key === 'ArrowUp') {
-        event.preventDefault();
-        const currentVerse = parseInt(currentSelection.verse, 10) || 0;
-        
-        if (currentVerse > 1) {
-          const prevVerse = currentVerse - 1;
-          handleVerseClick(prevVerse);
-        }
-      }
-    };
-
-    document.addEventListener('keydown', handleGlobalKeyDown);
-    
-    return () => {
-      document.removeEventListener('keydown', handleGlobalKeyDown);
-    };
-  }, [currentSelection, chapterVerses.length, handleVerseClick]);
+const handleKeyDown = useCallback((event) => {  
+    if (!currentSelection?.book || !currentSelection?.chapter) return;
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      sendPreviousSlide();
+    } else if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      sendNextSlide();
+    } else if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      const currentVerse = parseInt(currentSelection.verse, 10) || 0;
+      const maxVerse = chapterVerses.length;                         
+                                                                   
+    if (currentVerse < maxVerse) {                                 
+      const nextVerse = currentVerse + 1;                          
+      handleVerseClick(nextVerse);                                 
+    }                                                              
+  } else if (event.key === 'ArrowUp') {                            
+    event.preventDefault();                                        
+    const currentVerse = parseInt(currentSelection.verse, 10) || 0;
+    if (currentVerse > 1) {                                        
+      const prevVerse = currentVerse - 1;                          
+      handleVerseClick(prevVerse);                                 
+    }                                                              
+  }                                                                
+ }, [currentSelection, chapterVerses.length, handleVerseClick]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -155,7 +144,12 @@ const Preview = ({ currentSelection, verseText, onSelectVerse }) => {
   }, [selectedVerses]);
 
   return (
-    <div className="preview-container">
+    <div                                                             
+      className="preview-container"                                  
+      ref={previewContainerRef}
+      tabIndex={0}
+      onKeyDown={handleKeyDown}
+    >  
       {currentSelection?.book && currentSelection?.chapter ? (
         <>
           <div className="preview-reference">
