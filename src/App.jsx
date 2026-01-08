@@ -12,15 +12,15 @@ import TVScreen from './components/live/TVScreen'
 import TVScreenButtons from './components/live/TVScreenButtons'
 import FilterBar from './components/filter/FilterBar'
 import { getBookNames, getVerseText } from './utils/bibleDataLoader'
-import { formatSelection, isValidChapter, isValidVerseSelection, selectVerses, loadVerseText, getInfoText, hasValidSelection, updateFiltersFromSelection } from './appHelpers'
+import { formatSelection, isValidChapter, isValidVerseSelection, selectVerses, loadVerseText, getInfoText, hasValidSelection } from './appHelpers'
 import { useBibleSelection } from './hooks/useBibleSelection'
 import { useHistoryManagement } from './hooks/useHistoryManagement'
+import { useFilterSync } from './hooks/useFilterSync'
 
 function App() {
   const [books, setBooks] = useState([])
   const [currentVerseText, setCurrentVerseText] = useState('')
   const [apiStatus, setApiStatus] = useState(null) // null, 'sending', 'success', 'error'
-  const [filters, setFilters] = useState({ book: '', chapter: '', verseStart: '', verseEnd: '' })
   const [isTVScreenVisible, setIsTVScreenVisible] = useState(true)
   const filterBarRef = useRef(null)
   
@@ -38,6 +38,7 @@ function App() {
   } = useBibleSelection()
   
   const { history, addToHistory, clearHistory } = useHistoryManagement()
+  const { filters, setFilters, syncFilters } = useFilterSync(currentSelection)
 
   // Load Bible data on component mount
   useEffect(() => {
@@ -64,7 +65,7 @@ function App() {
     return () => {
       document.removeEventListener('mousedown', handleDocumentClick);
     };
-  }, [filters]);
+  }, [filters, setFilters]);
 
   // Load verse text when selection changes
   useEffect(() => {
@@ -74,17 +75,11 @@ function App() {
   const handleSelectBook = (book) => {
     selectBook(book)
     setApiStatus(null)
-    
-    // Update filters to match the selected book
-    setFilters(updateFiltersFromSelection({ book }));
   }
 
   const handleSelectChapter = (chapter) => {
     selectChapter(chapter, selectedBook)
     setApiStatus(null)
-    
-    // Update filters to match the selected chapter
-    setFilters(updateFiltersFromSelection({ book: selectedBook, chapter }));
   }
 
   const handleSelectVerse = (verse, verseEnd) => {
@@ -99,9 +94,6 @@ function App() {
     
     setApiStatus(null)
     
-    // Update filters to match the selected verse
-    setFilters(updateFiltersFromSelection({ book: selectedBook, chapter: selectedChapter, verse, verseEnd }));
-    
     // Only add to history if this is a complete selection (single verse or valid range)
     addToHistory(newSelection)
   }
@@ -109,9 +101,6 @@ function App() {
   const handleSelectHistoryItem = (item) => {
     selectFromHistory(item)
     setApiStatus(null)
-    
-    // Update filters to match the history item
-    setFilters(updateFiltersFromSelection(item));
   };
 
   // Handle search result selection
@@ -127,9 +116,6 @@ function App() {
       
       const newSelection = selectVerse(verse, null, book, chapter)
       if (!newSelection) return;
-      
-      // Update filters
-      setFilters(updateFiltersFromSelection({ book, chapter, verse }));
     } catch (error) {
       console.error('Ошибка при обработке результата поиска:', error);
     }
