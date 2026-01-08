@@ -14,13 +14,12 @@ const VerseList = ({ verses, onSelectVerse, selectedVerse: externalSelectedVerse
     if (externalSelectedVerse === null) {
       setIsSelectionInProgress(false);
     }
-  }, [externalSelectedVerse, externalSelectedVerseEnd]);
-
-  const handleVerseClick = (verse, event) => {
-    // Вызываем обработчик для открытия вкладки предпросмотра
     if (onVerseSelect) {
       onVerseSelect();
     }
+  }, [externalSelectedVerse, externalSelectedVerseEnd]);
+
+  const handleVerseClick = (verse, event) => {
     
     if (event && event.shiftKey && selectedVerse !== null) {
       setSelectedVerseEnd(verse);
