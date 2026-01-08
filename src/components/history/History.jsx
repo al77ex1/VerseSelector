@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './history.scss';
+import { openPreviewTab } from '../../utils/accordionUtils';
 
 /**
  * History component displays the history of selected verses
@@ -34,12 +35,7 @@ const History = ({ history, onSelectHistoryItem, currentSelection }) => {
   const handleItemClick = (index) => {
     setSelectedItem(index);
     onSelectHistoryItem(history[index]);
-    
-    // Добавляем вызов открытия вкладки предпросмотра
-    const previewButton = document.querySelector('.preview-section .accordion-title');
-    if (previewButton) {
-      previewButton.click();
-    }
+    openPreviewTab();
   };
 
   // Format the verse reference

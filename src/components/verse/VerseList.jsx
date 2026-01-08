@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './verse.scss';
+import { openPreviewTab } from '../../utils/accordionUtils';
 
-const VerseList = ({ verses, onSelectVerse, selectedVerse: externalSelectedVerse, selectedVerseEnd: externalSelectedVerseEnd, onVerseSelect }) => {
+const VerseList = ({ verses, onSelectVerse, selectedVerse: externalSelectedVerse, selectedVerseEnd: externalSelectedVerseEnd }) => {
   const [selectedVerse, setSelectedVerse] = useState(null);
   const [selectedVerseEnd, setSelectedVerseEnd] = useState(null);
   const [isSelectionInProgress, setIsSelectionInProgress] = useState(false);
@@ -14,7 +15,6 @@ const VerseList = ({ verses, onSelectVerse, selectedVerse: externalSelectedVerse
     if (externalSelectedVerse === null) {
       setIsSelectionInProgress(false);
     }
-    // Убираем вызов onVerseSelect отсюда
   }, [externalSelectedVerse, externalSelectedVerseEnd]);
 
   const handleVerseClick = (verse, event) => {
@@ -34,10 +34,8 @@ const VerseList = ({ verses, onSelectVerse, selectedVerse: externalSelectedVerse
       setIsSelectionInProgress(false);
       onSelectVerse(verse, null);
       
-      // Добавляем вызов onVerseSelect при каждом клике
-      if (onVerseSelect) {
-        onVerseSelect();
-      }
+      // Вызываем функцию открытия вкладки предпросмотра
+      openPreviewTab();
     }
   };
 
@@ -78,15 +76,13 @@ VerseList.propTypes = {
   verses: PropTypes.arrayOf(PropTypes.number),
   onSelectVerse: PropTypes.func.isRequired,
   selectedVerse: PropTypes.number,
-  selectedVerseEnd: PropTypes.number,
-  onVerseSelect: PropTypes.func
+  selectedVerseEnd: PropTypes.number
 };
 
 VerseList.defaultProps = {
   verses: [],
   selectedVerse: null,
-  selectedVerseEnd: null,
-  onVerseSelect: null
+  selectedVerseEnd: null
 };
 
 export default VerseList;
