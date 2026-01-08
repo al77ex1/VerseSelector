@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './verse.scss';
 
-const VerseList = ({ verses, onSelectVerse, selectedVerse: externalSelectedVerse, selectedVerseEnd: externalSelectedVerseEnd }) => {
+const VerseList = ({ verses, onSelectVerse, selectedVerse: externalSelectedVerse, selectedVerseEnd: externalSelectedVerseEnd, onVerseSelect }) => {
   const [selectedVerse, setSelectedVerse] = useState(null);
   const [selectedVerseEnd, setSelectedVerseEnd] = useState(null);
   const [isSelectionInProgress, setIsSelectionInProgress] = useState(false);
@@ -17,6 +17,11 @@ const VerseList = ({ verses, onSelectVerse, selectedVerse: externalSelectedVerse
   }, [externalSelectedVerse, externalSelectedVerseEnd]);
 
   const handleVerseClick = (verse, event) => {
+    // Вызываем обработчик для открытия вкладки предпросмотра
+    if (onVerseSelect) {
+      onVerseSelect();
+    }
+    
     if (event && event.shiftKey && selectedVerse !== null) {
       setSelectedVerseEnd(verse);
       setIsSelectionInProgress(false);
@@ -71,13 +76,15 @@ VerseList.propTypes = {
   verses: PropTypes.arrayOf(PropTypes.number),
   onSelectVerse: PropTypes.func.isRequired,
   selectedVerse: PropTypes.number,
-  selectedVerseEnd: PropTypes.number
+  selectedVerseEnd: PropTypes.number,
+  onVerseSelect: PropTypes.func
 };
 
 VerseList.defaultProps = {
   verses: [],
   selectedVerse: null,
-  selectedVerseEnd: null
+  selectedVerseEnd: null,
+  onVerseSelect: null
 };
 
 export default VerseList;

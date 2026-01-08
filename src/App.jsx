@@ -173,6 +173,14 @@ function App() {
     handleFilterChange(newFilters);
   };
 
+  // Функция для открытия вкладки предпросмотра
+  const openPreviewTab = () => {
+    const previewButton = document.querySelector('.preview-section .accordion-title');
+    if (previewButton) {
+      previewButton.click();
+    }
+  };
+
   return (
     <>
       <div id="row-columns">
@@ -198,6 +206,7 @@ function App() {
               onSelectVerse={handleSelectVerse}
               selectedVerse={currentSelection?.verse} 
               selectedVerseEnd={currentSelection?.verseEnd}
+              onVerseSelect={openPreviewTab}
             />
           </div>
           </div>
