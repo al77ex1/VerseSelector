@@ -95,18 +95,12 @@ const Preview = ({ currentSelection, verseText, onSelectVerse }) => {
       const end = Math.max(internalSelectedVerse, verseNum);
       
       if (onSelectVerse) {
-        const selection = onSelectVerse(start, end);
-        if (selection && typeof selection === 'object') {
-          // Ничего не делать здесь, так как onSelectVerse теперь возвращает данные
-        }
+        onSelectVerse(start, end);
       }
     } else {
       setInternalSelectedVerse(verseNum);
       if (onSelectVerse) {
-        const selection = onSelectVerse(verseNum, null);
-        if (selection && typeof selection === 'object') {
-          // Ничего не делать здесь
-        }
+        onSelectVerse(verseNum, null);
       }
     }
   };
