@@ -82,5 +82,12 @@ export const hasValidSelection = (currentSelection) => {
   return !!(currentSelection?.book && currentSelection?.chapter && currentSelection?.verse);
 };
 
-// Handle filter changes for book, chapter and verse
-// Эта функция перенесена в App.jsx
+// Update filters from selection object
+export const updateFiltersFromSelection = (selection) => {
+  return {
+    book: selection.book || '',
+    chapter: selection.chapter ? String(selection.chapter) : '',
+    verseStart: selection.verse ? String(selection.verse) : '',
+    verseEnd: selection.verseEnd !== null && selection.verseEnd !== undefined ? String(selection.verseEnd) : ''
+  };
+};

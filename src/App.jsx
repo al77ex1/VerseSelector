@@ -12,7 +12,7 @@ import TVScreen from './components/live/TVScreen'
 import TVScreenButtons from './components/live/TVScreenButtons'
 import FilterBar from './components/filter/FilterBar'
 import { getBookNames, getChapters, getVerses, getVerseText } from './utils/bibleDataLoader'
-import { formatSelection, isValidChapter, isValidVerseSelection, selectVerses, loadVerseText, getInfoText, hasValidSelection } from './appHelpers'
+import { formatSelection, isValidChapter, isValidVerseSelection, selectVerses, loadVerseText, getInfoText, hasValidSelection, updateFiltersFromSelection } from './appHelpers'
 
 function App() {
   const [books, setBooks] = useState([])
@@ -70,8 +70,7 @@ function App() {
     
     // Update filters to match the selected book
     // This will trigger the useEffect in FilterBar that focuses the chapter input
-    const updatedFilters = { ...filters, book, chapter: '', verseStart: '', verseEnd: '' }
-    setFilters(updatedFilters)
+    setFilters(updateFiltersFromSelection({ book }));
   }
 
   const handleSelectChapter = (chapter) => {
@@ -81,8 +80,7 @@ function App() {
     setApiStatus(null)
     
     // Update filters to match the selected chapter
-    const updatedFilters = { ...filters, book: selectedBook, chapter: String(chapter), verseStart: '', verseEnd: '' }
-    setFilters(updatedFilters)
+    setFilters(updateFiltersFromSelection({ book: selectedBook, chapter }));
   }
 
   const handleSelectVerse = (verse, verseEnd) => {
@@ -102,13 +100,7 @@ function App() {
     setApiStatus(null)
     
     // Update filters to match the selected verse
-    const updatedFilters = { 
-      book: selectedBook, 
-      chapter: String(selectedChapter), 
-      verseStart: String(verse), 
-      verseEnd: verseEnd !== null && verseEnd !== undefined ? String(verseEnd) : '' 
-    }
-    setFilters(updatedFilters)
+    setFilters(updateFiltersFromSelection({ book: selectedBook, chapter: selectedChapter, verse, verseEnd }));
     
     // Only add to history if this is a complete selection (single verse or valid range)
     if (verse !== null && (verseEnd === null || verseEnd !== undefined)) {
@@ -143,14 +135,7 @@ function App() {
     setApiStatus(null)
     
     // Update filters to match the history item
-    const updatedFilters = { 
-      book: item.book, 
-      chapter: String(item.chapter), 
-      verseStart: String(item.verse), 
-      verseEnd: item.verseEnd !== null && item.verseEnd !== undefined ? String(item.verseEnd) : '' 
-    }
-    setFilters(updatedFilters)
-    
+    setFilters(updateFiltersFromSelection(item));
   };
 
   // Handle search result selection
@@ -176,13 +161,7 @@ function App() {
       setCurrentSelection(newSelection);
       
       // Update filters
-      const updatedFilters = {
-        book,
-        chapter: String(chapter),
-        verseStart: String(verse),
-        verseEnd: ''
-      };
-      setFilters(updatedFilters);
+      setFilters(updateFiltersFromSelection({ book, chapter, verse }));
     } catch (error) {
       console.error('Ошибка при обработке результата поиска:', error);
     }
