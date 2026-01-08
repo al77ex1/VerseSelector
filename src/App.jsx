@@ -11,22 +11,33 @@ import LiveButton from './components/live/LiveButton'
 import TVScreen from './components/live/TVScreen'
 import TVScreenButtons from './components/live/TVScreenButtons'
 import FilterBar from './components/filter/FilterBar'
-import { getBookNames, getChapters, getVerses, getVerseText } from './utils/bibleDataLoader'
+import { getBookNames, getVerseText } from './utils/bibleDataLoader'
 import { formatSelection, isValidChapter, isValidVerseSelection, selectVerses, loadVerseText, getInfoText, hasValidSelection, updateFiltersFromSelection } from './appHelpers'
+import { useBibleSelection } from './hooks/useBibleSelection'
+import { useHistoryManagement } from './hooks/useHistoryManagement'
 
 function App() {
   const [books, setBooks] = useState([])
-  const [selectedBook, setSelectedBook] = useState(null)
-  const [chapters, setChapters] = useState(null)
-  const [selectedChapter, setSelectedChapter] = useState(null)
-  const [verses, setVerses] = useState([])
-  const [history, setHistory] = useState([])
-  const [currentSelection, setCurrentSelection] = useState(null)
   const [currentVerseText, setCurrentVerseText] = useState('')
   const [apiStatus, setApiStatus] = useState(null) // null, 'sending', 'success', 'error'
   const [filters, setFilters] = useState({ book: '', chapter: '', verseStart: '', verseEnd: '' })
   const [isTVScreenVisible, setIsTVScreenVisible] = useState(true)
   const filterBarRef = useRef(null)
+  
+  // Используем кастомные хуки
+  const {
+    selectedBook,
+    chapters,
+    selectedChapter,
+    verses,
+    currentSelection,
+    selectBook,
+    selectChapter,
+    selectVerse,
+    selectFromHistory,
+  } = useBibleSelection()
+  
+  const { history, addToHistory, clearHistory } = useHistoryManagement()
 
   // Load Bible data on component mount
   useEffect(() => {
@@ -53,7 +64,7 @@ function App() {
     return () => {
       document.removeEventListener('mousedown', handleDocumentClick);
     };
-  }, []);
+  }, [filters]);
 
   // Load verse text when selection changes
   useEffect(() => {
@@ -61,22 +72,15 @@ function App() {
   }, [currentSelection]);
 
   const handleSelectBook = (book) => {
-    setSelectedBook(book)
-    setChapters(getChapters(book))
-    setSelectedChapter(null)
-    setVerses([])
-    setCurrentSelection({ book })
+    selectBook(book)
     setApiStatus(null)
     
     // Update filters to match the selected book
-    // This will trigger the useEffect in FilterBar that focuses the chapter input
     setFilters(updateFiltersFromSelection({ book }));
   }
 
   const handleSelectChapter = (chapter) => {
-    setSelectedChapter(chapter)
-    setVerses(getVerses(selectedBook, chapter))
-    setCurrentSelection({ book: selectedBook, chapter })
+    selectChapter(chapter, selectedBook)
     setApiStatus(null)
     
     // Update filters to match the selected chapter
@@ -90,48 +94,20 @@ function App() {
       return;
     }
     
-    const newSelection = {
-      book: selectedBook,
-      chapter: selectedChapter,
-      verse: verse,
-      verseEnd: verseEnd
-    }
-    setCurrentSelection(newSelection)
+    const newSelection = selectVerse(verse, verseEnd, selectedBook, selectedChapter)
+    if (!newSelection) return;
+    
     setApiStatus(null)
     
     // Update filters to match the selected verse
     setFilters(updateFiltersFromSelection({ book: selectedBook, chapter: selectedChapter, verse, verseEnd }));
     
     // Only add to history if this is a complete selection (single verse or valid range)
-    if (verse !== null && (verseEnd === null || verseEnd !== undefined)) {
-      const existsInHistory = history.some(item => {
-        const isRangeSelection = verseEnd !== null && verseEnd !== undefined;
-        
-        if (isRangeSelection) {
-          return item.book === newSelection.book && 
-                 item.chapter === newSelection.chapter && 
-                 item.verse === newSelection.verse &&
-                 item.verseEnd === newSelection.verseEnd;
-        } else {
-          return item.book === newSelection.book && 
-                 item.chapter === newSelection.chapter && 
-                 item.verse === newSelection.verse &&
-                 (item.verseEnd === null || item.verseEnd === undefined);
-        }
-      });
-      
-      if (!existsInHistory) {
-        setHistory(prev => [...prev, newSelection]);
-      }
-    }
+    addToHistory(newSelection)
   }
 
   const handleSelectHistoryItem = (item) => {
-    setSelectedBook(item.book)
-    setChapters(getChapters(item.book))
-    setSelectedChapter(item.chapter)
-    setVerses(getVerses(item.book, item.chapter))
-    setCurrentSelection(item)
+    selectFromHistory(item)
     setApiStatus(null)
     
     // Update filters to match the history item
@@ -146,19 +122,11 @@ function App() {
       const { book, chapter, verse } = result;
       
       // Set the selection
-      setSelectedBook(book);
-      setChapters(getChapters(book));
-      setSelectedChapter(chapter);
-      setVerses(getVerses(book, chapter));
+      selectBook(book)
+      selectChapter(chapter, book)
       
-      const newSelection = {
-        book,
-        chapter,
-        verse,
-        verseEnd: null
-      };
-      
-      setCurrentSelection(newSelection);
+      const newSelection = selectVerse(verse, null, book, chapter)
+      if (!newSelection) return;
       
       // Update filters
       setFilters(updateFiltersFromSelection({ book, chapter, verse }));
@@ -168,8 +136,7 @@ function App() {
   };
 
   const handleClearHistory = () => {
-    setHistory([]);
-    setCurrentSelection(null);
+    clearHistory();
   };
 
   // Handle API status change from LiveButton
