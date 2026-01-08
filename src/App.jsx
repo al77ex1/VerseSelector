@@ -198,54 +198,44 @@ function App() {
     setApiStatus(status);
   };
 
-  // Handle book filter changes
-  const handleBookFilterChange = (newBook, oldBook) => {
-    if (newBook !== oldBook && newBook) {
-      handleSelectBook(newBook);
+  // Handle filter changes for book, chapter and verse
+  const handleFilterChange = (newFilters) => {
+    // Handle book filter change
+    if (newFilters.book !== filters.book && newFilters.book) {
+      handleSelectBook(newFilters.book);
     }
-    // Always focus chapter input when a book is clicked, even if it's the same book
-    if (newBook && filterBarRef.current) {
+    // Always focus chapter input when a book is selected
+    if (newFilters.book && filterBarRef.current) {
       setTimeout(() => {
         filterBarRef.current.focusChapterInput();
       }, 50);
     }
-  };
 
-  // Handle chapter filter changes
-  const handleChapterFilterChange = (newChapter, oldChapter, book) => {
-    if (newChapter !== oldChapter && newChapter && book) {
-      const chapterNum = parseInt(newChapter, 10);
+    // Handle chapter filter change
+    if (newFilters.chapter !== filters.chapter && newFilters.chapter && newFilters.book) {
+      const chapterNum = parseInt(newFilters.chapter, 10);
       if (isValidChapter(chapterNum, chapters)) {
         handleSelectChapter(chapterNum);
       }
     }
-  };
 
-  // Handle verse filter changes
-  const handleVerseFilterChange = (verseStart, verseEnd) => {
-    // Only proceed if we have all required fields filled
-    if (!selectedBook || !selectedChapter || verses.length === 0 || 
-        !verseStart) {
-      return;
-    }
-
-    const parsedVerseStart = verseStart ? parseInt(verseStart, 10) : null;
-    const parsedVerseEnd = verseEnd ? parseInt(verseEnd, 10) : null;
-    
-    // Only update selection if all required fields are filled and valid
-    if (isValidVerseSelection(parsedVerseStart, parsedVerseEnd, verses)) {
-      selectVerses(parsedVerseStart, parsedVerseEnd, handleSelectVerse);
+    // Handle verse filter change
+    if (newFilters.verseStart && selectedBook && selectedChapter && verses.length > 0) {
+      const parsedVerseStart = newFilters.verseStart ? parseInt(newFilters.verseStart, 10) : null;
+      const parsedVerseEnd = newFilters.verseEnd ? parseInt(newFilters.verseEnd, 10) : null;
+      
+      if (isValidVerseSelection(parsedVerseStart, parsedVerseEnd, verses)) {
+        selectVerses(parsedVerseStart, parsedVerseEnd, handleSelectVerse);
+      }
     }
   };
 
   // Handle filter changes
-  const handleFilterChange = (newFilters) => {
+  const handleFilterChangeInternal = (newFilters) => {
     setFilters(newFilters);
     
     // Process book, chapter and verse changes
-    handleBookFilterChange(newFilters.book, filters.book);
-    handleChapterFilterChange(newFilters.chapter, filters.chapter, selectedBook);
-    handleVerseFilterChange(newFilters.verseStart, newFilters.verseEnd);
+    handleFilterChange(newFilters);
   };
 
   return (
@@ -311,7 +301,7 @@ function App() {
         <div id="info">
           <FilterBar 
             ref={filterBarRef}
-            onFilterChange={handleFilterChange} 
+            onFilterChange={handleFilterChangeInternal} 
             filters={filters} 
           />
           <div className="selection-info">

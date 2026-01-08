@@ -81,3 +81,6 @@ export const getInfoText = (currentSelection, apiStatus) => {
 export const hasValidSelection = (currentSelection) => {
   return !!(currentSelection?.book && currentSelection?.chapter && currentSelection?.verse);
 };
+
+// Handle filter changes for book, chapter and verse
+// Эта функция перенесена в App.jsx
