@@ -57,3 +57,27 @@ export const loadVerseText = async (currentSelection, setCurrentVerseText, getVe
     setCurrentVerseText('');
   }
 };
+
+// Get formatted info text with selection and status
+export const getInfoText = (currentSelection, apiStatus) => {
+  const selectionText = formatSelection(currentSelection);
+  if (!selectionText) return '';
+  
+  // Always prefix with "Выбрано: "
+  const baseText = `Выбрано: ${selectionText}`;
+  
+  if (apiStatus === 'sending') {
+    return `${baseText} | Статус: Отправка...`;
+  } else if (apiStatus === 'success') {
+    return `${baseText} | Статус: Отправлено`;
+  } else if (apiStatus === 'error') {
+    return `${baseText} | Статус: Ошибка`;
+  }
+  
+  return baseText;
+};
+
+// Check if there is a valid verse selection
+export const hasValidSelection = (currentSelection) => {
+  return !!(currentSelection?.book && currentSelection?.chapter && currentSelection?.verse);
+};

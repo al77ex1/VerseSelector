@@ -12,7 +12,7 @@ import TVScreen from './components/live/TVScreen'
 import TVScreenButtons from './components/live/TVScreenButtons'
 import FilterBar from './components/filter/FilterBar'
 import { getBookNames, getChapters, getVerses, getVerseText } from './utils/bibleDataLoader'
-import { formatSelection, isValidChapter, isValidVerseSelection, selectVerses, loadVerseText } from './appHelpers'
+import { formatSelection, isValidChapter, isValidVerseSelection, selectVerses, loadVerseText, getInfoText, hasValidSelection } from './appHelpers'
 
 function App() {
   const [books, setBooks] = useState([])
@@ -248,30 +248,6 @@ function App() {
     handleVerseFilterChange(newFilters.verseStart, newFilters.verseEnd);
   };
 
-  // Get formatted info text with selection and status
-  const getInfoText = () => {
-    const selectionText = formatSelection(currentSelection);
-    if (!selectionText) return '';
-    
-    // Always prefix with "Выбрано: "
-    const baseText = `Выбрано: ${selectionText}`;
-    
-    if (apiStatus === 'sending') {
-      return `${baseText} | Статус: Отправка...`;
-    } else if (apiStatus === 'success') {
-      return `${baseText} | Статус: Отправлено`;
-    } else if (apiStatus === 'error') {
-      return `${baseText} | Статус: Ошибка`;
-    }
-    
-    return baseText;
-  };
-
-  // Check if there is a valid verse selection
-  const hasValidSelection = () => {
-    return !!(currentSelection?.book && currentSelection?.chapter && currentSelection?.verse);
-  }
-
   return (
     <>
       <div id="row-columns">
@@ -339,13 +315,13 @@ function App() {
             filters={filters} 
           />
           <div className="selection-info">
-            {getInfoText()}
+            {getInfoText(currentSelection, apiStatus)}
           </div>
         </div>
         <TVScreenButtons onScreenToggle={setIsTVScreenVisible} />
         <LiveButton 
           verseReference={formatSelection(currentSelection)}
-          disabled={!hasValidSelection()}
+          disabled={!hasValidSelection(currentSelection)}
           onStatusChange={handleApiStatusChange}
         />
       </div>
