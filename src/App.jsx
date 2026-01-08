@@ -12,6 +12,7 @@ import TVScreen from './components/live/TVScreen'
 import TVScreenButtons from './components/live/TVScreenButtons'
 import FilterBar from './components/filter/FilterBar'
 import { getBookNames, getChapters, getVerses, getVerseText } from './utils/bibleDataLoader'
+import { formatSelection, isValidChapter, isValidVerseSelection, selectVerses, loadVerseText } from './appHelpers'
 
 function App() {
   const [books, setBooks] = useState([])
@@ -56,35 +57,8 @@ function App() {
 
   // Load verse text when selection changes
   useEffect(() => {
-    const loadVerseText = async () => {
-      if (currentSelection?.book && currentSelection?.chapter && currentSelection?.verse) {
-        try {
-          const { book, chapter, verse, verseEnd } = currentSelection;
-          const verseTo = verseEnd || verse;
-          
-          // Загружаем текст стиха из локальных данных
-          const versesData = getVerseText(book, chapter, verse, verseTo);
-          
-          if (versesData && versesData.length > 0) {
-            // Объединяем тексты стихов, если выбран диапазон
-            const text = versesData.map(v => `${v.verse} ${v.text}`).join('\n\n');
-            setCurrentVerseText(text);
-          } else {
-            setCurrentVerseText('');
-          }
-        } catch (error) {
-          console.error('Ошибка при загрузке текста стиха:', error);
-          setCurrentVerseText('Ошибка при загрузке текста стиха');
-        }
-      } else {
-        setCurrentVerseText('');
-      }
-    };
-    
-    loadVerseText();
+    loadVerseText(currentSelection, setCurrentVerseText, getVerseText);
   }, [currentSelection]);
-
-  
 
   const handleSelectBook = (book) => {
     setSelectedBook(book)
@@ -247,11 +221,6 @@ function App() {
     }
   };
 
-  // Check if a chapter number is valid
-  const isValidChapter = (chapterNum, chaptersData) => {
-    return !isNaN(chapterNum) && chaptersData?.some(c => c.chapter.number === chapterNum);
-  };
-
   // Handle verse filter changes
   const handleVerseFilterChange = (verseStart, verseEnd) => {
     // Only proceed if we have all required fields filled
@@ -264,24 +233,8 @@ function App() {
     const parsedVerseEnd = verseEnd ? parseInt(verseEnd, 10) : null;
     
     // Only update selection if all required fields are filled and valid
-    if (isValidVerseSelection(parsedVerseStart, parsedVerseEnd)) {
-      selectVerses(parsedVerseStart, parsedVerseEnd);
-    }
-  };
-
-  // Check if verse selection is valid
-  const isValidVerseSelection = (verseStart, verseEnd) => {
-    const isValidStart = verseStart !== null && !isNaN(verseStart) && verses.includes(verseStart);
-    const isValidEnd = verseEnd === null || (verseEnd !== null && !isNaN(verseEnd) && verses.includes(verseEnd));
-    return isValidStart && isValidEnd;
-  };
-
-  // Select verses based on input
-  const selectVerses = (verseStart, verseEnd) => {
-    if (verseEnd !== null) {
-      handleSelectVerse(verseStart, verseEnd);
-    } else {
-      handleSelectVerse(verseStart, null);
+    if (isValidVerseSelection(parsedVerseStart, parsedVerseEnd, verses)) {
+      selectVerses(parsedVerseStart, parsedVerseEnd, handleSelectVerse);
     }
   };
 
@@ -294,19 +247,6 @@ function App() {
     handleChapterFilterChange(newFilters.chapter, filters.chapter, selectedBook);
     handleVerseFilterChange(newFilters.verseStart, newFilters.verseEnd);
   };
-
-  // Format the current selection for display
-  const formatSelection = (selection) => {
-    if (!selection?.book || !selection?.chapter || !selection?.verse) {
-      return '';
-    }
-    
-    if (selection.verseEnd && selection.verse !== selection.verseEnd) {
-      return `${selection.book} ${selection.chapter}:${selection.verse}-${selection.verseEnd}`;
-    } else {
-      return `${selection.book} ${selection.chapter}:${selection.verse}`;
-    }
-  }
 
   // Get formatted info text with selection and status
   const getInfoText = () => {
