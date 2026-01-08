@@ -206,7 +206,10 @@ function App() {
               onSelectVerse={handleSelectVerse}
               selectedVerse={currentSelection?.verse} 
               selectedVerseEnd={currentSelection?.verseEnd}
-              onVerseSelect={openPreviewTab}
+              onVerseSelect={() => {
+                // Открываем вкладку предпросмотра при любом выборе стиха
+                openPreviewTab();
+              }}
             />
           </div>
           </div>

@@ -14,9 +14,7 @@ const VerseList = ({ verses, onSelectVerse, selectedVerse: externalSelectedVerse
     if (externalSelectedVerse === null) {
       setIsSelectionInProgress(false);
     }
-    if (onVerseSelect) {
-      onVerseSelect();
-    }
+    // Убираем вызов onVerseSelect отсюда
   }, [externalSelectedVerse, externalSelectedVerseEnd]);
 
   const handleVerseClick = (verse, event) => {
@@ -35,6 +33,11 @@ const VerseList = ({ verses, onSelectVerse, selectedVerse: externalSelectedVerse
       setSelectedVerseEnd(null);
       setIsSelectionInProgress(false);
       onSelectVerse(verse, null);
+      
+      // Добавляем вызов onVerseSelect при каждом клике
+      if (onVerseSelect) {
+        onVerseSelect();
+      }
     }
   };
 
