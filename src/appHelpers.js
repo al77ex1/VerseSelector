@@ -24,12 +24,11 @@ export const isValidVerseSelection = (verseStart, verseEnd, verses) => {
 };
 
 // Select verses based on input
-export const selectVerses = (verseStart, verseEnd, handleSelectVerse) => {
-  if (verseEnd !== null) {
-    handleSelectVerse(verseStart, verseEnd);
-  } else {
-    handleSelectVerse(verseStart, null);
-  }
+export const selectVerses = (verseStart, verseEnd) => {
+  return {
+    verseStart: verseStart,
+    verseEnd: verseEnd
+  };
 };
 
 // Load verse text when selection changes

@@ -157,7 +157,10 @@ function App() {
       const parsedVerseEnd = newFilters.verseEnd ? parseInt(newFilters.verseEnd, 10) : null;
       
       if (isValidVerseSelection(parsedVerseStart, parsedVerseEnd, verses)) {
-        selectVerses(parsedVerseStart, parsedVerseEnd, handleSelectVerse);
+        const selection = selectVerses(parsedVerseStart, parsedVerseEnd);
+        if (selection) {
+          handleSelectVerse(selection.verseStart, selection.verseEnd);
+        }
       }
     }
   };
@@ -206,7 +209,13 @@ function App() {
                 <Preview 
                   currentSelection={currentSelection}
                   verseText={currentVerseText}
-                  onSelectVerse={selectVerses}
+                  onSelectVerse={(start, end) => {
+                    const selection = selectVerses(start, end);
+                    if (selection) {
+                      handleSelectVerse(selection.verseStart, selection.verseEnd);
+                    }
+                    return selection;
+                  }}
                 />
               }
               searchPanel={
