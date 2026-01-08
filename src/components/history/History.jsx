@@ -34,6 +34,12 @@ const History = ({ history, onSelectHistoryItem, currentSelection }) => {
   const handleItemClick = (index) => {
     setSelectedItem(index);
     onSelectHistoryItem(history[index]);
+    
+    // Добавляем вызов открытия вкладки предпросмотра
+    const previewButton = document.querySelector('.preview-section .accordion-title');
+    if (previewButton) {
+      previewButton.click();
+    }
   };
 
   // Format the verse reference
